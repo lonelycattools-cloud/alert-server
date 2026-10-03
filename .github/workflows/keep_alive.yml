@@ -1,0 +1,22 @@
+name: Keep Alert Server Awake
+
+on:
+  schedule:
+    # Run every 10 minutes to prevent Render Free Tier from spinning down (15 min inactivity timeout)
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Alert Server
+        run: |
+          echo "Pinging Alert Ukraine Server..."
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 https://alert-server-nk21.onrender.com/health)
+          echo "HTTP Response Status: $STATUS"
+          if [ "$STATUS" -ge 200 ] && [ "$STATUS" -lt 400 ]; then
+            echo "Server is healthy and awake!"
+          else
+            echo "Warning: Received HTTP $STATUS"
+          fi
