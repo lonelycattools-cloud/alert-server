@@ -1,25 +1,25 @@
 {
   "success": true,
-  "version_name": "1.0.95",
-  "version_code": 96,
+  "version_name": "1.0.96",
+  "version_code": 97,
   "force_update": false,
   "min_version_code": 90,
   "download_url": "/AlertScreensaver.apk",
   "apk_url": "/AlertScreensaver.apk",
-  "changelog": "v1.0.95: 1) Виправлено масштабування карти у віджеті: без обрізки по висоті, чіткий масштаб. 2) Оновлено серверні з'єднання.",
+  "changelog": "v1.0.96: 1) Оптимізація пам'яті віджета для повного усунення збоїв IPC Binder на смартфонах. 2) Виправлено сповіщення у шторці (прибрано слово ЖОВТИЙ, замінено на чіткі позначення загроз).",
   "alert_screensaver": {
-    "version_name": "1.0.95",
-    "version_code": 96,
+    "version_name": "1.0.96",
+    "version_code": 97,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.0.95: 1) Виправлено масштабування карти у віджеті: без обрізки по висоті, чіткий масштаб. 2) Оновлено серверні з'єднання."
+    "changelog": "v1.0.96: 1) Оптимізація пам'яті віджета для повного усунення збоїв IPC Binder на смартфонах. 2) Виправлено сповіщення у шторці (прибрано слово ЖОВТИЙ, замінено на чіткі позначення загроз)."
   },
   "alert_mobile": {
-    "version_name": "1.0.95",
-    "version_code": 96,
+    "version_name": "1.0.96",
+    "version_code": 97,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.0.95: 1) Виправлено масштабування карти у віджеті: без обрізки по висоті, чіткий масштаб. 2) Оновлено серверні з'єднання."
+    "changelog": "v1.0.96: 1) Оптимізація пам'яті віджета для повного усунення збоїв IPC Binder на смартфонах. 2) Виправлено сповіщення у шторці (прибрано слово ЖОВТИЙ, замінено на чіткі позначення загроз)."
   },
   "ads": {
     "enabled": false,
