@@ -25,39 +25,39 @@
     "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
   },
   "alert_screensaver": {
-    "version_name": "1.1.4",
-    "version_code": 105,
+    "version_name": "1.1.5",
+    "version_code": 106,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.1.4: 1) Віджети робочого столу: виправлено відображення іконок та назв на Xiaomi/MIUI. Класичний віджет модернізовано на синхронізовану карту. 2) Оверлей та біжучий рядок поверх вікон автоматично приховуються всередині додатку. 3) Плавний рухомий рядок замість повільного системного скролу з налаштуванням швидкості. 4) Швидкий перехід до налаштувань каналів Telegram прямо з меню оверлею."
+    "changelog": "v1.1.5: 1) Мультивибір Telegram-каналів галочками без закриття діалогу. 2) Прибрано кнопку [✕] з плаваючого рядка поверх вікон — рядок став чистим, а дотик відкриває додаток. 3) Повний набір із 5 віджетів робочого столу."
   },
   "alert_mobile": {
-    "version_name": "1.1.4",
-    "version_code": 105,
+    "version_name": "1.1.5",
+    "version_code": 106,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.1.4: 1) Віджети робочого столу: власні іконки замість робота Android у лаунчерах MIUI/HyperOS, сучасна жива карта для всіх віджетів. 2) Значок та рядок поверх усіх вікон не перекривають екран у рідному додатку. 3) Новий швидкий плавний рухомий рядок з регулюванням швидкості. 4) Кнопка налаштування каналів Telegram у розділі «Поверх інших додатків». 5) Миттєве завантаження Преміум через CDN."
+    "changelog": "v1.1.5: 1) Зручний вибір Telegram-каналів: вибір кількох каналів галочками одночасно без викидання з меню + швидке додавання власного. 2) Прибрано хрестик [✕] з біжучого рядка поверх усіх вікон, дотик до рядка відкриває карту. 3) Всі 5 сучасних віджетів із правильними іконками замість робота."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.1.4",
-    "version_code": 105,
+    "version_name": "1.1.5",
+    "version_code": 106,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.1.4 (Преміум): 1) Ексклюзивні віджети Преміум з правильною назвою та золотою іконкою. 2) Оверлеї не показуються всередині самого додатку. 3) Плавний високошвидкісний рухомий рядок повідомлень. 4) Прямий вибір каналів Telegram з налаштувань плаваючого рядка."
+    "changelog": "v1.1.5 (Преміум): 1) Вибір кількох Telegram-каналів одночасно. 2) Чистий біжучий рядок поверх вікон без хрестика [✕]. 3) Ексклюзивні золоті віджети Преміум."
   },
   "alert_mobile_premium": {
-    "version_name": "1.1.4",
-    "version_code": 105,
+    "version_name": "1.1.5",
+    "version_code": 106,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.1.4 (Преміум): 1) Повний набір із 4 сучасних віджетів Преміум із золотим брендуванням. 2) Плаваючі елементи автоматично ховаються у відкритому додатку. 3) Новий плавний рухомий рядок з підтримкою високої швидкості. 4) Зручне налаштування джерел рядка та каналів Telegram."
+    "changelog": "v1.1.5 (Преміум): 1) Мультивибір Telegram-каналів галочками без викидання в попереднє меню. 2) Біжучий рядок поверх усіх вікон без зайвого хрестика, з миттєвим відкриттям карти по дотику. 3) 5 окремих сучасних віджетів Преміум із золотим оформленням."
   },
   "alert_googleplay": {
-    "version_name": "1.1.4",
-    "version_code": 105,
+    "version_name": "1.1.5",
+    "version_code": 106,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-GooglePlay.apk",
     "apk_url": "/Alert-GooglePlay.apk",
-    "changelog": "v1.1.4 (Google Play): 1) Виправлено іконки та попередній перегляд віджетів. 2) Оверлей автоматично вимикається у фокусі програми. 3) Плавний швидкий рухомий рядок. 4) Налаштування Telegram-каналів у меню оверлею."
+    "changelog": "v1.1.5 (Google Play): 1) Вибір кількох Telegram-каналів галочками. 2) Чистий біжучий рядок без кнопки [✕]. 3) Виправлено попередній перегляд віджетів."
   },
   "ads": {
     "enabled": false,
