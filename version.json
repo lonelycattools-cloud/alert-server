@@ -21,6 +21,20 @@
     "apk_url": "/Alert-Mobile.apk",
     "changelog": "v1.0.96: 1) Оптимізація пам'яті віджета для повного усунення збоїв IPC Binder на смартфонах. 2) Виправлено сповіщення у шторці (прибрано слово ЖОВТИЙ, замінено на чіткі позначення загроз)."
   },
+  "alert_screensaver_premium": {
+    "version_name": "1.0.96",
+    "version_code": 97,
+    "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
+    "apk_url": "/AlertScreensaver-Premium.apk",
+    "changelog": "v1.0.96 (Преміум): 1) Окреме видання для паралельної установки з версією Google Play. 2) Новий вибір вигляду плаваючого значка поверх усіх додатків: значок і текст, жива мінікарта тривог, або просто значок. 3) Оптимізація пам'яті віджета та оновлення статусів загроз БПЛА."
+  },
+  "alert_mobile_premium": {
+    "version_name": "1.0.96",
+    "version_code": 97,
+    "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
+    "apk_url": "/Alert-Mobile-Premium.apk",
+    "changelog": "v1.0.96 (Преміум): 1) Окреме видання для паралельної установки з версією Google Play. 2) Новий вибір вигляду плаваючого значка поверх усіх додатків: значок і текст, жива мінікарта тривог, або просто значок. 3) Оптимізація пам'яті віджета та оновлення статусів загроз БПЛА."
+  },
   "ads": {
     "enabled": false,
     "tv": {
