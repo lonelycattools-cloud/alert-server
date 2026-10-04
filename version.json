@@ -25,39 +25,39 @@
     "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
   },
   "alert_screensaver": {
-    "version_name": "1.1.6",
-    "version_code": 107,
+    "version_name": "1.1.7",
+    "version_code": 108,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.1.6: 1) Плавне та точне позиціонування карти (крок 3.5% + утримання). 2) Оновлено розмітку та прев'ю 5 віджетів. 3) Прискорено паралельне оновлення каналів."
+    "changelog": "v1.1.7: 1) Кнопки позиціонування карти додано у вертикальний режим смартфона та виправлено чутливість кліку. 2) Суворе часове обмеження біжучого рядка (без показу старих новин). 3) Повна кваліфікація компонентів віджетів."
   },
   "alert_mobile": {
-    "version_name": "1.1.6",
-    "version_code": 107,
+    "version_name": "1.1.7",
+    "version_code": 108,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.1.6: 1) Точне плавне позиціонування карти. 2) Стандартизація розмітки 5 віджетів (Android 70×n-30) та чіткі прев'ю. 3) Оптимізована швидкість біжучого рядка та паралельне миттєве завантаження новин."
+    "changelog": "v1.1.7: 1) Кнопки позиціонування карти тепер доступні у портретному режимі на смартфоні (виправлено клік та плавний хід). 2) Виправлено обмеження новин у біжучому рядку (10 хв тепер суворо 10 хв, без старих постів). 3) Оптимізовано реєстрацію 5 віджетів робочого столу."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.1.6",
-    "version_code": 107,
+    "version_name": "1.1.7",
+    "version_code": 108,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.1.6 (Преміум): 1) Плавне позиціонування карти. 2) Оптимізовані золоті віджети. 3) Прискорений біжучий рядок."
+    "changelog": "v1.1.7 (Преміум): 1) Кнопки позиціонування карти у всіх режимах. 2) Суворе часове обмеження біжучого рядка. 3) Оптимізація золотих віджетів."
   },
   "alert_mobile_premium": {
-    "version_name": "1.1.6",
-    "version_code": 107,
+    "version_name": "1.1.7",
+    "version_code": 108,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.1.6 (Преміум): 1) Точне позиціонування карти без різких стрибків. 2) 5 оптимізованих золотих віджетів робочого столу. 3) Паралельне оновлення новин та комфортна швидкість рядка."
+    "changelog": "v1.1.7 (Преміум): 1) Кнопки позиціонування карти додані у портретний режим для смартфонів, виправлено крок. 2) Суворий тайм-аут 10 хв для рядка. 3) Стандартизація 5 віджетів."
   },
   "alert_googleplay": {
-    "version_name": "1.1.6",
-    "version_code": 107,
+    "version_name": "1.1.7",
+    "version_code": 108,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.1.6 (Google Play): 1) Плавне позиціонування карти. 2) Оновлені віджети робочого столу. 3) Комфортна швидкість біжучого рядка."
+    "changelog": "v1.1.7 (Google Play): 1) Кнопки позиціонування у портретному режимі. 2) Суворе обмеження новин. 3) Оновлення віджетів."
   },
   "ads": {
     "enabled": false,
