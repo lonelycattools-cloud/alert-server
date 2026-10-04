@@ -25,39 +25,39 @@
     "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
   },
   "alert_screensaver": {
-    "version_name": "1.1.1",
-    "version_code": 102,
+    "version_name": "1.1.2",
+    "version_code": 103,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.1.1: 1) Виправлено оновлення з меню налаштувань: пряма ініціалізація інсталятора через MainActivity onNewIntent (усунуто повернення в додаток). 2) Додано системний дозвіл REQUEST_INSTALL_PACKAGES (додаток коректно відображається в дозволах Android). 3) Кнопки переміщення карти в нижньому кутку. 4) Ієрархічні баджі загроз для облцентрів та районів."
+    "changelog": "v1.1.2: 1) Виправлено оновлення додатку: прямий системний виклик інсталятора через FileProvider (усунуто будь-яке циклічне закриття). 2) Додано кнопку прямого встановлення Преміум версії «★ Преміум» в меню оновлень. 3) Окремий золотий значок та унікальний набір віджетів для Преміум."
   },
   "alert_mobile": {
-    "version_name": "1.1.1",
-    "version_code": 102,
+    "version_name": "1.1.2",
+    "version_code": 103,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.1.1: 1) Виправлено оновлення з меню налаштувань телефону: додано системний дозвіл REQUEST_INSTALL_PACKAGES (більше немає помилки «додаток відсутній у списку»). 2) Усунуто циклічне завантаження інсталятора — системне вікно підтвердження встановлення відкривається миттєво. 3) Шторка: локації одна під одною з таймерами. 4) Графічні PNG-ескізи всіх 4 віджетів."
+    "changelog": "v1.1.2: 1) Виправлено встановлення та оновлення APK: прямий виклик системного інсталятора без циклічного повернення в програму. 2) Додано кнопку «★ Преміум» для прямого завантаження та встановлення Преміум-версії поруч із стандартною. 3) Окремі значки в меню та окремі віджети."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.1.1",
-    "version_code": 102,
+    "version_name": "1.1.2",
+    "version_code": 103,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.1.1 (Преміум): 1) Виправлено оновлення з меню налаштувань: нативний PackageInstaller з обробником у MainActivity (усунуто циклічність). 2) Додано REQUEST_INSTALL_PACKAGES. 3) Кнопки переміщення карти в нижньому правому кутку. 4) Ієрархічні баджі загроз. 5) Повна ізоляція для паралельної роботи зі стандартною версією."
+    "changelog": "v1.1.2 (Преміум): 1) Унікальний золотий значок додатка для ТВ та телефонів. 2) Прямий виклик системного встановлення APK без циклів. 3) Повна паралельна робота поруч із версією з Google Play."
   },
   "alert_mobile_premium": {
-    "version_name": "1.1.1",
-    "version_code": 102,
+    "version_name": "1.1.2",
+    "version_code": 103,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.1.1 (Преміум): 1) Повне виправлення оновлення з меню налаштувань смартфона: додано дозвіл REQUEST_INSTALL_PACKAGES (усунуто «додаток відсутній у списку»). 2) Усунуто циклічне повернення у програму — діалог встановлення APK викликається системно через onNewIntent. 3) Шторка сповіщень: кожна локація у власному рядку з таймером. 4) Графічні ескізи віджетів «Преміум». 5) Паралельна робота без конфліктів."
+    "changelog": "v1.1.2 (Преміум): 1) Власний ексклюзивний золотий значок «Тривоги України Преміум». 2) Власний набір з 4 віджетів «Тривога Преміум». 3) Виправлено оновлення APK з сервера — надійний виклик системного інсталятора без зациклення."
   },
   "alert_googleplay": {
-    "version_name": "1.1.1",
-    "version_code": 102,
+    "version_name": "1.1.2",
+    "version_code": 103,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-GooglePlay.apk",
     "apk_url": "/Alert-GooglePlay.apk",
-    "changelog": "v1.1.1 (Google Play): Універсальний APK з офіційним ідентифікатором Google Play для прямої установки на ТВ та смартфони з можливістю прямого оновлення з сервера."
+    "changelog": "v1.1.2 (Google Play): Оновлення з можливістю прямого встановлення паралельної Преміум-версії за кнопкою «★ Преміум»."
   },
   "ads": {
     "enabled": false,
