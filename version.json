@@ -25,39 +25,39 @@
     "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
   },
   "alert_screensaver": {
-    "version_name": "1.1.7",
-    "version_code": 108,
+    "version_name": "1.1.8",
+    "version_code": 109,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.1.7: 1) Кнопки позиціонування карти додано у вертикальний режим смартфона та виправлено чутливість кліку. 2) Суворе часове обмеження біжучого рядка (без показу старих новин). 3) Повна кваліфікація компонентів віджетів."
+    "changelog": "v1.1.8: 1) Оновлені якісні прев'ю та повна реєстрація 5 віджетів робочого столу для всіх лаунчерів. 2) Повна відповідність політиці Google Play (оновлення виключно через магазин). 3) Суворе дотримання тайм-ауту 10 хв для біжучого рядка."
   },
   "alert_mobile": {
-    "version_name": "1.1.7",
-    "version_code": 108,
+    "version_name": "1.1.8",
+    "version_code": 109,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.1.7: 1) Кнопки позиціонування карти тепер доступні у портретному режимі на смартфоні (виправлено клік та плавний хід). 2) Виправлено обмеження новин у біжучому рядку (10 хв тепер суворо 10 хв, без старих постів). 3) Оптимізовано реєстрацію 5 віджетів робочого столу."
+    "changelog": "v1.1.8: 1) Оновлені якісні прев'ю та повна реєстрація 5 віджетів робочого столу для всіх лаунчерів (P-Launcher, Poco, Xiaomi App Vault тощо). 2) Оновлення безпеки Google Play. 3) Суворе дотримання 10 хв для біжучого рядка."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.1.7",
-    "version_code": 108,
+    "version_name": "1.1.8",
+    "version_code": 109,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.1.7 (Преміум): 1) Кнопки позиціонування карти у всіх режимах. 2) Суворе часове обмеження біжучого рядка. 3) Оптимізація золотих віджетів."
+    "changelog": "v1.1.8 (Преміум): 1) Оновлені чіткі прев'ю та реєстрація 5 преміум-віджетів. 2) Суворе обмеження новин у біжучому рядку. 3) Оптимізація графіки."
   },
   "alert_mobile_premium": {
-    "version_name": "1.1.7",
-    "version_code": 108,
+    "version_name": "1.1.8",
+    "version_code": 109,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.1.7 (Преміум): 1) Кнопки позиціонування карти додані у портретний режим для смартфонів, виправлено крок. 2) Суворий тайм-аут 10 хв для рядка. 3) Стандартизація 5 віджетів."
+    "changelog": "v1.1.8 (Преміум): 1) Оновлені чіткі прев'ю та реєстрація 5 преміум-віджетів на робочому столі. 2) Суворий тайм-аут 10 хв для рядка. 3) Плавне позиціонування карти."
   },
   "alert_googleplay": {
-    "version_name": "1.1.7",
-    "version_code": 108,
+    "version_name": "1.1.8",
+    "version_code": 109,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.1.7 (Google Play): 1) Кнопки позиціонування у портретному режимі. 2) Суворе обмеження новин. 3) Оновлення віджетів."
+    "changelog": "v1.1.8 (Google Play): 1) Нові чіткі прев'ю та підтримка 5 віджетів робочого столу. 2) Повна відповідність політиці безпеки Play Store (лише оновлення через Google Play). 3) Суворе обмеження біжучого рядка."
   },
   "ads": {
     "enabled": false,
