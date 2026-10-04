@@ -1,12 +1,29 @@
 {
   "success": true,
-  "version_name": "1.0.96",
-  "version_code": 97,
-  "force_update": false,
-  "min_version_code": 90,
-  "download_url": "/AlertScreensaver.apk",
-  "apk_url": "/AlertScreensaver.apk",
-  "changelog": "v1.0.96: 1) Оптимізація пам'яті віджета для повного усунення збоїв IPC Binder на смартфонах. 2) Виправлено сповіщення у шторці (прибрано слово ЖОВТИЙ, замінено на чіткі позначення загроз).",
+  "version_name": "2.8.88",
+  "version_code": 147,
+  "force_update": true,
+  "min_version_code": 108,
+  "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub.apk",
+  "apk_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub.apk",
+  "changelog": "v2.8.88: 1. Исправлен предпросмотр — таймлайн точно переходит на выбранные 5/10/12 минут без сброса в начало фильма. 2. Оптимизированы обложки (аппаратный даунсэмплинг RGB_565) — устранено подтормаживание на ТВ. 3. Исправлен бесконечный скролл на главной — сетка больше не ограничена 8 рядами. 4. Аппаратный неоновый спиннер при старте приложения. 5. Блокировка аудио/видео-заглушек Zona («Установите последнюю версию Zona»). 6. Восстановлены потоки и русские озвучки для «Хитрый койот», «Бэтмен: Падение рыцаря», разделены фильмы в «Возможная любовь», исправлен поиск торрентов для «Одиссея».",
+  "tv": {
+    "version_name": "2.8.88",
+    "version_code": 147,
+    "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub.apk",
+    "apk_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub.apk"
+  },
+  "mobile": {
+    "version_name": "2.8.88",
+    "version_code": 147,
+    "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-Mobile.apk",
+    "apk_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-Mobile.apk"
+  },
+  "pc": {
+    "version_name": "2.8.88",
+    "version_code": 147,
+    "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
+  },
   "alert_screensaver": {
     "version_name": "1.0.96",
     "version_code": 97,
