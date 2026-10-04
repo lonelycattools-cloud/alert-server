@@ -29,35 +29,35 @@
     "version_code": 111,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.1.9 (build 111): 1) Відновлено сумісність цифрового підпису для безшовного оновлення без конфліктів. 2) Виправлено відображення карток віджетів. 3) Векторна зірка на ТВ-банері."
+    "changelog": "v1.1.9 (build 111): 1) Розділення системних компонентів для паралельної роботи Стандарту та Преміуму. 2) Виправлено відображення карток віджетів у лаунчерах (універсальний XML). 3) Векторна зірка на ТВ-банері."
   },
   "alert_mobile": {
     "version_name": "1.1.9",
     "version_code": 111,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.1.9 (build 111): 1) Виправлено конфлікт підпису при оновленні поверх попередніх версій. 2) Повне виправлення списку віджетів (універсальний XML). 3) Векторна зірочка."
+    "changelog": "v1.1.9 (build 111): 1) Повне розділення класів компонентів (окремі іконки та віджети при встановленні обох версій). 2) Універсальний XML віджетів без збоїв у лаунчерах. 3) Векторна зірочка."
   },
   "alert_screensaver_premium": {
     "version_name": "1.1.9",
     "version_code": 111,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.1.9 (Преміум, build 111): 1) Сумісний підпис оновлень (без помилки конфлікту пакетів). 2) Векторна зірочка на банері без артефактів. 3) 5 преміум-віджетів."
+    "changelog": "v1.1.9 (Преміум, build 111): 1) Власні унікальні компоненти com.alertscreensaver.tv.premium.*. 2) Чітка векторна зірочка на банері без квадратиків шрифту. 3) 5 золотих віджетів."
   },
   "alert_mobile_premium": {
     "version_name": "1.1.9",
     "version_code": 111,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.1.9 (Преміум, build 111): 1) Усунуто конфлікт підпису пакета при установці поверх. 2) Повне виправлення відображення 5 золотих віджетів у P-Launcher / Xiaomi. 3) Векторна зірочка."
+    "changelog": "v1.1.9 (Преміум, build 111): 1) Усунуто злиття іконок та віджетів лаунчером при одночасному встановленні зі Стандартом. 2) 5 окремих золотих карток у меню віджетів. 3) Векторна зірочка."
   },
   "alert_googleplay": {
     "version_name": "1.1.9",
     "version_code": 111,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.1.9 (Google Play, build 111): 1) Універсальна сумісність віджетів робочого столу. 2) Векторна графіка банера. 3) Повна відповідність вимогам Play Store."
+    "changelog": "v1.1.9 (Google Play, build 111): 1) Універсальна сумісність віджетів робочого столу. 2) Векторна графіка банера запуску. 3) Повна відповідність вимогам Play Store."
   },
   "ads": {
     "enabled": false,
