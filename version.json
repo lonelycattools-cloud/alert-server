@@ -25,32 +25,32 @@
     "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
   },
   "alert_screensaver": {
-    "version_name": "1.0.96",
-    "version_code": 97,
+    "version_name": "1.0.97",
+    "version_code": 98,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.0.96: 1) Оптимізація пам'яті віджета для повного усунення збоїв IPC Binder на смартфонах. 2) Виправлено сповіщення у шторці (прибрано слово ЖОВТИЙ, замінено на чіткі позначення загроз)."
+    "changelog": "v1.0.97: 1) Оптимізація пам'яті віджета для повного усунення збоїв IPC Binder на смартфонах. 2) Виправлено сповіщення у шторці (прибрано слово ЖОВТИЙ, замінено на чіткі позначення загроз). 3) У шторці повідомлень відображається статус виключно обраних областей без змішування із загальною статистикою по всій країні."
   },
   "alert_mobile": {
-    "version_name": "1.0.96",
-    "version_code": 97,
+    "version_name": "1.0.97",
+    "version_code": 98,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.0.96: 1) Оптимізація пам'яті віджета для повного усунення збоїв IPC Binder на смартфонах. 2) Виправлено сповіщення у шторці (прибрано слово ЖОВТИЙ, замінено на чіткі позначення загроз)."
+    "changelog": "v1.0.97: 1) Оптимізація пам'яті віджета для повного усунення збоїв IPC Binder на смартфонах. 2) Виправлено сповіщення у шторці (прибрано слово ЖОВТИЙ, замінено на чіткі позначення загроз). 3) У шторці повідомлень відображається статус виключно обраних областей без змішування із загальною статистикою по всій країні."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.0.96",
-    "version_code": 97,
+    "version_name": "1.0.97",
+    "version_code": 98,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.0.96 (Преміум): 1) Окреме видання для паралельної установки з версією Google Play. 2) Новий вибір вигляду плаваючого значка поверх усіх додатків: значок і текст, жива мінікарта тривог, або просто значок. 3) Оптимізація пам'яті віджета та оновлення статусів загроз БПЛА."
+    "changelog": "v1.0.97 (Преміум): 1) Окреме видання для паралельної установки з версією Google Play. 2) У шторці повідомлень виводиться статус виключно обраних областей користувача. 3) Новий вибір вигляду плаваючого значка поверх усіх додатків: значок і текст, жива мінікарта тривог, або просто значок."
   },
   "alert_mobile_premium": {
-    "version_name": "1.0.96",
-    "version_code": 97,
+    "version_name": "1.0.97",
+    "version_code": 98,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.0.96 (Преміум): 1) Окреме видання для паралельної установки з версією Google Play. 2) Новий вибір вигляду плаваючого значка поверх усіх додатків: значок і текст, жива мінікарта тривог, або просто значок. 3) Оптимізація пам'яті віджета та оновлення статусів загроз БПЛА."
+    "changelog": "v1.0.97 (Преміум): 1) Окреме видання для паралельної установки з версією Google Play. 2) У шторці повідомлень виводиться статус виключно обраних областей користувача. 3) Новий вибір вигляду плаваючого значка поверх усіх додатків: значок і текст, жива мінікарта тривог, або просто значок."
   },
   "ads": {
     "enabled": false,
