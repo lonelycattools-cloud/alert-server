@@ -25,39 +25,39 @@
     "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
   },
   "alert_screensaver": {
-    "version_name": "1.1.8",
-    "version_code": 109,
+    "version_name": "1.1.9",
+    "version_code": 110,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.1.8: 1) Оновлені якісні прев'ю та повна реєстрація 5 віджетів робочого столу для всіх лаунчерів. 2) Повна відповідність політиці Google Play (оновлення виключно через магазин). 3) Суворе дотримання тайм-ауту 10 хв для біжучого рядка."
+    "changelog": "v1.1.9: 1) Виправлено відображення всіх карток віджетів у P-Launcher / Xiaomi / Poco (універсальний XML, чіткі прев'ю). 2) Виправлено зірочку на ТВ-банері запуску без квадратиків. 3) Єдиний релізний цифровий підпис."
   },
   "alert_mobile": {
-    "version_name": "1.1.8",
-    "version_code": 109,
+    "version_name": "1.1.9",
+    "version_code": 110,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.1.8: 1) Оновлені якісні прев'ю та повна реєстрація 5 віджетів робочого столу для всіх лаунчерів (P-Launcher, Poco, Xiaomi App Vault тощо). 2) Оновлення безпеки Google Play. 3) Суворе дотримання 10 хв для біжучого рядка."
+    "changelog": "v1.1.9: 1) Повне виправлення списку віджетів робочого столу для всіх лаунчерів (P-Launcher, Poco, Xiaomi App Vault). 2) Усунуто збій розбиття ресурсів AAPT2. 3) Єдиний релізний підпис для сумісності з оновленнями."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.1.8",
-    "version_code": 109,
+    "version_name": "1.1.9",
+    "version_code": 110,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.1.8 (Преміум): 1) Оновлені чіткі прев'ю та реєстрація 5 преміум-віджетів. 2) Суворе обмеження новин у біжучому рядку. 3) Оптимізація графіки."
+    "changelog": "v1.1.9 (Преміум): 1) Чітка золота векторна зірка на ТВ-банері без артефактів шрифтів. 2) Реєстрація 5 преміум-віджетів для робочого столу. 3) Релізний цифровий сертифікат."
   },
   "alert_mobile_premium": {
-    "version_name": "1.1.8",
-    "version_code": 109,
+    "version_name": "1.1.9",
+    "version_code": 110,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.1.8 (Преміум): 1) Оновлені чіткі прев'ю та реєстрація 5 преміум-віджетів на робочому столі. 2) Суворий тайм-аут 10 хв для рядка. 3) Плавне позиціонування карти."
+    "changelog": "v1.1.9 (Преміум): 1) Повне виправлення відображення 5 золотих віджетів у діалозі додавання віджетів. 2) Векторна зірочка на банері. 3) Релізний ключ."
   },
   "alert_googleplay": {
-    "version_name": "1.1.8",
-    "version_code": 109,
+    "version_name": "1.1.9",
+    "version_code": 110,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.1.8 (Google Play): 1) Нові чіткі прев'ю та підтримка 5 віджетів робочого столу. 2) Повна відповідність політиці безпеки Play Store (лише оновлення через Google Play). 3) Суворе обмеження біжучого рядка."
+    "changelog": "v1.1.9 (Google Play): 1) Універсальна сумісність віджетів робочого столу. 2) Векторна графіка банера запуску. 3) Повна відповідність вимогам безпеки Play Store."
   },
   "ads": {
     "enabled": false,
