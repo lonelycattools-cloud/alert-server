@@ -50,6 +50,7 @@ _SRC_PRIMARY = "Mi4uKilgdXUsOz4zNzE2Mzc/NDE1dDk1N3U3Oyp1KS47Li8pPyl0MCk1NA=="
 _SRC_BACKUP1 = "Mi4uKilgdXUvODM2NjM0PXQ0Py50Lzt1Oz8oMzs2OzY/KC4pdQ=="
 _SRC_BACKUP2 = "Mi4uKilgdXU7Nj8oLil0MzR0Lzt1OyozdSkuOy4/KQ=="
 _SRC_RADAR   = "Mi4uKilgdXUoOz47KHQrLzM5MXQvO3U7KjN3aGpobHdqY3dqa3UzNDw1KDc7LjM1NHQqMio="
+_SRC_NEPTUN  = "Mi4uKilgdXU0PyouLzR0MzR0Lzt1OyozdSxrdS4yKD87Lik="
 _SRC_HISTORY = "Mi4uKilgdXUpMyg/NHQqKnQvO3U7KjN1LGl1OzY/KC4pdSg/PTM1NBIzKS41KCM="
 
 _HTTP_SESSION = requests.Session()
@@ -259,9 +260,99 @@ def get_alerts() -> Response:
         }
     )
 
+# In-memory Neptun radar cache (Source 2)
+_neptun_cache = {
+    "timestamp": 0.0,
+    "data": None
+}
+_neptun_lock = threading.Lock()
+
+def _fetch_neptun_threats() -> Dict[str, Any]:
+    now = time.time()
+    with _neptun_lock:
+        if _neptun_cache["data"] and (now - _neptun_cache["timestamp"] < 5.0):
+            return _neptun_cache["data"]
+    try:
+        url = _d(_SRC_NEPTUN)
+        resp = _HTTP_SESSION.get(
+            url,
+            headers={
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+                "Referer": "https://neptun.in.ua/?nopromo=1",
+                "Accept": "application/json"
+            },
+            timeout=5.0
+        )
+        if resp.status_code == 200:
+            raw = resp.json()
+            threats = []
+            for t in raw.get("threats", []):
+                lat = t.get("lat")
+                lon = t.get("lon")
+                if lat is None or lon is None:
+                    continue
+                heading = t.get("heading")
+                course_deg = float(heading) if heading is not None else 0.0
+                trail = []
+                for pt in t.get("trail") or []:
+                    p_lat = pt.get("lat")
+                    p_lon = pt.get("lon")
+                    if p_lat is not None and p_lon is not None:
+                        trail.append([float(p_lat), float(p_lon)])
+                threats.append({
+                    "id": str(t.get("id") or f"trk_{lat}_{lon}"),
+                    "lat": float(lat),
+                    "lon": float(lon),
+                    "courseDeg": course_deg,
+                    "stateName": str(t.get("region") or ""),
+                    "districtName": str(t.get("district") or t.get("locality") or ""),
+                    "locality": str(t.get("locality") or ""),
+                    "type": str(t.get("type") or "uav"),
+                    "title": str(t.get("title") or "БПЛА"),
+                    "confirmations": int(t.get("sourceCount") or t.get("count") or 1),
+                    "history": trail
+                })
+            payload = {
+                "success": True,
+                "source": "neptun",
+                "serverTime": raw.get("serverTime"),
+                "total": len(threats),
+                "threats": threats
+            }
+            with _neptun_lock:
+                _neptun_cache["timestamp"] = now
+                _neptun_cache["data"] = payload
+            return payload
+    except Exception as e:
+        logger.warning(f"Neptun threat fetch failed: {e}")
+    with _neptun_lock:
+        if _neptun_cache["data"]:
+            return _neptun_cache["data"]
+    return {"success": False, "source": "neptun", "total": 0, "threats": []}
+
 @app.api_route("/api/radar", methods=["GET", "POST"])
-async def proxy_radar(request: Request):
-    """Secure proxy for radar drone/missile queries without exposing third-party upstream."""
+async def proxy_radar(request: Request, source: Optional[str] = None):
+    """
+    Unified encrypted proxy for aerial threat radars:
+    - source=2 or GET: Queries Source 2 (Neptun OSINT radar feed with exact lat/lon/trail).
+    - source=1: Queries Source 1 (Fluger/eRadar concentric probe post).
+    - source=auto: Falls back to Source 2 if Source 1 is empty or unavailable.
+    """
+    src = (source or request.query_params.get("source", "")).strip().lower()
+
+    # Source 2 (Neptun) or default GET requests
+    if src == "2" or src == "neptun" or (request.method == "GET" and src != "1"):
+        data = _fetch_neptun_threats()
+        return JSONResponse(
+            content=data,
+            headers={
+                "Cache-Control": "no-cache, no-store, must-revalidate",
+                "Pragma": "no-cache",
+                "Expires": "0"
+            }
+        )
+
+    # Source 1 (Fluger) or Auto POST proxy
     body = await request.body()
     try:
         url = _d(_SRC_RADAR)
@@ -281,6 +372,8 @@ async def proxy_radar(request: Request):
         return Response(content=resp_bytes, media_type="application/json")
     except Exception as e:
         logger.warning(f"Radar proxy failed: {e}")
+        if src in ("auto", ""):
+            return JSONResponse(content=_fetch_neptun_threats())
         return JSONResponse(status_code=200, content={"radar": {}, "warning": str(e)})
 
 @app.get("/api/alerts/history")

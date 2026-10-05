@@ -25,39 +25,39 @@
     "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
   },
   "alert_screensaver": {
-    "version_name": "1.1.9",
-    "version_code": 115,
+    "version_name": "1.2.0",
+    "version_code": 116,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.1.9 (build 115): 1) Гарантоване відновлення панелі областей: автоматичний відступ від системних кнопок навігації телефонів та плаваюча кнопка розгортання. 2) Повна сумісність з Android 5.0-16."
+    "changelog": "v1.2.0 (build 116): 1) Підтримка двох джерел радара: Джерело 1 (Флюгер / єРадар), Джерело 2 (Нептун / NEPTUN), та авто-резерв. 2) Безпечне шифрування джерел на сервері."
   },
   "alert_mobile": {
-    "version_name": "1.1.9",
-    "version_code": 115,
+    "version_name": "1.2.0",
+    "version_code": 116,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.1.9 (build 115): 1) Виправлено згортання списку областей: слайдер більше не перекривається нижніми кнопками навігації телефону, додано кнопку «▲ Області». 2) Повна сумісність з усіма смартфонами."
+    "changelog": "v1.2.0 (build 116): 1) Вибір постачальника даних радара в налаштуваннях: Джерело 1 (Флюгер) та Джерело 2 (Нептун). 2) Автоматичне перемикання на резерв Нептун, якщо від Флюгера немає оновлень."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.1.9",
-    "version_code": 115,
+    "version_name": "1.2.0",
+    "version_code": 116,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.1.9 (Преміум, build 115): 1) Безпечні відступи для навігаційної панелі телефону та кнопка розгортання прихованого списку. 2) Повна універсальність для ТБ та телефонів."
+    "changelog": "v1.2.0 (Преміум, build 116): 1) Інтеграція резервного джерела Нептун (точні координати та треки БПЛА). 2) Вибір джерела в налаштуваннях карти."
   },
   "alert_mobile_premium": {
-    "version_name": "1.1.9",
-    "version_code": 115,
+    "version_name": "1.2.0",
+    "version_code": 116,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.1.9 (Преміум, build 115): 1) Безпечні відступи WindowInsets — слайдер областей завжди видимий над кнопками навігації. 2) Кнопка повернення списку на карті."
+    "changelog": "v1.2.0 (Преміум, build 116): 1) Багатоджерельний радар: Джерело 1 (єРадар), Джерело 2 (Нептун) та Авто-режим. 2) Захищене проксі без відкритих адрес у додатку."
   },
   "alert_googleplay": {
-    "version_name": "1.1.9",
-    "version_code": 115,
+    "version_name": "1.2.0",
+    "version_code": 116,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.1.9 (Google Play, build 115): 1) Safe insets handling for 3-button navigation bars on mobile. 2) Floating restore button for collapsed regions list. 3) Full device support from Android 5.0+."
+    "changelog": "v1.2.0 (Google Play, build 116): 1) Dual radar source support: Source 1 (eRadar) and Source 2 (NEPTUN) with auto-failover. 2) Settings selector for threat feed."
   },
   "ads": {
     "enabled": false,
