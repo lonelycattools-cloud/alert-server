@@ -64,6 +64,8 @@ SMTP_PORT = int(os.environ.get("SMTP_PORT", "587"))
 SMTP_USER = os.environ.get("SMTP_USER", "lonelycattools@gmail.com")
 SMTP_PASSWORD = os.environ.get("SMTP_PASSWORD", "").replace(" ", "").strip()
 ALERT_EMAIL_TO = os.environ.get("ALERT_EMAIL_TO", "lonelycattools@gmail.com").strip()
+TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
+TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "").strip()
 
 _source_health = {
     "source_f": {
