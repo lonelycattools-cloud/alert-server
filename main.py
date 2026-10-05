@@ -18,6 +18,9 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Dict, Any, Optional, List
 
 import requests
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 from fastapi import FastAPI, Request, Response, HTTPException
 from fastapi.responses import JSONResponse, FileResponse
 from fastapi.middleware.cors import CORSMiddleware
@@ -52,6 +55,184 @@ _SRC_BACKUP2 = "Mi4uKilgdXU7Nj8oLil0MzR0Lzt1OyozdSkuOy4/KQ=="
 _SRC_RADAR   = "Mi4uKilgdXUoOz47KHQrLzM5MXQvO3U7KjN3aGpobHdqY3dqa3UzNDw1KDc7LjM1NHQqMio="
 _SRC_NEPTUN  = "Mi4uKilgdXU0PyouLzR0MzR0Lzt1OyozdSxrdS4yKD87Lik="
 _SRC_HISTORY = "Mi4uKilgdXUpMyg/NHQqKnQvO3U7KjN1LGl1OzY/KC4pdSg/PTM1NBIzKS41KCM="
+
+# -------------------------------------------------------------
+# Real-Time Source Health & Email Notification System
+# -------------------------------------------------------------
+SMTP_HOST = os.environ.get("SMTP_HOST", "smtp.gmail.com")
+SMTP_PORT = int(os.environ.get("SMTP_PORT", "587"))
+SMTP_USER = os.environ.get("SMTP_USER", "lonelycattools@gmail.com")
+SMTP_PASSWORD = os.environ.get("SMTP_PASSWORD", "").strip()
+ALERT_EMAIL_TO = os.environ.get("ALERT_EMAIL_TO", "lonelycattools@gmail.com").strip()
+
+_source_health = {
+    "source_f": {
+        "name": "Джерело F (Зонний радар)",
+        "failures": 0,
+        "is_down": False,
+        "last_alert_time": 0.0,
+        "last_success_time": time.time(),
+        "last_error": "",
+        "status": "UP"
+    },
+    "source_n": {
+        "name": "Джерело N (Моніторинговий радар)",
+        "failures": 0,
+        "is_down": False,
+        "last_alert_time": 0.0,
+        "last_success_time": time.time(),
+        "last_error": "",
+        "status": "UP"
+    },
+    "source_alarms": {
+        "name": "Джерело тривог (Офіційний алертер)",
+        "failures": 0,
+        "is_down": False,
+        "last_alert_time": 0.0,
+        "last_success_time": time.time(),
+        "last_error": "",
+        "status": "UP"
+    }
+}
+_health_lock = threading.Lock()
+
+def _send_email_alert(subject: str, html_body: str) -> tuple[bool, str]:
+    if not SMTP_PASSWORD:
+        msg = f"SMTP_PASSWORD is not set. Cannot send email alert to {ALERT_EMAIL_TO}. Please configure SMTP_PASSWORD in Render Environment Variables."
+        logger.warning(f"[HealthAlert] {msg}")
+        return False, msg
+
+    try:
+        msg = MIMEMultipart("alternative")
+        msg["Subject"] = subject
+        msg["From"] = f"Alert Ukraine Monitor <{SMTP_USER}>"
+        msg["To"] = ALERT_EMAIL_TO
+        msg["Date"] = datetime.datetime.now(datetime.timezone.utc).strftime("%a, %d %b %Y %H:%M:%S +0000")
+
+        msg.attach(MIMEText(html_body, "html", "utf-8"))
+
+        if SMTP_PORT == 465:
+            server = smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT, timeout=15)
+        else:
+            server = smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=15)
+            server.ehlo()
+            server.starttls()
+            server.ehlo()
+
+        server.login(SMTP_USER, SMTP_PASSWORD)
+        server.sendmail(SMTP_USER, [ALERT_EMAIL_TO], msg.as_string())
+        server.quit()
+        logger.info(f"[HealthAlert] Email notification successfully sent to {ALERT_EMAIL_TO}: {subject}")
+        return True, "Email sent successfully"
+    except Exception as e:
+        err = f"SMTP error ({SMTP_HOST}:{SMTP_PORT}): {e}"
+        logger.error(f"[HealthAlert] {err}")
+        return False, err
+
+def _handle_source_failure(source_key: str, error_msg: str):
+    now = time.time()
+    send_alert = False
+    name = ""
+    failures = 0
+    with _health_lock:
+        state = _source_health.get(source_key)
+        if not state:
+            return
+        name = state["name"]
+        state["failures"] += 1
+        state["last_error"] = str(error_msg)
+        state["status"] = "DOWN" if state["failures"] >= 3 else "DEGRADED"
+        failures = state["failures"]
+        if state["failures"] >= 3:
+            state["is_down"] = True
+            # Cooldown: 1800s (30 min) between notifications for same source
+            if now - state["last_alert_time"] > 1800.0:
+                state["last_alert_time"] = now
+                send_alert = True
+
+    if send_alert:
+        dt_str = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
+        subject = f"🚨 [Alert Ukraine] Джерело {name} перестало працювати!"
+        body = f"""<!DOCTYPE html>
+<html>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #0b0f19; color: #f1f5f9; padding: 20px; margin: 0;">
+    <div style="max-width: 580px; margin: 0 auto; background: #131b2e; border: 1px solid #dc2626; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.5);">
+        <div style="background: linear-gradient(135deg, #991b1b, #dc2626); padding: 18px 24px;">
+            <h1 style="margin: 0; font-size: 20px; color: #ffffff; letter-spacing: 0.5px;">🚨 АВАРІЯ ДЖЕРЕЛА ДАНИХ</h1>
+            <p style="margin: 4px 0 0 0; color: #fecaca; font-size: 13px;">Система автоматичного моніторингу Alert Ukraine</p>
+        </div>
+        <div style="padding: 24px;">
+            <p style="font-size: 15px; line-height: 1.5; margin-top: 0;">
+                Джерело <strong>{name}</strong> перестало відповідати на запити сервера.
+            </p>
+            <div style="background: #0b1120; border-left: 4px solid #ef4444; padding: 14px 18px; border-radius: 6px; margin: 18px 0;">
+                <p style="margin: 4px 0; font-size: 13px;"><strong>Час фіксації:</strong> {dt_str}</p>
+                <p style="margin: 4px 0; font-size: 13px;"><strong>Сервіс:</strong> {name}</p>
+                <p style="margin: 4px 0; font-size: 13px;"><strong>Кількість невдалих спроб:</strong> {failures}</p>
+                <p style="margin: 4px 0; font-size: 13px;"><strong>Остання помилка:</strong> <code style="color: #f87171; background: #1f293d; padding: 2px 6px; border-radius: 4px;">{error_msg}</code></p>
+            </div>
+            <p style="color: #94a3b8; font-size: 13px; line-height: 1.5;">
+                ℹ️ Клієнтські додатки автоматично переведені на роботу з резервним джерелом. 
+                Повторне сповіщення буде надіслано через 30 хвилин або при відновленні зв'язку.
+            </p>
+        </div>
+        <div style="background: #0b1120; padding: 12px 24px; border-top: 1px solid #1e293b; text-align: center; font-size: 11px; color: #64748b;">
+            Alert Ukraine Standalone Microservice • Render Cloud Monitoring
+        </div>
+    </div>
+</body>
+</html>"""
+        threading.Thread(target=_send_email_alert, args=(subject, body), daemon=True).start()
+
+def _handle_source_success(source_key: str):
+    send_recovery = False
+    name = ""
+    down_duration_min = 0
+    with _health_lock:
+        state = _source_health.get(source_key)
+        if not state:
+            return
+        name = state["name"]
+        was_down = state["is_down"]
+        if was_down:
+            down_duration_min = int((time.time() - state["last_alert_time"]) / 60)
+            state["is_down"] = False
+            state["last_alert_time"] = 0.0
+            send_recovery = True
+        state["failures"] = 0
+        state["status"] = "UP"
+        state["last_success_time"] = time.time()
+        state["last_error"] = ""
+
+    if send_recovery:
+        dt_str = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
+        subject = f"✅ [Alert Ukraine] Джерело {name} відновлено!"
+        body = f"""<!DOCTYPE html>
+<html>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #0b0f19; color: #f1f5f9; padding: 20px; margin: 0;">
+    <div style="max-width: 580px; margin: 0 auto; background: #131b2e; border: 1px solid #16a34a; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.5);">
+        <div style="background: linear-gradient(135deg, #15803d, #22c55e); padding: 18px 24px;">
+            <h1 style="margin: 0; font-size: 20px; color: #ffffff; letter-spacing: 0.5px;">✅ РОБОТУ ДЖЕРЕЛА ВІДНОВЛЕНО</h1>
+            <p style="margin: 4px 0 0 0; color: #dcfce7; font-size: 13px;">Система автоматичного моніторингу Alert Ukraine</p>
+        </div>
+        <div style="padding: 24px;">
+            <p style="font-size: 15px; line-height: 1.5; margin-top: 0;">
+                Зв'язок із <strong>{name}</strong> успішно відновлено. Джерело передає актуальні дані в штатному режимі.
+            </p>
+            <div style="background: #0b1120; border-left: 4px solid #22c55e; padding: 14px 18px; border-radius: 6px; margin: 18px 0;">
+                <p style="margin: 4px 0; font-size: 13px;"><strong>Час відновлення:</strong> {dt_str}</p>
+                <p style="margin: 4px 0; font-size: 13px;"><strong>Сервіс:</strong> {name}</p>
+                <p style="margin: 4px 0; font-size: 13px;"><strong>Орієнтовний час простою:</strong> ~{max(1, down_duration_min)} хв.</p>
+                <p style="margin: 4px 0; font-size: 13px;"><strong>Поточний статус:</strong> <span style="color: #4ade80;">АКТИВНИЙ (UP)</span></p>
+            </div>
+        </div>
+        <div style="background: #0b1120; padding: 12px 24px; border-top: 1px solid #1e293b; text-align: center; font-size: 11px; color: #64748b;">
+            Alert Ukraine Standalone Microservice • Render Cloud Monitoring
+        </div>
+    </div>
+</body>
+</html>"""
+        threading.Thread(target=_send_email_alert, args=(subject, body), daemon=True).start()
 
 _HTTP_SESSION = requests.Session()
 _HTTP_ADAPTER = requests.adapters.HTTPAdapter(pool_connections=10, pool_maxsize=20, max_retries=1)
@@ -322,9 +503,11 @@ def _fetch_neptun_threats() -> Dict[str, Any]:
             with _neptun_lock:
                 _neptun_cache["timestamp"] = now
                 _neptun_cache["data"] = payload
+            _handle_source_success("source_n")
             return payload
     except Exception as e:
         logger.warning(f"Neptun threat fetch failed: {e}")
+        _handle_source_failure("source_n", str(e))
     with _neptun_lock:
         if _neptun_cache["data"]:
             return _neptun_cache["data"]
@@ -369,12 +552,145 @@ async def proxy_radar(request: Request, source: Optional[str] = None):
         if len(resp_bytes) >= 2 and resp_bytes[:2] == b'\x1f\x8b':
             import gzip
             resp_bytes = gzip.decompress(resp_bytes)
+        _handle_source_success("source_f")
         return Response(content=resp_bytes, media_type="application/json")
     except Exception as e:
         logger.warning(f"Radar proxy failed: {e}")
+        _handle_source_failure("source_f", str(e))
         if src in ("auto", ""):
             return JSONResponse(content=_fetch_neptun_threats())
         return JSONResponse(status_code=200, content={"radar": {}, "warning": str(e)})
+
+# -------------------------------------------------------------
+# Background Probes & Service Status Endpoints
+# -------------------------------------------------------------
+def _probe_source_f() -> bool:
+    try:
+        url = _d(_SRC_RADAR)
+        resp = _HTTP_SESSION.post(
+            url,
+            data="radar%5B1%5D=1",
+            headers={"Content-Type": "application/x-www-form-urlencoded", "User-Agent": "okhttp/4.12.0"},
+            timeout=6.0
+        )
+        if resp.status_code == 200 and len(resp.content) > 5:
+            _handle_source_success("source_f")
+            return True
+        _handle_source_failure("source_f", f"HTTP {resp.status_code}")
+        return False
+    except Exception as e:
+        _handle_source_failure("source_f", str(e))
+        return False
+
+def _probe_source_n() -> bool:
+    try:
+        url = _d(_SRC_NEPTUN)
+        resp = _HTTP_SESSION.get(
+            url,
+            headers={
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+                "Referer": "https://neptun.in.ua/?nopromo=1",
+                "Accept": "application/json"
+            },
+            timeout=6.0
+        )
+        if resp.status_code == 200 and isinstance(resp.json(), dict):
+            _handle_source_success("source_n")
+            return True
+        _handle_source_failure("source_n", f"HTTP {resp.status_code}")
+        return False
+    except Exception as e:
+        _handle_source_failure("source_n", str(e))
+        return False
+
+def _probe_source_alarms() -> bool:
+    try:
+        url = _d(_SRC_PRIMARY)
+        resp = _HTTP_SESSION.get(url, timeout=5.0, headers={"User-Agent": "AlertUA/2.0"})
+        if resp.status_code == 200 and resp.json():
+            _handle_source_success("source_alarms")
+            return True
+        _handle_source_failure("source_alarms", f"HTTP {resp.status_code}")
+        return False
+    except Exception as e:
+        _handle_source_failure("source_alarms", str(e))
+        return False
+
+def _health_monitor_worker():
+    """Background monitoring thread that probes all upstream sources every 60 seconds."""
+    time.sleep(10.0)
+    while True:
+        try:
+            _probe_source_f()
+            _probe_source_n()
+            _probe_source_alarms()
+        except Exception as e:
+            logger.error(f"[HealthMonitor] Worker loop error: {e}")
+        time.sleep(60.0)
+
+# Start background health monitoring daemon thread
+threading.Thread(target=_health_monitor_worker, daemon=True, name="HealthMonitorWorker").start()
+
+@app.get("/api/status")
+def get_service_status():
+    """Returns real-time health status of all data sources and email alerting status."""
+    with _health_lock:
+        data = {k: dict(v) for k, v in _source_health.items()}
+    return JSONResponse(
+        content={
+            "status": "ok",
+            "serverTime": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "email_alerts": {
+                "recipient": ALERT_EMAIL_TO,
+                "smtp_configured": bool(SMTP_PASSWORD),
+                "smtp_host": SMTP_HOST,
+                "smtp_port": SMTP_PORT
+            },
+            "sources": data
+        }
+    )
+
+@app.api_route("/api/test-email", methods=["GET", "POST"])
+def send_test_email():
+    """Sends a verification email to lonelycattools@gmail.com to test SMTP connectivity."""
+    dt_str = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
+    subject = "🧪 [Alert Ukraine] Тестове сповіщення моніторингу"
+    body = f"""<!DOCTYPE html>
+<html>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #0b0f19; color: #f1f5f9; padding: 20px; margin: 0;">
+    <div style="max-width: 580px; margin: 0 auto; background: #131b2e; border: 1px solid #38bdf8; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.5);">
+        <div style="background: linear-gradient(135deg, #0284c7, #38bdf8); padding: 18px 24px;">
+            <h1 style="margin: 0; font-size: 20px; color: #ffffff; letter-spacing: 0.5px;">🧪 ТЕСТОВЕ СПОВІЩЕННЯ</h1>
+            <p style="margin: 4px 0 0 0; color: #e0f2fe; font-size: 13px;">Система автоматичного моніторингу Alert Ukraine</p>
+        </div>
+        <div style="padding: 24px;">
+            <p style="font-size: 15px; line-height: 1.5; margin-top: 0;">
+                Це тестовий лист для перевірки налаштувань пошти. Система моніторингу активна й відслідковує доступність усіх джерел.
+            </p>
+            <div style="background: #0b1120; border-left: 4px solid #38bdf8; padding: 14px 18px; border-radius: 6px; margin: 18px 0;">
+                <p style="margin: 4px 0; font-size: 13px;"><strong>Час відправки:</strong> {dt_str}</p>
+                <p style="margin: 4px 0; font-size: 13px;"><strong>Отримувач:</strong> {ALERT_EMAIL_TO}</p>
+                <p style="margin: 4px 0; font-size: 13px;"><strong>Статус:</strong> SMTP налаштовано, поштові сповіщення про збої активні.</p>
+            </div>
+            <p style="color: #94a3b8; font-size: 13px; line-height: 1.5;">
+                При відмові будь-якого джерела (Джерело F, Джерело N або Джерело тривог) сюди негайно надійде сповіщення про збій.
+            </p>
+        </div>
+        <div style="background: #0b1120; padding: 12px 24px; border-top: 1px solid #1e293b; text-align: center; font-size: 11px; color: #64748b;">
+            Alert Ukraine Standalone Microservice • Render Cloud Monitoring
+        </div>
+    </div>
+</body>
+</html>"""
+    success, message = _send_email_alert(subject, body)
+    return JSONResponse(
+        content={
+            "success": success,
+            "message": message,
+            "recipient": ALERT_EMAIL_TO,
+            "smtp_configured": bool(SMTP_PASSWORD)
+        }
+    )
 
 @app.get("/api/alerts/history")
 def get_alert_history(regionId: str = ""):
