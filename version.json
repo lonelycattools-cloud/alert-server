@@ -26,38 +26,38 @@
   },
   "alert_screensaver": {
     "version_name": "1.1.9",
-    "version_code": 113,
+    "version_code": 114,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.1.9 (build 113): 1) Плавне переміщення карти пальцем на телефонах та кнопками на ТВ. 2) Автоматичне відновлення гучності навушників після звукового сигналу тривоги."
+    "changelog": "v1.1.9 (build 114): 1) Плавне переміщення карти пальцем на телефонах та кнопками на ТВ. 2) Автоматичне відновлення гучності навушників після звукового сигналу тривоги. 3) Повна сумісність з Android 5.0-16."
   },
   "alert_mobile": {
     "version_name": "1.1.9",
-    "version_code": 113,
+    "version_code": 114,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.1.9 (build 113): 1) Повне відновлення переміщення карти пальцем на телефоні; приховані зайві кнопки навігації. 2) Виправлено зменшення гучності в навушниках після тривоги."
+    "changelog": "v1.1.9 (build 114): 1) Повне відновлення переміщення карти пальцем на телефоні; приховані зайві кнопки навігації. 2) Виправлено зменшення гучності в навушниках після тривоги. 3) Повна сумісність з усіма моделями пристроїв."
   },
   "alert_screensaver_premium": {
     "version_name": "1.1.9",
-    "version_code": 113,
+    "version_code": 114,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.1.9 (Преміум, build 113): 1) Підтримка обох методів переміщення карти (жести/кнопки). 2) Скидання AudioFocus після сигналу — музика в навушниках повертається до 100% гучності."
+    "changelog": "v1.1.9 (Преміум, build 114): 1) Підтримка обох методів переміщення карти (жести/кнопки). 2) Скидання AudioFocus після сигналу — музика в навушниках повертається до 100% гучності."
   },
   "alert_mobile_premium": {
     "version_name": "1.1.9",
-    "version_code": 113,
+    "version_code": 114,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.1.9 (Преміум, build 113): 1) Переміщення карти пальцем на телефоні при будь-якому масштабі. 2) Автоматичне повернення гучності фонового аудіо в навушниках після тривоги."
+    "changelog": "v1.1.9 (Преміум, build 114): 1) Переміщення карти пальцем на телефоні при будь-якому масштабі. 2) Автоматичне повернення гучності фонового аудіо в навушниках після тривоги."
   },
   "alert_googleplay": {
     "version_name": "1.1.9",
-    "version_code": 113,
+    "version_code": 114,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.1.9 (Google Play, build 113): 1) Touch pan & zoom improvements. 2) Audio focus restoration after alerts."
+    "changelog": "v1.1.9 (Google Play, build 114): 1) Full backward compatibility with Android 5.0+ (minSdkVersion 21). 2) Touch map panning and audio ducking fixes."
   },
   "ads": {
     "enabled": false,
