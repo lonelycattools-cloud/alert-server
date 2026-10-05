@@ -62,7 +62,7 @@ _SRC_HISTORY = "Mi4uKilgdXUpMyg/NHQqKnQvO3U7KjN1LGl1OzY/KC4pdSg/PTM1NBIzKS41KCM=
 SMTP_HOST = os.environ.get("SMTP_HOST", "smtp.gmail.com")
 SMTP_PORT = int(os.environ.get("SMTP_PORT", "587"))
 SMTP_USER = os.environ.get("SMTP_USER", "lonelycattools@gmail.com")
-SMTP_PASSWORD = os.environ.get("SMTP_PASSWORD", "").strip()
+SMTP_PASSWORD = os.environ.get("SMTP_PASSWORD", "").replace(" ", "").strip()
 ALERT_EMAIL_TO = os.environ.get("ALERT_EMAIL_TO", "lonelycattools@gmail.com").strip()
 
 _source_health = {
