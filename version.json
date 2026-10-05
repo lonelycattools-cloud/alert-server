@@ -26,38 +26,38 @@
   },
   "alert_screensaver": {
     "version_name": "1.1.9",
-    "version_code": 112,
+    "version_code": 113,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.1.9 (build 112): 1) Підтримка розмітки targetCellWidth/Height для коректного відображення карток віджетів. 2) Повна сумісність з лаунчерами MIUI/HyperOS."
+    "changelog": "v1.1.9 (build 113): 1) Плавне переміщення карти пальцем на телефонах та кнопками на ТВ. 2) Автоматичне відновлення гучності навушників після звукового сигналу тривоги."
   },
   "alert_mobile": {
     "version_name": "1.1.9",
-    "version_code": 112,
+    "version_code": 113,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.1.9 (build 112): 1) Індивідуальні картки віджетів з прев'ю в App Vault/MIUI/HyperOS (targetCellWidth/Height, minSdk 24). 2) Очищені ресівери віджетів."
+    "changelog": "v1.1.9 (build 113): 1) Повне відновлення переміщення карти пальцем на телефоні; приховані зайві кнопки навігації. 2) Виправлено зменшення гучності в навушниках після тривоги."
   },
   "alert_screensaver_premium": {
     "version_name": "1.1.9",
-    "version_code": 112,
+    "version_code": 113,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.1.9 (Преміум, build 112): 1) Повноцінні картки віджетів для всіх 5 типів. 2) minSdk 24 для запобігання спліту ресурсів AAPT2."
+    "changelog": "v1.1.9 (Преміум, build 113): 1) Підтримка обох методів переміщення карти (жести/кнопки). 2) Скидання AudioFocus після сигналу — музика в навушниках повертається до 100% гучності."
   },
   "alert_mobile_premium": {
     "version_name": "1.1.9",
-    "version_code": 112,
+    "version_code": 113,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.1.9 (Преміум, build 112): 1) Відображення повноцінних прев'ю-карток віджетів у HyperOS/MIUI/App Vault замість сірого робота. 2) targetCellWidth/Height в XML. 3) minSdk 24."
+    "changelog": "v1.1.9 (Преміум, build 113): 1) Переміщення карти пальцем на телефоні при будь-якому масштабі. 2) Автоматичне повернення гучності фонового аудіо в навушниках після тривоги."
   },
   "alert_googleplay": {
     "version_name": "1.1.9",
-    "version_code": 112,
+    "version_code": 113,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.1.9 (Google Play, build 112): 1) Підтримка сучасних віджетів Android 12+ (targetCellWidth/Height). 2) Оптимізація ресурсів."
+    "changelog": "v1.1.9 (Google Play, build 113): 1) Touch pan & zoom improvements. 2) Audio focus restoration after alerts."
   },
   "ads": {
     "enabled": false,
