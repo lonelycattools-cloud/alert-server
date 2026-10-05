@@ -96,38 +96,99 @@ _source_health = {
 }
 _health_lock = threading.Lock()
 
-def _send_email_alert(subject: str, html_body: str) -> tuple[bool, str]:
-    if not SMTP_PASSWORD:
-        msg = f"SMTP_PASSWORD is not set. Cannot send email alert to {ALERT_EMAIL_TO}. Please configure SMTP_PASSWORD in Render Environment Variables."
-        logger.warning(f"[HealthAlert] {msg}")
-        return False, msg
-
+def _send_telegram_alert(text: str) -> bool:
+    if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
+        return False
     try:
-        msg = MIMEMultipart("alternative")
-        msg["Subject"] = subject
-        msg["From"] = f"Alert Ukraine Monitor <{SMTP_USER}>"
-        msg["To"] = ALERT_EMAIL_TO
-        msg["Date"] = datetime.datetime.now(datetime.timezone.utc).strftime("%a, %d %b %Y %H:%M:%S +0000")
-
-        msg.attach(MIMEText(html_body, "html", "utf-8"))
-
-        if SMTP_PORT == 465:
-            server = smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT, timeout=15)
-        else:
-            server = smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=15)
-            server.ehlo()
-            server.starttls()
-            server.ehlo()
-
-        server.login(SMTP_USER, SMTP_PASSWORD)
-        server.sendmail(SMTP_USER, [ALERT_EMAIL_TO], msg.as_string())
-        server.quit()
-        logger.info(f"[HealthAlert] Email notification successfully sent to {ALERT_EMAIL_TO}: {subject}")
-        return True, "Email sent successfully"
+        url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+        resp = _HTTP_SESSION.post(url, json={"chat_id": TELEGRAM_CHAT_ID, "text": text, "parse_mode": "HTML"}, timeout=6.0)
+        return resp.status_code == 200
     except Exception as e:
-        err = f"SMTP error ({SMTP_HOST}:{SMTP_PORT}): {e}"
-        logger.error(f"[HealthAlert] {err}")
-        return False, err
+        logger.warning(f"[TelegramAlert] Error: {e}")
+        return False
+
+def _send_email_via_formsubmit(subject: str, message: str, extra_data: dict = None) -> tuple[bool, str]:
+    """
+    Sends email over HTTPS port 443 using FormSubmit API.
+    Bypasses cloud provider SMTP firewall blocks (like Render Free Tier Errno 101).
+    """
+    try:
+        url = f"https://formsubmit.co/ajax/{ALERT_EMAIL_TO}"
+        payload = {
+            "_subject": subject,
+            "_captcha": "false",
+            "_template": "table",
+            "message": message
+        }
+        if extra_data:
+            payload.update(extra_data)
+        headers = {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "Origin": "https://alert-server-nk21.onrender.com",
+            "Referer": "https://alert-server-nk21.onrender.com/"
+        }
+        resp = _HTTP_SESSION.post(url, json=payload, headers=headers, timeout=12.0)
+        res_json = resp.json() if resp.status_code == 200 else {}
+        if str(res_json.get("success", "")).lower() == "true":
+            logger.info(f"[HealthAlert] Email sent via HTTPS gateway to {ALERT_EMAIL_TO}: {subject}")
+            return True, "Email sent via HTTPS gateway"
+        msg = res_json.get("message") or f"HTTP {resp.status_code}"
+        logger.warning(f"[HealthAlert] FormSubmit notice: {msg}")
+        return False, f"HTTPS gateway: {msg}"
+    except Exception as e:
+        logger.error(f"[HealthAlert] FormSubmit error: {e}")
+        return False, f"HTTPS gateway error: {e}"
+
+def _send_email_alert(subject: str, html_body: str, plain_message: str = "", extra_data: dict = None) -> tuple[bool, str]:
+    """
+    Hybrid multi-channel dispatcher:
+    1. Sends Telegram push if TELEGRAM_BOT_TOKEN is set.
+    2. Tries direct SMTP (if SMTP_PASSWORD is provided and ports are open).
+    3. Automatically falls back to HTTPS Port 443 Email Gateway (FormSubmit) if SMTP is blocked.
+    """
+    # 1. Telegram Push Notification
+    if TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID:
+        tg_text = f"<b>{subject}</b>\n\n{plain_message or subject}"
+        _send_telegram_alert(tg_text)
+
+    smtp_err = ""
+    # 2. Try SMTP
+    if SMTP_PASSWORD:
+        try:
+            msg = MIMEMultipart("alternative")
+            msg["Subject"] = subject
+            msg["From"] = f"Alert Ukraine Monitor <{SMTP_USER}>"
+            msg["To"] = ALERT_EMAIL_TO
+            msg["Date"] = datetime.datetime.now(datetime.timezone.utc).strftime("%a, %d %b %Y %H:%M:%S +0000")
+
+            msg.attach(MIMEText(html_body or plain_message, "html", "utf-8"))
+
+            if SMTP_PORT == 465:
+                server = smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT, timeout=8)
+            else:
+                server = smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=8)
+                server.ehlo()
+                server.starttls()
+                server.ehlo()
+
+            server.login(SMTP_USER, SMTP_PASSWORD)
+            server.sendmail(SMTP_USER, [ALERT_EMAIL_TO], msg.as_string())
+            server.quit()
+            logger.info(f"[HealthAlert] Email notification successfully sent via SMTP to {ALERT_EMAIL_TO}: {subject}")
+            return True, "Email sent via SMTP"
+        except Exception as e:
+            smtp_err = str(e)
+            logger.warning(f"[HealthAlert] Direct SMTP failed ({e}), switching to HTTPS Port 443 Gateway...")
+
+    # 3. Fallback to HTTPS API Gateway
+    msg_content = plain_message if plain_message else subject
+    ok, gateway_msg = _send_email_via_formsubmit(subject, msg_content, extra_data)
+    if ok:
+        return True, "Email sent via HTTPS gateway"
+
+    final_msg = f"SMTP error ({smtp_err or 'No SMTP'}), HTTPS gateway: {gateway_msg}"
+    return False, final_msg
 
 def _handle_source_failure(source_key: str, error_msg: str):
     now = time.time()
@@ -182,7 +243,15 @@ def _handle_source_failure(source_key: str, error_msg: str):
     </div>
 </body>
 </html>"""
-        threading.Thread(target=_send_email_alert, args=(subject, body), daemon=True).start()
+        plain = f"Джерело {name} перестало відповідати на запити сервера.\nЧас: {dt_str}\nПомилка: {error_msg}\nКількість невдалих спроб: {failures}"
+        extra = {
+            "Джерело": name,
+            "Час фіксації": dt_str,
+            "Кількість невдалих спроб": failures,
+            "Остання помилка": str(error_msg),
+            "Статус": "АВАРІЯ / DOWN"
+        }
+        threading.Thread(target=_send_email_alert, args=(subject, body, plain, extra), daemon=True).start()
 
 def _handle_source_success(source_key: str):
     send_recovery = False
@@ -207,6 +276,13 @@ def _handle_source_success(source_key: str):
     if send_recovery:
         dt_str = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
         subject = f"✅ [Alert Ukraine] Джерело {name} відновлено!"
+        plain = f"Роботу джерела {name} відновлено.\nЧас: {dt_str}\nТривалість простою: ~{max(1, down_duration_min)} хв.\nСтатус: АКТИВНИЙ (UP)"
+        extra = {
+            "Джерело": name,
+            "Час відновлення": dt_str,
+            "Тривалість простою": f"~{max(1, down_duration_min)} хв.",
+            "Статус": "ВІДНОВЛЕНО / UP"
+        }
         body = f"""<!DOCTYPE html>
 <html>
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #0b0f19; color: #f1f5f9; padding: 20px; margin: 0;">
@@ -232,7 +308,7 @@ def _handle_source_success(source_key: str):
     </div>
 </body>
 </html>"""
-        threading.Thread(target=_send_email_alert, args=(subject, body), daemon=True).start()
+        threading.Thread(target=_send_email_alert, args=(subject, body, plain, extra), daemon=True).start()
 
 _HTTP_SESSION = requests.Session()
 _HTTP_ADAPTER = requests.adapters.HTTPAdapter(pool_connections=10, pool_maxsize=20, max_retries=1)
@@ -682,7 +758,14 @@ def send_test_email():
     </div>
 </body>
 </html>"""
-    success, message = _send_email_alert(subject, body)
+    plain = f"Тестове повідомлення системи моніторингу Alert Ukraine.\nЧас: {dt_str}\nОтримувач: {ALERT_EMAIL_TO}\nСервер активний та контролює доступність усіх джерел."
+    extra = {
+        "Повідомлення": "Тестова перевірка доставки",
+        "Час відправки": dt_str,
+        "Отримувач": ALERT_EMAIL_TO,
+        "Статус": "Система моніторингу активна"
+    }
+    success, message = _send_email_alert(subject, body, plain, extra)
     return JSONResponse(
         content={
             "success": success,
