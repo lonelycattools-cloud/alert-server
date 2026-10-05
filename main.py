@@ -19,6 +19,8 @@ from typing import Dict, Any, Optional, List
 
 import requests
 import smtplib
+import traceback
+import email.utils
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from fastapi import FastAPI, Request, Response, HTTPException
@@ -43,6 +45,11 @@ app.add_middleware(
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+_HTTP_SESSION = requests.Session()
+_HTTP_ADAPTER = requests.adapters.HTTPAdapter(pool_connections=10, pool_maxsize=20, max_retries=1)
+_HTTP_SESSION.mount("https://", _HTTP_ADAPTER)
+_HTTP_SESSION.mount("http://", _HTTP_ADAPTER)
+
 def _d(enc_b64: str, key: int = 0x5A) -> str:
     """Decodes XOR-obfuscated upstream endpoints without exposing plain text."""
     raw = base64.b64decode(enc_b64.encode("ascii"))
@@ -64,6 +71,9 @@ SMTP_PORT = int(os.environ.get("SMTP_PORT", "587"))
 SMTP_USER = os.environ.get("SMTP_USER", "lonelycattools@gmail.com")
 SMTP_PASSWORD = os.environ.get("SMTP_PASSWORD", "").replace(" ", "").strip()
 ALERT_EMAIL_TO = os.environ.get("ALERT_EMAIL_TO", "lonelycattools@gmail.com").strip()
+RESEND_API_KEY = os.environ.get("RESEND_API_KEY", "").strip()
+BREVO_API_KEY = os.environ.get("BREVO_API_KEY", "").strip()
+ALERT_WEBHOOK_URL = os.environ.get("ALERT_WEBHOOK_URL", "").strip()
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "").strip()
 
@@ -109,6 +119,83 @@ def _send_telegram_alert(text: str) -> bool:
         logger.warning(f"[TelegramAlert] Error: {e}")
         return False
 
+def _send_via_resend(subject: str, html_body: str, plain_message: str = "") -> tuple[bool, str]:
+    """Sends email via Resend HTTPS API (Port 443 - zero firewall blocks on Render Free Tier)."""
+    if not RESEND_API_KEY:
+        return False, "RESEND_API_KEY not configured"
+    try:
+        url = "https://api.resend.com/emails"
+        headers = {
+            "Authorization": f"Bearer {RESEND_API_KEY}",
+            "Content-Type": "application/json",
+            "User-Agent": "AlertUA/2.0"
+        }
+        payload = {
+            "from": "Alert Ukraine Monitor <onboarding@resend.dev>",
+            "to": [ALERT_EMAIL_TO],
+            "subject": subject,
+            "html": html_body or plain_message,
+            "text": plain_message
+        }
+        resp = _HTTP_SESSION.post(url, json=payload, headers=headers, timeout=10.0)
+        if resp.status_code in (200, 201):
+            logger.info(f"[HealthAlert] Email sent via Resend API to {ALERT_EMAIL_TO}: {subject}")
+            return True, "Email sent via Resend API"
+        err = resp.text[:200]
+        logger.warning(f"[HealthAlert] Resend error ({resp.status_code}): {err}")
+        return False, f"Resend API error ({resp.status_code}): {err}"
+    except Exception as e:
+        logger.error(f"[HealthAlert] Resend exception: {e}")
+        return False, f"Resend exception: {e}"
+
+def _send_via_brevo(subject: str, html_body: str, plain_message: str = "") -> tuple[bool, str]:
+    """Sends email via Brevo HTTPS API (Port 443)."""
+    if not BREVO_API_KEY:
+        return False, "BREVO_API_KEY not configured"
+    try:
+        url = "https://api.brevo.com/v3/smtp/email"
+        headers = {
+            "api-key": BREVO_API_KEY,
+            "Content-Type": "application/json",
+            "User-Agent": "AlertUA/2.0"
+        }
+        payload = {
+            "sender": {"name": "Alert Ukraine Monitor", "email": ALERT_EMAIL_TO},
+            "to": [{"email": ALERT_EMAIL_TO}],
+            "subject": subject,
+            "htmlContent": html_body or plain_message,
+            "textContent": plain_message
+        }
+        resp = _HTTP_SESSION.post(url, json=payload, headers=headers, timeout=10.0)
+        if resp.status_code in (200, 201):
+            logger.info(f"[HealthAlert] Email sent via Brevo API to {ALERT_EMAIL_TO}: {subject}")
+            return True, "Email sent via Brevo API"
+        err = resp.text[:200]
+        logger.warning(f"[HealthAlert] Brevo error ({resp.status_code}): {err}")
+        return False, f"Brevo API error ({resp.status_code}): {err}"
+    except Exception as e:
+        logger.error(f"[HealthAlert] Brevo exception: {e}")
+        return False, f"Brevo exception: {e}"
+
+def _send_via_webhook(subject: str, html_body: str, plain_message: str = "") -> tuple[bool, str]:
+    """Sends notification via custom Webhook URL (e.g., Google Apps Script, Discord, Slack)."""
+    if not ALERT_WEBHOOK_URL:
+        return False, "ALERT_WEBHOOK_URL not configured"
+    try:
+        payload = {
+            "to": ALERT_EMAIL_TO,
+            "subject": subject,
+            "html": html_body,
+            "message": plain_message
+        }
+        resp = _HTTP_SESSION.post(ALERT_WEBHOOK_URL, json=payload, timeout=10.0)
+        if resp.status_code in (200, 201, 204):
+            logger.info(f"[HealthAlert] Alert sent via custom Webhook: {subject}")
+            return True, "Alert sent via custom Webhook"
+        return False, f"Webhook error ({resp.status_code}): {resp.text[:150]}"
+    except Exception as e:
+        return False, f"Webhook exception: {e}"
+
 def _send_email_via_formsubmit(subject: str, message: str, extra_data: dict = None) -> tuple[bool, str]:
     """
     Sends email over HTTPS port 443 using FormSubmit API.
@@ -127,15 +214,20 @@ def _send_email_via_formsubmit(subject: str, message: str, extra_data: dict = No
         headers = {
             "Content-Type": "application/json",
             "Accept": "application/json",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
             "Origin": "https://alert-server-nk21.onrender.com",
             "Referer": "https://alert-server-nk21.onrender.com/"
         }
         resp = _HTTP_SESSION.post(url, json=payload, headers=headers, timeout=12.0)
-        res_json = resp.json() if resp.status_code == 200 else {}
+        res_json = {}
+        try:
+            res_json = resp.json()
+        except Exception:
+            pass
         if str(res_json.get("success", "")).lower() == "true":
             logger.info(f"[HealthAlert] Email sent via HTTPS gateway to {ALERT_EMAIL_TO}: {subject}")
             return True, "Email sent via HTTPS gateway"
-        msg = res_json.get("message") or f"HTTP {resp.status_code}"
+        msg = res_json.get("message") or f"HTTP {resp.status_code}: {resp.text[:120]}"
         logger.warning(f"[HealthAlert] FormSubmit notice: {msg}")
         return False, f"HTTPS gateway: {msg}"
     except Exception as e:
@@ -144,25 +236,53 @@ def _send_email_via_formsubmit(subject: str, message: str, extra_data: dict = No
 
 def _send_email_alert(subject: str, html_body: str, plain_message: str = "", extra_data: dict = None) -> tuple[bool, str]:
     """
-    Hybrid multi-channel dispatcher:
-    1. Sends Telegram push if TELEGRAM_BOT_TOKEN is set.
-    2. Tries direct SMTP (if SMTP_PASSWORD is provided and ports are open).
-    3. Automatically falls back to HTTPS Port 443 Email Gateway (FormSubmit) if SMTP is blocked.
+    Multi-channel alert dispatcher:
+    1. Telegram push notification (if TELEGRAM_BOT_TOKEN is set)
+    2. Resend API via HTTPS (if RESEND_API_KEY is set - recommended for Render Free Tier)
+    3. Brevo API via HTTPS (if BREVO_API_KEY is set)
+    4. Custom Webhook (if ALERT_WEBHOOK_URL is set)
+    5. Direct SMTP (if SMTP_PASSWORD is set; works on paid Render, local, or VPS)
+    6. FormSubmit HTTPS Gateway (fallback)
     """
+    channels_log = []
+
     # 1. Telegram Push Notification
     if TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID:
         tg_text = f"<b>{subject}</b>\n\n{plain_message or subject}"
-        _send_telegram_alert(tg_text)
+        if _send_telegram_alert(tg_text):
+            channels_log.append("Telegram: OK")
+        else:
+            channels_log.append("Telegram: FAIL")
 
-    smtp_err = ""
-    # 2. Try SMTP
+    # 2. Resend API (HTTPS Port 443 - zero block chance on Render)
+    if RESEND_API_KEY:
+        ok, res_msg = _send_via_resend(subject, html_body, plain_message)
+        if ok:
+            return True, res_msg
+        channels_log.append(f"Resend: {res_msg}")
+
+    # 3. Brevo API (HTTPS Port 443)
+    if BREVO_API_KEY:
+        ok, br_msg = _send_via_brevo(subject, html_body, plain_message)
+        if ok:
+            return True, br_msg
+        channels_log.append(f"Brevo: {br_msg}")
+
+    # 4. Custom Webhook (HTTPS)
+    if ALERT_WEBHOOK_URL:
+        ok, wh_msg = _send_via_webhook(subject, html_body, plain_message)
+        if ok:
+            return True, wh_msg
+        channels_log.append(f"Webhook: {wh_msg}")
+
+    # 5. Direct SMTP
     if SMTP_PASSWORD:
         try:
             msg = MIMEMultipart("alternative")
             msg["Subject"] = subject
             msg["From"] = f"Alert Ukraine Monitor <{SMTP_USER}>"
             msg["To"] = ALERT_EMAIL_TO
-            msg["Date"] = datetime.datetime.now(datetime.timezone.utc).strftime("%a, %d %b %Y %H:%M:%S +0000")
+            msg["Date"] = email.utils.formatdate(localtime=True)
 
             msg.attach(MIMEText(html_body or plain_message, "html", "utf-8"))
 
@@ -180,17 +300,24 @@ def _send_email_alert(subject: str, html_body: str, plain_message: str = "", ext
             logger.info(f"[HealthAlert] Email notification successfully sent via SMTP to {ALERT_EMAIL_TO}: {subject}")
             return True, "Email sent via SMTP"
         except Exception as e:
-            smtp_err = str(e)
-            logger.warning(f"[HealthAlert] Direct SMTP failed ({e}), switching to HTTPS Port 443 Gateway...")
+            err_str = str(e)
+            if "101" in err_str or "unreachable" in err_str.lower():
+                err_str = "Render blocked outbound SMTP ports (Errno 101)"
+            logger.warning(f"[HealthAlert] Direct SMTP failed ({err_str})")
+            channels_log.append(f"SMTP: {err_str}")
 
-    # 3. Fallback to HTTPS API Gateway
+    # 6. Fallback to HTTPS FormSubmit Gateway
     msg_content = plain_message if plain_message else subject
     ok, gateway_msg = _send_email_via_formsubmit(subject, msg_content, extra_data)
     if ok:
         return True, "Email sent via HTTPS gateway"
+    channels_log.append(gateway_msg)
 
-    final_msg = f"SMTP error ({smtp_err or 'No SMTP'}), HTTPS gateway: {gateway_msg}"
-    return False, final_msg
+    # If Telegram succeeded, consider the notification delivered
+    if any("Telegram: OK" in c for c in channels_log):
+        return True, "Delivered via Telegram push"
+
+    return False, " | ".join(channels_log)
 
 def _handle_source_failure(source_key: str, error_msg: str):
     now = time.time()
@@ -311,11 +438,6 @@ def _handle_source_success(source_key: str):
 </body>
 </html>"""
         threading.Thread(target=_send_email_alert, args=(subject, body, plain, extra), daemon=True).start()
-
-_HTTP_SESSION = requests.Session()
-_HTTP_ADAPTER = requests.adapters.HTTPAdapter(pool_connections=10, pool_maxsize=20, max_retries=1)
-_HTTP_SESSION.mount("https://", _HTTP_ADAPTER)
-_HTTP_SESSION.mount("http://", _HTTP_ADAPTER)
 
 # In-memory alert cache
 _alerts_cache = {
@@ -718,8 +840,12 @@ def get_service_status():
         content={
             "status": "ok",
             "serverTime": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "email_alerts": {
+            "alert_channels": {
                 "recipient": ALERT_EMAIL_TO,
+                "resend_configured": bool(RESEND_API_KEY),
+                "brevo_configured": bool(BREVO_API_KEY),
+                "webhook_configured": bool(ALERT_WEBHOOK_URL),
+                "telegram_configured": bool(TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID),
                 "smtp_configured": bool(SMTP_PASSWORD),
                 "smtp_host": SMTP_HOST,
                 "smtp_port": SMTP_PORT
@@ -730,10 +856,11 @@ def get_service_status():
 
 @app.api_route("/api/test-email", methods=["GET", "POST"])
 def send_test_email():
-    """Sends a verification email to lonelycattools@gmail.com to test SMTP connectivity."""
-    dt_str = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
-    subject = "🧪 [Alert Ukraine] Тестове сповіщення моніторингу"
-    body = f"""<!DOCTYPE html>
+    """Sends a verification email to lonelycattools@gmail.com to test notification connectivity."""
+    try:
+        dt_str = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
+        subject = "🧪 [Alert Ukraine] Тестове сповіщення моніторингу"
+        body = f"""<!DOCTYPE html>
 <html>
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #0b0f19; color: #f1f5f9; padding: 20px; margin: 0;">
     <div style="max-width: 580px; margin: 0 auto; background: #131b2e; border: 1px solid #38bdf8; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.5);">
@@ -748,7 +875,7 @@ def send_test_email():
             <div style="background: #0b1120; border-left: 4px solid #38bdf8; padding: 14px 18px; border-radius: 6px; margin: 18px 0;">
                 <p style="margin: 4px 0; font-size: 13px;"><strong>Час відправки:</strong> {dt_str}</p>
                 <p style="margin: 4px 0; font-size: 13px;"><strong>Отримувач:</strong> {ALERT_EMAIL_TO}</p>
-                <p style="margin: 4px 0; font-size: 13px;"><strong>Статус:</strong> SMTP налаштовано, поштові сповіщення про збої активні.</p>
+                <p style="margin: 4px 0; font-size: 13px;"><strong>Статус:</strong> Система контролю джерел активна.</p>
             </div>
             <p style="color: #94a3b8; font-size: 13px; line-height: 1.5;">
                 При відмові будь-якого джерела (Джерело F, Джерело N або Джерело тривог) сюди негайно надійде сповіщення про збій.
@@ -760,22 +887,41 @@ def send_test_email():
     </div>
 </body>
 </html>"""
-    plain = f"Тестове повідомлення системи моніторингу Alert Ukraine.\nЧас: {dt_str}\nОтримувач: {ALERT_EMAIL_TO}\nСервер активний та контролює доступність усіх джерел."
-    extra = {
-        "Повідомлення": "Тестова перевірка доставки",
-        "Час відправки": dt_str,
-        "Отримувач": ALERT_EMAIL_TO,
-        "Статус": "Система моніторингу активна"
-    }
-    success, message = _send_email_alert(subject, body, plain, extra)
-    return JSONResponse(
-        content={
-            "success": success,
-            "message": message,
-            "recipient": ALERT_EMAIL_TO,
-            "smtp_configured": bool(SMTP_PASSWORD)
+        plain = f"Тестове повідомлення системи моніторингу Alert Ukraine.\nЧас: {dt_str}\nОтримувач: {ALERT_EMAIL_TO}\nСервер активний та контролює доступність усіх джерел."
+        extra = {
+            "Повідомлення": "Тестова перевірка доставки",
+            "Час відправки": dt_str,
+            "Отримувач": ALERT_EMAIL_TO,
+            "Статус": "Система моніторингу активна"
         }
-    )
+        success, message = _send_email_alert(subject, body, plain, extra)
+        diag = ""
+        if not success and ("101" in message or "Render blocked" in message):
+            diag = "Render Free Tier blocks raw SMTP ports 25/465/587. For guaranteed instant email, add RESEND_API_KEY in Render Dashboard (free at https://resend.com) or TELEGRAM_BOT_TOKEN."
+        return JSONResponse(
+            content={
+                "success": success,
+                "message": message,
+                "recipient": ALERT_EMAIL_TO,
+                "diagnostic_hint": diag,
+                "alert_channels": {
+                    "resend_configured": bool(RESEND_API_KEY),
+                    "brevo_configured": bool(BREVO_API_KEY),
+                    "webhook_configured": bool(ALERT_WEBHOOK_URL),
+                    "telegram_configured": bool(TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID),
+                    "smtp_configured": bool(SMTP_PASSWORD)
+                }
+            }
+        )
+    except Exception as e:
+        return JSONResponse(
+            status_code=200,
+            content={
+                "success": False,
+                "error": str(e),
+                "traceback": traceback.format_exc()
+            }
+        )
 
 @app.get("/api/alerts/history")
 def get_alert_history(regionId: str = ""):
