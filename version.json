@@ -25,39 +25,39 @@
     "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
   },
   "alert_screensaver": {
-    "version_name": "1.2.2",
-    "version_code": 118,
+    "version_name": "1.2.3",
+    "version_code": 119,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.2.2 (build 118): 1) Підтримка двох джерел радара: Джерело F та Джерело N з автоматичним резервуванням. 2) Додано налаштування вібрації при наближенні цілі (за замовчуванням вимкнено). 3) Покращено стабільність завантаження оновлень."
+    "changelog": "v1.2.3 (build 119): 1) Виправлено логіку району: статус «ВАШ Р-Н» показується лише за наявності тривоги у вашому районі. 2) Якщо тривога лише в іншому районі області, коректно відображається статус «ВІДБІЙ (ВАШ Р-Н) • у [назва] р-ні загроза БПЛА»."
   },
   "alert_mobile": {
-    "version_name": "1.2.2",
-    "version_code": 118,
+    "version_name": "1.2.3",
+    "version_code": 119,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.2.2 (build 118): 1) Налаштування вібрації при наближенні цілі в меню вібросигналів (за замовчуванням вимкнено). 2) Вибір постачальника даних радара: Джерело F та Джерело N. 3) Адаптивний слайдер областей для смартфонів."
+    "changelog": "v1.2.3 (build 119): 1) Виправлено логіку району: статус «ВАШ Р-Н» показується лише за наявності тривоги у вашому районі. 2) Якщо тривога лише в іншому районі області, коректно відображається статус «ВІДБІЙ (ВАШ Р-Н) • у [назва] р-ні загроза БПЛА»."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.2.2",
-    "version_code": 118,
+    "version_name": "1.2.3",
+    "version_code": 119,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.2.2 (Преміум, build 118): 1) Інтеграція резервного Джерела N (точні координати та треки БПЛА). 2) Опція вібрації при наближенні цілі (вимкнено за замовчуванням)."
+    "changelog": "v1.2.3 (Преміум, build 119): 1) Виправлено логіку району: статус «ВАШ Р-Н» показується лише за наявності тривоги у вашому районі. 2) Покращено точність районування та синхронізацію з мапою."
   },
   "alert_mobile_premium": {
-    "version_name": "1.2.2",
-    "version_code": 118,
+    "version_name": "1.2.3",
+    "version_code": 119,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.2.2 (Преміум, build 118): 1) Багатоджерельний радар: Джерело F, Джерело N та Авто-режим. 2) Налаштування вібрації при наближенні цілі. 3) Оптимізована система оновлення з сервера."
+    "changelog": "v1.2.3 (Преміум, build 119): 1) Виправлено логіку району: статус «ВАШ Р-Н» показується лише за наявності тривоги у вашому районі. 2) Покращено точність районування та синхронізацію з мапою."
   },
   "alert_googleplay": {
-    "version_name": "1.2.2",
-    "version_code": 118,
+    "version_name": "1.2.3",
+    "version_code": 119,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.2.2 (Google Play, build 118): 1) Dual radar source support: Source F and Source N with auto-failover. 2) Threat inbound vibration preference. 3) Mobile responsive slider."
+    "changelog": "v1.2.3 (Google Play, build 119): 1) Fixed district status logic: your district status is strictly verified against active district alerts. 2) Improved district alert zoning accuracy."
   },
   "ads": {
     "enabled": false,
