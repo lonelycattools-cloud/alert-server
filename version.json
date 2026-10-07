@@ -25,39 +25,39 @@
     "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
   },
   "alert_screensaver": {
-    "version_name": "1.2.4",
-    "version_code": 120,
+    "version_name": "1.2.5",
+    "version_code": 121,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.2.4 (build 120): 1) Тактичний індикатор наближення цілі: якщо в локації немає офіційної тривоги, плаваючий значок поверх усіх вікон залишається зеленим («Спокійно»), а на зовнішній межі кружечка відображається стильна червона стрілочка, що вказує точний напрямок наближення загрози. 2) Покращено читабельність та контрастність тактичного кружечка."
+    "changelog": "v1.2.5 (build 121): 1) Стабілізація значка поверх усіх вікон: додано згладжування телеметрії та гістерезис (20 сек), усунуто тремтіння координат цілей, значок більше не скидається в «Спокійно» при наближенні ворожої цілі. 2) Синхронізовано оновлення оверлею з головного вікна та при згортанні додатка. 3) Виразна червона тактична стрілка та радарний приціл по центру кружечка, пульсуюча рамка сповіщення та яскравий контрастний текст відстані."
   },
   "alert_mobile": {
-    "version_name": "1.2.4",
-    "version_code": 120,
+    "version_name": "1.2.5",
+    "version_code": 121,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.2.4 (build 120): 1) Тактичний індикатор наближення цілі: якщо в локації немає офіційної тривоги, плаваючий значок поверх усіх вікон залишається зеленим («Спокійно»), а на зовнішній межі кружечка відображається стильна червона стрілочка, що вказує точний напрямок наближення загрози. 2) Покращено читабельність та контрастність тактичного кружечка."
+    "changelog": "v1.2.5 (build 121): 1) Стабілізація значка поверх усіх вікон: додано згладжування телеметрії та гістерезис (20 сек), усунуто тремтіння координат цілей, значок більше не скидається в «Спокійно» при наближенні ворожої цілі. 2) Синхронізовано оновлення оверлею з головного вікна та при згортанні додатка. 3) Виразна червона тактична стрілка та радарний приціл по центру кружечка, пульсуюча рамка сповіщення та яскравий контрастний текст відстані."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.2.4",
-    "version_code": 120,
+    "version_name": "1.2.5",
+    "version_code": 121,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.2.4 (Преміум, build 120): 1) Тактичний радарний вектор: зелений статус за відсутності тривоги з червоною стрілочкою напрямку загрози по краю значка. 2) Оптимізована синхронізація оверлею."
+    "changelog": "v1.2.5 (Преміум, build 121): 1) Стабілізовано радарний оверлей: усунуто зникнення індикатора наближення цілі, додано 20-секундний гістерезис. 2) Миттєва синхронізація при перемиканні додатків. 3) Покращена видимість червоного вектору загрози та пульсуючої рамки."
   },
   "alert_mobile_premium": {
-    "version_name": "1.2.4",
-    "version_code": 120,
+    "version_name": "1.2.5",
+    "version_code": 121,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.2.4 (Преміум, build 120): 1) Тактичний радарний вектор: зелений статус за відсутності тривоги з червоною стрілочкою напрямку загрози по краю значка. 2) Оптимізована синхронізація оверлею."
+    "changelog": "v1.2.5 (Преміум, build 121): 1) Стабілізовано радарний оверлей: усунуто зникнення індикатора наближення цілі, додано 20-секундний гістерезис. 2) Миттєва синхронізація при перемиканні додатків. 3) Покращена видимість червоного вектору загрози та пульсуючої рамки."
   },
   "alert_googleplay": {
-    "version_name": "1.2.4",
-    "version_code": 120,
+    "version_name": "1.2.5",
+    "version_code": 121,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.2.4 (Google Play, build 120): 1) Tactical inbound threat indicator: green badge status when no alarm, with stylish perimeter red arrow showing inbound direction. 2) Visual contrast improvements."
+    "changelog": "v1.2.5 (Google Play, build 121): 1) Stabilized overlay badge inbound threat tracking: telemetry smoothing and hysteresis to eliminate coordinate jitter. 2) Synchronized overlay state between app and background. 3) Bold perimeter red threat arrow and tactical reticle on calm green badge."
   },
   "ads": {
     "enabled": false,
