@@ -25,39 +25,39 @@
     "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
   },
   "alert_screensaver": {
-    "version_name": "1.2.7",
-    "version_code": 123,
+    "version_name": "1.2.8",
+    "version_code": 124,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.2.7 (build 123): 1) Чистий векторний рельєф: прибрано растрові підкладки; фізичний рельєф України відтворено векторними кольорами фону самої карти (шкала висот Карпат, Кримських гір, височин та низовин). 2) Автостарт додатка: додано опцію автоматичного запуску карти при старті або перезавантаженні пристрою/ТВ-боксу. 3) Оптимізація швидкодії та зменшення розміру."
+    "changelog": "v1.2.8 (build 124): 1) Високоточний векторний рельєф: реалізовано 7-рівневу векторну гіпсометричну модель (від 120м до 1300м) на базі супутникових даних NOAA ETOPO. 2) Рельєф видно в режимі окремих областей: виправлено відображення рельєфу при перегляді окремих областей (раніше суцільний колір виділення перекривав фізичну карту). 3) Автостарт додатка при запуску пристрою. 4) Індикатор цілі на поверх усіх вікон: чіткий векторний покажчик наближення ворожого БПЛА."
   },
   "alert_mobile": {
-    "version_name": "1.2.7",
-    "version_code": 123,
+    "version_name": "1.2.8",
+    "version_code": 124,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.2.7 (build 123): 1) Чистий векторний рельєф: прибрано растрові підкладки; фізичний рельєф України відтворено векторними кольорами фону самої карти (шкала висот Карпат, Кримських гір, височин та низовин). 2) Автостарт додатка: додано опцію автоматичного запуску карти при старті або перезавантаженні пристрою/ТВ-боксу. 3) Оптимізація швидкодії та зменшення розміру."
+    "changelog": "v1.2.8 (build 124): 1) Високоточний векторний рельєф: реалізовано 7-рівневу векторну гіпсометричну модель (від 120м до 1300м) на базі супутникових даних NOAA ETOPO. 2) Рельєф видно в режимі окремих областей: виправлено відображення рельєфу при перегляді окремих областей (раніше суцільний колір виділення перекривав фізичну карту). 3) Автостарт додатка при запуску пристрою. 4) Індикатор цілі на поверх усіх вікон: чіткий векторний покажчик наближення ворожого БПЛА."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.2.7",
-    "version_code": 123,
+    "version_name": "1.2.8",
+    "version_code": 124,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.2.7 (Преміум, build 123): 1) Чистий векторний рельєф без сторонніх картинок (топографічна шкала висот). 2) Автостарт додатка при ввімкненні пристрою/ТВ. 3) Оптимізація та зменшення розміру."
+    "changelog": "v1.2.8 (Преміум, build 124): 1) Детальний векторний рельєф на базі супутникової моделі NOAA ETOPO. 2) Рельєф повністю видимий при виборі окремих областей. 3) Автостарт додатка при ввімкненні пристрою/ТВ. 4) Тактичний покажчик напрямку БПЛА на значку поверх усіх вікон."
   },
   "alert_mobile_premium": {
-    "version_name": "1.2.7",
-    "version_code": 123,
+    "version_name": "1.2.8",
+    "version_code": 124,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.2.7 (Преміум, build 123): 1) Чистий векторний рельєф без сторонніх картинок (топографічна шкала висот). 2) Автостарт додатка при ввімкненні пристрою/ТВ. 3) Оптимізація та зменшення розміру."
+    "changelog": "v1.2.8 (Преміум, build 124): 1) Детальний векторний рельєф на базі супутникової моделі NOAA ETOPO. 2) Рельєф повністю видимий при виборі окремих областей. 3) Автостарт додатка при ввімкненні пристрою/ТВ. 4) Тактичний покажчик напрямку БПЛА на значку поверх усіх вікон."
   },
   "alert_googleplay": {
-    "version_name": "1.2.7",
-    "version_code": 123,
+    "version_name": "1.2.8",
+    "version_code": 124,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.2.7 (Google Play, build 123): 1) Pure vector terrain relief using map background colors without underlaid images. 2) Optional auto-start on device boot. 3) Performance and asset size optimizations."
+    "changelog": "v1.2.8 (Google Play, build 124): 1) Detailed vector relief model with 7 hypsometric tiers based on NOAA ETOPO. 2) Relief clearly visible when viewing individual regions. 3) Optional auto-start on boot. 4) Directional tactical approach arrow on floating overlay."
   },
   "ads": {
     "enabled": false,
