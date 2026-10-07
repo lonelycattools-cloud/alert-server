@@ -665,6 +665,7 @@ def _fetch_neptun_threats() -> Dict[str, Any]:
             timeout=5.0
         )
         if resp.status_code == 200:
+            resp.encoding = "utf-8"
             raw = resp.json()
             threats = []
             for t in raw.get("threats", []):
@@ -691,6 +692,7 @@ def _fetch_neptun_threats() -> Dict[str, Any]:
                     "type": str(t.get("type") or "uav"),
                     "title": str(t.get("title") or "БПЛА"),
                     "confirmations": int(t.get("sourceCount") or t.get("count") or 1),
+                    "updatedAt": str(t.get("updatedAt") or ""),
                     "history": trail
                 })
             payload = {
@@ -749,6 +751,11 @@ async def proxy_radar(request: Request, source: Optional[str] = None):
             timeout=5.0
         )
         resp_bytes = resp.content
+        if not resp_bytes or len(resp_bytes) < 5:
+            # Source F returned empty response or dead upstream: fallback to Source N
+            logger.info("Source F returned empty bytes; falling back to Source N")
+            return JSONResponse(content=_fetch_neptun_threats())
+
         if len(resp_bytes) >= 2 and resp_bytes[:2] == b'\x1f\x8b':
             import gzip
             resp_bytes = gzip.decompress(resp_bytes)
@@ -757,9 +764,7 @@ async def proxy_radar(request: Request, source: Optional[str] = None):
     except Exception as e:
         logger.warning(f"Radar proxy failed: {e}")
         _handle_source_failure("source_f", str(e))
-        if src in ("auto", ""):
-            return JSONResponse(content=_fetch_neptun_threats())
-        return JSONResponse(status_code=200, content={"radar": {}, "warning": str(e)})
+        return JSONResponse(content=_fetch_neptun_threats())
 
 # -------------------------------------------------------------
 # Background Probes & Service Status Endpoints
