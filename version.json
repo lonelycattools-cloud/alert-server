@@ -25,39 +25,39 @@
     "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
   },
   "alert_screensaver": {
-    "version_name": "1.2.9",
-    "version_code": 125,
+    "version_name": "1.3.0",
+    "version_code": 126,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.2.9 (build 125): 1) Плавні аеродинамічні траєкторії польоту БПЛА (Catmull-Rom кубічні сплайни) з градієнтним загасанням хвоста. 2) Безперервний політ дронів у реальному часі за алгоритмом Dead Reckoning (175 км/год) — координати оновлюються плавно між зведеннями радара. 3) Автоматичне перемикання на працююче Джерело N (без затримок та усунуто нерухомі мітки). 4) Тактичний індикатор поверх усіх вікон: бойовий червоний режим при наближенні БПЛА, точна дистанція в км цифрами та стрілка напрямку загрози."
+    "changelog": "v1.3.0 (build 126): 1) Значок поверх усіх вікон: точна відповідність кольору статусу району (зелений при спокої, жовтий при загрозі, червоний при тривозі) з червоною стрілкою наближення БПЛА та цифрою дистанції. 2) Сектор визначення зближення звужено до 30° — жодних хибних стрілок для дронів, що летять повз. 3) Налаштування дистанції виявлення: вибір 20 км, 50 км (за замовчуванням) або 100 км."
   },
   "alert_mobile": {
-    "version_name": "1.2.9",
-    "version_code": 125,
+    "version_name": "1.3.0",
+    "version_code": 126,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.2.9 (build 125): 1) Плавні аеродинамічні траєкторії польоту БПЛА (Catmull-Rom кубічні сплайни) з градієнтним загасанням хвоста. 2) Безперервний політ дронів у реальному часі за алгоритмом Dead Reckoning (175 км/год) — координати оновлюються плавно між зведеннями радара. 3) Автоматичне перемикання на працююче Джерело N (без затримок та усунуто нерухомі мітки). 4) Тактичний індикатор поверх усіх вікон: бойовий червоний режим при наближенні БПЛА, точна дистанція в км цифрами та стрілка напрямку загрози."
+    "changelog": "v1.3.0 (build 126): 1) Значок поверх усіх вікон: точна відповідність кольору статусу району (зелений при спокої, жовтий при загрозі, червоний при тривозі) з червоною стрілкою наближення БПЛА та цифрою дистанції. 2) Сектор визначення зближення звужено до 30° — жодних хибних стрілок для дронів, що летять повз. 3) Налаштування дистанції виявлення: вибір 20 км, 50 км (за замовчуванням) або 100 км."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.2.9",
-    "version_code": 125,
+    "version_name": "1.3.0",
+    "version_code": 126,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.2.9 (Преміум, build 125): 1) Плавні аеродинамічні траєкторії польоту БПЛА (Catmull-Rom сплайни). 2) Безперервний політ дронів у реальному часі (Dead Reckoning). 3) Автоматична пріоритизація працюючого Джерела N без затримок. 4) Тактичний HUD-індикатор поверх усіх вікон: бойовий режим, цифри дальності в км та вектор наближення цілі."
+    "changelog": "v1.3.0 (Преміум, build 126): 1) Значок поверх усіх вікон: фон відповідає тривозі району (зелений/жовтий/червоний) з червоною тактичною стрілкою БПЛА. 2) Сектор виявлення звужено до 30°. 3) Дистанція виявлення цілей: 20, 50 або 100 км у налаштуваннях."
   },
   "alert_mobile_premium": {
-    "version_name": "1.2.9",
-    "version_code": 125,
+    "version_name": "1.3.0",
+    "version_code": 126,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.2.9 (Преміум, build 125): 1) Плавні аеродинамічні траєкторії польоту БПЛА (Catmull-Rom сплайни). 2) Безперервний політ дронів у реальному часі (Dead Reckoning). 3) Автоматична пріоритизація працюючого Джерела N без затримок. 4) Тактичний HUD-індикатор поверх усіх вікон: бойовий режим, цифри дальності в км та вектор наближення цілі."
+    "changelog": "v1.3.0 (Преміум, build 126): 1) Значок поверх усіх вікон: фон відповідає тривозі району (зелений/жовтий/червоний) з червоною тактичною стрілкою БПЛА. 2) Сектор виявлення звужено до 30°. 3) Дистанція виявлення цілей: 20, 50 або 100 км у налаштуваннях."
   },
   "alert_googleplay": {
-    "version_name": "1.2.9",
-    "version_code": 125,
+    "version_name": "1.3.0",
+    "version_code": 126,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.2.9 (Google Play, build 125): 1) Smooth Catmull-Rom aerodynamic UAV trajectories. 2) Real-time dead-reckoning drone flight between radar updates. 3) Seamless radar source fallback. 4) Tactical distance and vector indicator on floating window overlay."
+    "changelog": "v1.3.0 (Google Play, build 126): 1) Floating overlay badge reflects district status (green/yellow/red) with red threat arrow and distance. 2) 30-degree approach sector. 3) Detection radius options (20, 50, 100 km)."
   },
   "ads": {
     "enabled": false,
