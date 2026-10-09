@@ -26,6 +26,7 @@ from email.mime.multipart import MIMEMultipart
 from fastapi import FastAPI, Request, Response, HTTPException
 from fastapi.responses import JSONResponse, FileResponse
 from fastapi.middleware.cors import CORSMiddleware
+from threat_ai import get_threat_ai_engine
 
 logging.basicConfig(
     level=logging.INFO,
@@ -695,12 +696,18 @@ def _fetch_neptun_threats() -> Dict[str, Any]:
                     "updatedAt": str(t.get("updatedAt") or ""),
                     "history": trail
                 })
+            # Process and enrich threats via Server AI Threat Tracker Engine
+            ai_engine = get_threat_ai_engine()
+            threats = ai_engine.process_threats(threats)
+            completed_tracks = ai_engine.completed_tracks[-30:]
+
             payload = {
                 "success": True,
                 "source": "neptun",
                 "serverTime": raw.get("serverTime"),
                 "total": len(threats),
-                "threats": threats
+                "threats": threats,
+                "completed_tracks": completed_tracks
             }
             with _neptun_lock:
                 _neptun_cache["timestamp"] = now
@@ -713,7 +720,29 @@ def _fetch_neptun_threats() -> Dict[str, Any]:
     with _neptun_lock:
         if _neptun_cache["data"]:
             return _neptun_cache["data"]
-    return {"success": False, "source": "neptun", "total": 0, "threats": []}
+    ai_engine = get_threat_ai_engine()
+    return {
+        "success": False,
+        "source": "neptun",
+        "total": 0,
+        "threats": [],
+        "completed_tracks": ai_engine.completed_tracks[-30:]
+    }
+
+@app.get("/api/threats/ai-tracks")
+async def get_ai_threat_tracks():
+    """
+    Returns full AI-tracked aerial threat trajectories, entry corridors,
+    flight duration, traveled distance, and downed/neutralized history.
+    """
+    return JSONResponse(
+        content=get_threat_ai_engine().get_summary(),
+        headers={
+            "Cache-Control": "no-cache, no-store, must-revalidate",
+            "Pragma": "no-cache",
+            "Expires": "0"
+        }
+    )
 
 @app.api_route("/api/radar", methods=["GET", "POST"])
 async def proxy_radar(request: Request, source: Optional[str] = None):
