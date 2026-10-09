@@ -25,39 +25,39 @@
     "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
   },
   "alert_screensaver": {
-    "version_name": "1.3.4",
-    "version_code": 130,
+    "version_name": "1.3.5",
+    "version_code": 131,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
     "changelog": "v1.3.4 (build 130): 1) Серверний ІІ трекер загроз з аналізом точки входу в Україну, тривалості польоту, дистанції та збитих цілей. 2) Двовкладочний інтерфейс: строгий стильний список відстежуваних локацій за замовчуванням на смартфонах, та тактична оперативна карта на ТВ. 3) Перемикач ІІ траєкторій безпосередньо на карті та в налаштуваннях. 4) Безмежні карти у віджетах з точним масштабом та центром з головного екрана. Перехід у додаток по кліку на віджет. 5) Сухі та точні сповіщення у шторці без слів-паразитів."
   },
   "alert_mobile": {
-    "version_name": "1.3.4",
-    "version_code": 130,
+    "version_name": "1.3.5",
+    "version_code": 131,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
     "changelog": "v1.3.4 (build 130): 1) Серверний ІІ трекер загроз з аналізом точки входу в Україну, тривалості польоту, дистанції та збитих цілей. 2) Двовкладочний інтерфейс: строгий стильний список відстежуваних локацій за замовчуванням на смартфонах, та тактична оперативна карта на ТВ. 3) Перемикач ІІ траєкторій безпосередньо на карті та в налаштуваннях. 4) Безмежні карти у віджетах з точним масштабом та центром з головного екрана. Перехід у додаток по кліку на віджет. 5) Сухі та точні сповіщення у шторці без слів-паразитів."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.3.4",
-    "version_code": 130,
+    "version_name": "1.3.5",
+    "version_code": 131,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
     "changelog": "v1.3.4 (Преміум, build 130): 1) Серверний ІІ трекер загроз: повна історія від точки входу до збиття. 2) Двовкладочний інтерфейс: стильний строгий список локацій на смартфонах, карта на ТВ. 3) Кнопка ІІ траєкторій на карті. 4) Безмежні карти у віджетах з точним масштабом з екрана, перехід по кліку. 5) Сухі сповіщення в шторці."
   },
   "alert_mobile_premium": {
-    "version_name": "1.3.4",
-    "version_code": 130,
+    "version_name": "1.3.5",
+    "version_code": 131,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
     "changelog": "v1.3.4 (Преміум, build 130): 1) Серверний ІІ трекер загроз: повна історія від точки входу до збиття. 2) Двовкладочний інтерфейс: стильний строгий список локацій на смартфонах, карта на ТВ. 3) Кнопка ІІ траєкторій на карті. 4) Безмежні карти у віджетах з точним масштабом з екрана, перехід по кліку. 5) Сухі сповіщення в шторці."
   },
   "alert_googleplay": {
-    "version_name": "1.3.4",
-    "version_code": 130,
+    "version_name": "1.3.5",
+    "version_code": 131,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.3.4 (Google Play, build 130): 1) Server AI threat tracker with entry corridor, flight duration and downed targets. 2) Two-tab layout: clean tracked locations list on phones, map on TV. 3) Boundless seamless map widgets with click-to-open and exact zoom sync. 4) AI trajectory toggle on map. 5) Concise actionable notifications."
+    "changelog": "v1.3.5 (Google Play, build 131): 1) Pure tactical trajectory flight lines from border entry across Ukraine with zero text badge clutter. 2) Server AI threat tracker with entry corridor, flight duration and downed targets. 3) Two-tab layout: clean tracked locations list on phones, map on TV. 4) Boundless seamless map widgets with click-to-open and exact zoom sync. 5) Concise actionable notifications."
   },
   "ads": {
     "enabled": false,

@@ -226,6 +226,26 @@ class ThreatTrackerAI:
                 track["districtName"] = district_name or track["districtName"]
                 track["locality"] = locality or track["locality"]
 
+                # If existing track has short trajectory but incoming history has richer data
+                raw_hist = threat.get("history") or []
+                if raw_hist and len(track["trajectory"]) <= 3:
+                    hist_pts = [[round(float(p[0]), 5), round(float(p[1]), 5)] for p in raw_hist if len(p) >= 2 and p[0] is not None and p[1] is not None]
+                    if len(hist_pts) > len(track["trajectory"]):
+                        if hist_pts[-1][0] != round(lat, 5) or hist_pts[-1][1] != round(lon, 5):
+                            hist_pts.append([round(lat, 5), round(lon, 5)])
+                        track["trajectory"] = hist_pts
+                        first_p = track["trajectory"][0]
+                        track["entry_point"] = {
+                            "lat": first_p[0],
+                            "lon": first_p[1],
+                            "time": int(track["first_seen"]),
+                            "corridor": classify_entry_corridor(first_p[0], first_p[1])
+                        }
+                        d_acc = 0.0
+                        for i in range(1, len(hist_pts)):
+                            d_acc += haversine_km(hist_pts[i-1][0], hist_pts[i-1][1], hist_pts[i][0], hist_pts[i][1])
+                        track["total_distance_km"] = round(d_acc, 1)
+
                 # Append smoothed point to trajectory if moved > 250 meters
                 if step_dist >= 0.25:
                     track["trajectory"].append([round(lat, 5), round(lon, 5)])
@@ -235,30 +255,66 @@ class ThreatTrackerAI:
             else:
                 # Register new track entering Ukrainian airspace
                 new_id = f"ai_uav_{int(now)}_{len(self.active_tracks) + 1}"
-                corridor = classify_entry_corridor(lat, lon)
+                raw_hist = threat.get("history") or []
+                pts = []
+                for p in raw_hist:
+                    if len(p) >= 2 and p[0] is not None and p[1] is not None:
+                        pts.append([round(float(p[0]), 5), round(float(p[1]), 5)])
+
+                cur_pt = [round(lat, 5), round(lon, 5)]
+                if not pts or (pts[-1][0] != cur_pt[0] or pts[-1][1] != cur_pt[1]):
+                    pts.append(cur_pt)
+
+                # If incoming radar history only had 1 point, synthesize backwards along opposite heading
+                if len(pts) == 1 and course_deg > 0:
+                    rev_course = (course_deg + 180.0) % 360.0
+                    rad_heading = math.radians(rev_course)
+                    curr_l, curr_ln = lat, lon
+                    synth_pts_rev = []
+                    for _ in range(4):
+                        dist_rad = 25.0 / 6371.0
+                        phi1 = math.radians(curr_l)
+                        lam1 = math.radians(curr_ln)
+                        phi2 = math.asin(math.sin(phi1) * math.cos(dist_rad) + math.cos(phi1) * math.sin(dist_rad) * math.cos(rad_heading))
+                        lam2 = lam1 + math.atan2(math.sin(rad_heading) * math.sin(dist_rad) * math.cos(phi1), math.cos(dist_rad) - math.sin(phi1) * math.sin(phi2))
+                        curr_l = math.degrees(phi2)
+                        curr_ln = math.degrees(lam2)
+                        synth_pts_rev.append([round(curr_l, 5), round(curr_ln, 5)])
+                    pts = list(reversed(synth_pts_rev)) + pts
+
+                first_pt = pts[0]
+                corridor = classify_entry_corridor(first_pt[0], first_pt[1])
+
+                init_dist = 0.0
+                for i in range(1, len(pts)):
+                    init_dist += haversine_km(pts[i-1][0], pts[i-1][1], pts[i][0], pts[i][1])
+
+                init_duration = int((init_dist / 175.0) * 3600) if init_dist > 0 else 0
+                first_seen = now - init_duration
+
                 track = {
                     "id": new_id,
                     "raw_id": raw_id,
                     "type": threat_type,
                     "title": threat.get("title") or "БПЛА Shahed",
-                    "first_seen": now,
+                    "first_seen": first_seen,
                     "last_seen": now,
                     "entry_point": {
-                        "lat": round(lat, 5),
-                        "lon": round(lon, 5),
-                        "time": int(now),
+                        "lat": first_pt[0],
+                        "lon": first_pt[1],
+                        "time": int(first_seen),
                         "corridor": corridor
                     },
                     "current_lat": lat,
                     "current_lon": lon,
                     "course_deg": course_deg,
                     "speed_kmh": 175.0,
-                    "total_distance_km": 0.0,
-                    "flight_duration_sec": 0,
+                    "total_distance_km": round(init_dist, 1),
+                    "flight_duration_sec": init_duration,
                     "stateName": state_name,
                     "districtName": district_name,
                     "locality": locality,
-                    "trajectory": [[round(lat, 5), round(lon, 5)]]
+                    "trajectory": pts
                 }
                 self.active_tracks[new_id] = track
                 matched_track_ids.add(new_id)
