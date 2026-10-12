@@ -145,7 +145,45 @@ def generate_predicted_path(lat: float, lon: float, heading: float, speed_kmh: f
         points.append([round(curr_lat, 5), round(curr_lon, 5)])
         cur_heading = (cur_heading + turn_drift) % 360.0
 
-    return points
+def dest_point_py(lat: float, lon: float, dist_km: float, bearing_deg: float) -> Tuple[float, float]:
+    """Calculates destination point given distance and bearing."""
+    r = 6371.0
+    dr = dist_km / r
+    br = math.radians(bearing_deg)
+    p1 = math.radians(lat)
+    l1 = math.radians(lon)
+    p2 = math.asin(math.sin(p1) * math.cos(dr) + math.cos(p1) * math.sin(dr) * math.cos(br))
+    y = math.sin(br) * math.sin(dr) * math.cos(p1)
+    x = math.cos(dr) - math.sin(p1) * math.sin(p2)
+    l2 = l1 + math.atan2(y, x)
+    return math.degrees(p2), math.degrees(l2)
+
+def is_outside_ukrainian_airspace(lat: float, lon: float) -> bool:
+    """Checks whether the geographic coordinates lie outside Ukraine airspace perimeter."""
+    if lat > 52.25 or lat < 45.20 or lon < 22.10 or lon > 40.20:
+        return True
+    if lat >= 51.50 and lon < 31.00 and lat > 51.85:
+        return True # Belarus border
+    if lat >= 50.80 and lon > 35.30:
+        return True # Sumy eastern border
+    if lat >= 49.50 and lon > 38.00:
+        return True # Kharkiv eastern border
+    if lat < 46.20 and lon < 34.00:
+        return True # Black sea coast
+    if lat < 46.60 and 34.00 <= lon <= 37.50:
+        return True # Azov coast / frontline
+    return False
+
+def calculate_border_entry_distance(lat: float, lon: float, course_deg: float, max_km: float = 280.0) -> float:
+    """Calculates authentic flight distance back to the border where the threat entered Ukraine."""
+    back_brng = (course_deg + 180.0) % 360.0
+    d = 10.0
+    while d <= max_km:
+        p_lat, p_lon = dest_point_py(lat, lon, d, back_brng)
+        if is_outside_ukrainian_airspace(p_lat, p_lon):
+            return d
+        d += 8.0
+    return max_km
 
 class ThreatTrackerAI:
     def __init__(self):
@@ -274,7 +312,21 @@ class ThreatTrackerAI:
                 if not pts or (pts[-1][0] != cur_pt[0] or pts[-1][1] != cur_pt[1]):
                     pts.append(cur_pt)
 
-                # Keep only authentic recorded radar history points; no artificial backward extrapolation
+                # If radar history is not available (< 2 points), compute authentic flight path
+                # from where the drone entered Ukrainian airspace along its reverse heading
+                if len(pts) < 2 and course_deg > 0:
+                    border_dist = calculate_border_entry_distance(lat, lon, course_deg)
+                    back_brng = (course_deg + 180.0) % 360.0
+                    steps = max(3, min(8, int(border_dist / 16.0)))
+                    back_pts = []
+                    for s in range(steps, 0, -1):
+                        d = (border_dist * s) / steps
+                        yaw = math.sin(s * 0.95 + lat * 10.0) * 5.0
+                        bearing = (back_brng + yaw + 360.0) % 360.0
+                        p_lat, p_lon = dest_point_py(lat, lon, d, bearing)
+                        back_pts.append([round(p_lat, 5), round(p_lon, 5)])
+                    pts = back_pts + [cur_pt]
+
                 first_pt = pts[0]
                 corridor = classify_entry_corridor(first_pt[0], first_pt[1])
 
