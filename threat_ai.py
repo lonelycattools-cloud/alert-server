@@ -274,27 +274,7 @@ class ThreatTrackerAI:
                 if not pts or (pts[-1][0] != cur_pt[0] or pts[-1][1] != cur_pt[1]):
                     pts.append(cur_pt)
 
-                # If incoming radar history only had 1 point, synthesize backwards along natural aerodynamic route corridor
-                if len(pts) == 1 and course_deg > 0:
-                    rev_course = (course_deg + 180.0) % 360.0
-                    curr_l, curr_ln = lat, lon
-                    synth_pts_rev = []
-                    # Introduce natural corridor curve (3.5 - 5.0 deg per waypoint step) matching Shahed valley/dogleg routing
-                    cur_heading = rev_course
-                    turn_drift = 4.0 if (int(lat * 100 + lon * 100) % 2 == 0) else -4.0
-                    for _ in range(4):
-                        dist_rad = 25.0 / 6371.0
-                        rad_heading = math.radians(cur_heading)
-                        phi1 = math.radians(curr_l)
-                        lam1 = math.radians(curr_ln)
-                        phi2 = math.asin(math.sin(phi1) * math.cos(dist_rad) + math.cos(phi1) * math.sin(dist_rad) * math.cos(rad_heading))
-                        lam2 = lam1 + math.atan2(math.sin(rad_heading) * math.sin(dist_rad) * math.cos(phi1), math.cos(dist_rad) - math.sin(phi1) * math.sin(phi2))
-                        curr_l = math.degrees(phi2)
-                        curr_ln = math.degrees(lam2)
-                        synth_pts_rev.append([round(curr_l, 5), round(curr_ln, 5)])
-                        cur_heading = (cur_heading + turn_drift) % 360.0
-                    pts = list(reversed(synth_pts_rev)) + pts
-
+                # Keep only authentic recorded radar history points; no artificial backward extrapolation
                 first_pt = pts[0]
                 corridor = classify_entry_corridor(first_pt[0], first_pt[1])
 
