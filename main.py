@@ -694,7 +694,11 @@ def _fetch_neptun_threats() -> Dict[str, Any]:
                     "title": str(t.get("title") or "БПЛА"),
                     "confirmations": int(t.get("sourceCount") or t.get("count") or 1),
                     "updatedAt": str(t.get("updatedAt") or ""),
-                    "history": trail
+                    "history": trail,
+                    "lifecycle": str(t.get("lifecycle") or "uncertain"),
+                    "status": str(t.get("status") or "active"),
+                    "confidenceLevel": str(t.get("confidenceLevel") or "medium"),
+                    "explanationShort": str(t.get("explanationShort") or "")
                 })
             # Process and enrich threats via Server AI Threat Tracker Engine
             ai_engine = get_threat_ai_engine()
