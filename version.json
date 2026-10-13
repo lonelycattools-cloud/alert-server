@@ -29,35 +29,35 @@
     "version_code": 138,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.4.1 (build 138): 1. Окремий сектор/район у списку локацій: обраний у налаштуваннях район тепер відображається окремо від області з власним статусом (відбій/тривога/загроза БПЛА), підрахунком загроз та точним часом. 2. Незалежний статус області: область відображає кількість активних районів без накладання статусу окремого сектора. 3. Оновлення Google Play повністю ізольовані від сервера."
+    "changelog": "v1.4.2 (build 139): 1. Вибір району після вибору області: при виборі будь-якої області у налаштуваннях локацій або у бічній панелі тепер доступний швидкий вибір конкретного району (сектора), всієї області або міста. 2. Швидка зміна сектора при повторному або довгому кліку на картку області/району."
   },
   "alert_mobile": {
-    "version_name": "1.4.1",
-    "version_code": 138,
+    "version_name": "1.4.2",
+    "version_code": 139,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.4.1 (build 138): 1. Окремий сектор/район у списку локацій: обраний у налаштуваннях район тепер відображається окремо від області з власним статусом (відбій/тривога/загроза БПЛА), підрахунком загроз та точним часом. 2. Незалежний статус області: область відображає кількість активних районів без накладання статусу окремого сектора. 3. Оновлення Google Play повністю ізольовані від сервера."
+    "changelog": "v1.4.2 (build 139): 1. Вибір району після вибору області: при виборі будь-якої області у налаштуваннях локацій або у бічній панелі тепер доступний швидкий вибір конкретного району (сектора), всієї області або міста. 2. Швидка зміна сектора при повторному або довгому кліку на картку області/району."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.4.1",
-    "version_code": 138,
+    "version_name": "1.4.2",
+    "version_code": 139,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.4.1 (Преміум, build 138): 1. Окремий сектор/район у списку локацій: обраний у налаштуваннях район тепер відображається окремо від області з власним статусом (відбій/тривога/загроза БПЛА), підрахунком загроз та точним часом. 2. Незалежний статус області: область відображає кількість активних районів без накладання статусу окремого сектора. 3. Оновлення Google Play повністю ізольовані від сервера."
+    "changelog": "v1.4.2 (Преміум, build 139): 1. Вибір району після вибору області: при виборі будь-якої області у налаштуваннях локацій або у бічній панелі тепер доступний швидкий вибір конкретного району (сектора), всієї області або міста. 2. Швидка зміна сектора при повторному або довгому кліку на картку області/району."
   },
   "alert_mobile_premium": {
-    "version_name": "1.4.1",
-    "version_code": 138,
+    "version_name": "1.4.2",
+    "version_code": 139,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.4.1 (Преміум, build 138): 1. Окремий сектор/район у списку локацій: обраний у налаштуваннях район тепер відображається окремо від області з власним статусом (відбій/тривога/загроза БПЛА), підрахунком загроз та точним часом. 2. Незалежний статус області: область відображає кількість активних районів без накладання статусу окремого сектора. 3. Оновлення Google Play повністю ізольовані від сервера."
+    "changelog": "v1.4.2 (Преміум, build 139): 1. Вибір району після вибору області: при виборі будь-якої області у налаштуваннях локацій або у бічній панелі тепер доступний швидкий вибір конкретного району (сектора), всієї області або міста. 2. Швидка зміна сектора при повторному або довгому кліку на картку області/району."
   },
   "alert_googleplay": {
-    "version_name": "1.4.1",
-    "version_code": 138,
+    "version_name": "1.4.2",
+    "version_code": 139,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.4.1 (Google Play, build 138): 1. Dedicated district/sector card in locations list: your selected district is now displayed separately from the oblast with its own real-time status, threat count, and elapsed time. 2. Independent oblast status showing active districts ratio. 3. App updates strictly managed by Google Play Store."
+    "changelog": "v1.4.2 (Google Play, build 139): 1. District selection after choosing an oblast: seamless prompt and list to choose specific district/sector, whole oblast, or city. 2. Quick district switching directly from location cards."
   },
   "ads": {
     "enabled": false,
