@@ -25,39 +25,39 @@
     "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
   },
   "alert_screensaver": {
-    "version_name": "1.4.0",
-    "version_code": 137,
+    "version_name": "1.4.1",
+    "version_code": 138,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.4.0 (build 137): 1. Бездоганна навігація пультом D-pad на Android TV: вільний перехід фокусу в список локацій/областей кнопками вгору/вниз із плавним автоскролом. 2. Оновлено жовтий колір загрози території: насичений, чистий, сяючий тактичний бурштин замість тьмяно-гірчичного відтінку."
+    "changelog": "v1.4.1 (build 138): 1. Окремий сектор/район у списку локацій: обраний у налаштуваннях район тепер відображається окремо від області з власним статусом (відбій/тривога/загроза БПЛА), підрахунком загроз та точним часом. 2. Незалежний статус області: область відображає кількість активних районів без накладання статусу окремого сектора. 3. Оновлення Google Play повністю ізольовані від сервера."
   },
   "alert_mobile": {
-    "version_name": "1.4.0",
-    "version_code": 137,
+    "version_name": "1.4.1",
+    "version_code": 138,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.4.0 (build 137): 1. Бездоганна навігація пультом D-pad на Android TV: вільний перехід фокусу в список локацій/областей кнопками вгору/вниз із плавним автоскролом. 2. Оновлено жовтий колір загрози території: насичений, чистий, сяючий тактичний бурштин замість тьмяно-гірчичного відтінку."
+    "changelog": "v1.4.1 (build 138): 1. Окремий сектор/район у списку локацій: обраний у налаштуваннях район тепер відображається окремо від області з власним статусом (відбій/тривога/загроза БПЛА), підрахунком загроз та точним часом. 2. Незалежний статус області: область відображає кількість активних районів без накладання статусу окремого сектора. 3. Оновлення Google Play повністю ізольовані від сервера."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.4.0",
-    "version_code": 137,
+    "version_name": "1.4.1",
+    "version_code": 138,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.4.0 (Преміум, build 137): 1. Бездоганна навігація пультом D-pad на Android TV: вільний перехід фокусу в список локацій/областей кнопками вгору/вниз із плавним автоскролом. 2. Оновлено жовтий колір загрози території: насичений, чистий, сяючий тактичний бурштин замість тьмяно-гірчичного відтінку."
+    "changelog": "v1.4.1 (Преміум, build 138): 1. Окремий сектор/район у списку локацій: обраний у налаштуваннях район тепер відображається окремо від області з власним статусом (відбій/тривога/загроза БПЛА), підрахунком загроз та точним часом. 2. Незалежний статус області: область відображає кількість активних районів без накладання статусу окремого сектора. 3. Оновлення Google Play повністю ізольовані від сервера."
   },
   "alert_mobile_premium": {
-    "version_name": "1.4.0",
-    "version_code": 137,
+    "version_name": "1.4.1",
+    "version_code": 138,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.4.0 (Преміум, build 137): 1. Бездоганна навігація пультом D-pad на Android TV: вільний перехід фокусу в список локацій/областей кнопками вгору/вниз із плавним автоскролом. 2. Оновлено жовтий колір загрози території: насичений, чистий, сяючий тактичний бурштин замість тьмяно-гірчичного відтінку."
+    "changelog": "v1.4.1 (Преміум, build 138): 1. Окремий сектор/район у списку локацій: обраний у налаштуваннях район тепер відображається окремо від області з власним статусом (відбій/тривога/загроза БПЛА), підрахунком загроз та точним часом. 2. Незалежний статус області: область відображає кількість активних районів без накладання статусу окремого сектора. 3. Оновлення Google Play повністю ізольовані від сервера."
   },
   "alert_googleplay": {
-    "version_name": "1.4.0",
-    "version_code": 137,
+    "version_name": "1.4.1",
+    "version_code": 138,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.4.0 (Google Play, build 137): Seamless D-pad remote navigation on Android TV between header, tabs, and location list with smooth auto-scroll. Rich, luminous tactical amber alert color across all themes."
+    "changelog": "v1.4.1 (Google Play, build 138): 1. Dedicated district/sector card in locations list: your selected district is now displayed separately from the oblast with its own real-time status, threat count, and elapsed time. 2. Independent oblast status showing active districts ratio. 3. App updates strictly managed by Google Play Store."
   },
   "ads": {
     "enabled": false,
