@@ -25,39 +25,39 @@
     "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
   },
   "alert_screensaver": {
-    "version_name": "1.4.1",
-    "version_code": 138,
+    "version_name": "1.4.3",
+    "version_code": 140,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.4.2 (build 139): 1. Вибір району після вибору області: при виборі будь-якої області у налаштуваннях локацій або у бічній панелі тепер доступний швидкий вибір конкретного району (сектора), всієї області або міста. 2. Швидка зміна сектора при повторному або довгому кліку на картку області/району."
+    "changelog": "v1.4.3 (build 140): 1. Траєкторії, водойми та місця падіння відображаються лише при наближенні карти (загрози видно завжди). 2. Оновлений теплий янтарно-золотистий колір зони загрози. 3. Автозапуск увімкнено за замовчуванням, автозапит дозволів. 4. Лаконічні сповіщення у шторці без зайвих слів. 5. Виправлено вібрацію та сповіщення лише для обраних локацій."
   },
   "alert_mobile": {
-    "version_name": "1.4.2",
-    "version_code": 139,
+    "version_name": "1.4.3",
+    "version_code": 140,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.4.2 (build 139): 1. Вибір району після вибору області: при виборі будь-якої області у налаштуваннях локацій або у бічній панелі тепер доступний швидкий вибір конкретного району (сектора), всієї області або міста. 2. Швидка зміна сектора при повторному або довгому кліку на картку області/району."
+    "changelog": "v1.4.3 (build 140): 1. Зручний вибір області та сектора на головному екрані в мобільному портретному режимі. 2. Траєкторії та деталі карти при наближенні. 3. Теплий янтарний колір тривоги. 4. Автозапуск за замовчуванням та автоматичні дозволи. 5. Сповіщення та вібро строго для вибраних регіонів."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.4.2",
-    "version_code": 139,
+    "version_name": "1.4.3",
+    "version_code": 140,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.4.2 (Преміум, build 139): 1. Вибір району після вибору області: при виборі будь-якої області у налаштуваннях локацій або у бічній панелі тепер доступний швидкий вибір конкретного району (сектора), всієї області або міста. 2. Швидка зміна сектора при повторному або довгому кліку на картку області/району."
+    "changelog": "v1.4.3 (Преміум, build 140): 1. Траєкторії, водойми та місця падіння відображаються лише при наближенні карти (загрози видно завжди). 2. Оновлений теплий янтарно-золотистий колір зони загрози. 3. Автозапуск увімкнено за замовчуванням, автозапит дозволів. 4. Лаконічні сповіщення у шторці. 5. Виправлено вібрацію та сповіщення строго для обраних локацій."
   },
   "alert_mobile_premium": {
-    "version_name": "1.4.2",
-    "version_code": 139,
+    "version_name": "1.4.3",
+    "version_code": 140,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.4.2 (Преміум, build 139): 1. Вибір району після вибору області: при виборі будь-якої області у налаштуваннях локацій або у бічній панелі тепер доступний швидкий вибір конкретного району (сектора), всієї області або міста. 2. Швидка зміна сектора при повторному або довгому кліку на картку області/району."
+    "changelog": "v1.4.3 (Преміум, build 140): 1. Зручний вибір області та сектора на головному екрані в мобільному портретному режимі. 2. Траєкторії та деталі карти при наближенні. 3. Теплий янтарний колір тривоги. 4. Автозапуск за замовчуванням та автоматичні дозволи. 5. Сповіщення та вібро строго для вибраних регіонів."
   },
   "alert_googleplay": {
-    "version_name": "1.4.2",
-    "version_code": 139,
+    "version_name": "1.4.3",
+    "version_code": 140,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.4.2 (Google Play, build 139): 1. District selection after choosing an oblast: seamless prompt and list to choose specific district/sector, whole oblast, or city. 2. Quick district switching directly from location cards."
+    "changelog": "v1.4.3 (Google Play, build 140): 1. Clean dynamic map details on zoom. 2. Prominent oblast & sector selector in mobile layout. 3. Golden-amber tactical alert color. 4. Clean notifications and notifications strictly for user-selected regions."
   },
   "ads": {
     "enabled": false,
