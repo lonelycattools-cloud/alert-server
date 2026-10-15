@@ -25,39 +25,39 @@
     "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
   },
   "alert_screensaver": {
-    "version_name": "1.4.5",
-    "version_code": 142,
+    "version_name": "1.4.6",
+    "version_code": 143,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.4.5 (build 142): 1. Виправлено оновлення: примусова перевірка сервера без блокування. 2. Виправлено клікабельність меню звукових сповіщень. 3. Відображення саме обраного сектора (району) у списку загроз без дублювання всієї області. 4. Поріг появи річок та траєкторій підвищено до 300% (3.0x)."
+    "changelog": "v1.4.6 (build 143): 1. Висоти та низини (рельєф) приховані на загальній карті України — відображаються лише при наближенні (від 300%) або виборі області. 2. Повністю прибрано білі контурні межі між зонами висот (м'які суцільні переходи кольору). 3. Точний показ обраного сектора без дублювання всієї області."
   },
   "alert_mobile": {
-    "version_name": "1.4.5",
-    "version_code": 142,
+    "version_name": "1.4.6",
+    "version_code": 143,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.4.5 (build 142): 1. Виправлено оновлення: примусова перевірка сервера при натисканні «Оновити». 2. Клікабельність картки «Звукові сповіщення». 3. Відображення конкретного обраного сектора (району) у вкладці «Тривоги» замість загальної області. 4. Детальні шари (річки, траєкторії) з'являються строго при наближенні від 300% (3.0x)."
+    "changelog": "v1.4.6 (build 143): 1. Висоти та низини (рельєф) приховані на оглядовій карті всієї України — з'являються тільки при наближенні (від 300%). 2. Повністю прибрано білі межі між зонами зміни висот. 3. Відображення саме обраного сектора у вкладці «Тривоги»."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.4.5",
-    "version_code": 142,
+    "version_name": "1.4.6",
+    "version_code": 143,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.4.5 (Преміум, build 142): 1. Виправлено роботу оновлень із сервера без затримок. 2. Працездатність меню «Звукові сповіщення». 3. Відображення обраного району/сектора у списку тривог. 4. Поріг появи річок та траєкторій збільшено до 300%."
+    "changelog": "v1.4.6 (Преміум, build 143): 1. Висоти та низини приховані на оглядовій карті України, з'являються тільки при збільшенні від 300%. 2. Прибрано білі розділові лінії між зонами висот. 3. Показ обраного району у списку тривог."
   },
   "alert_mobile_premium": {
-    "version_name": "1.4.5",
-    "version_code": 142,
+    "version_name": "1.4.6",
+    "version_code": 143,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.4.5 (Преміум, build 142): 1. Виправлено оновлення: примусова перевірка сервера. 2. Клікабельність рядка звукових сповіщень. 3. У списку тривог відображається обраний сектор/район. 4. Річки та траєкторії з'являються тільки при наближенні від 300%."
+    "changelog": "v1.4.6 (Преміум, build 143): 1. Висоти та низини приховані на оглядовому масштабі, активуються від 300% зуму. 2. Без білих меж між висотними зонами. 3. Відображення конкретного сектора у тривогах."
   },
   "alert_googleplay": {
-    "version_name": "1.4.5",
-    "version_code": 142,
+    "version_name": "1.4.6",
+    "version_code": 143,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.4.5 (Google Play, build 142): 1. Selected district/sector displayed cleanly in Threats tab. 2. Interactive sound notification settings. 3. Detail layer zoom threshold raised to >= 3.0x (300%). 4. Optimized update flow."
+    "changelog": "v1.4.6 (Google Play, build 143): 1. Clean overview map: elevations and lowlands hidden on overview scale, visible only when zoomed (>=300%). 2. White borders between elevation zones removed completely. 3. Sector-focused threat view."
   },
   "ads": {
     "enabled": false,
