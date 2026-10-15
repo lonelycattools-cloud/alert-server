@@ -25,39 +25,39 @@
     "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
   },
   "alert_screensaver": {
-    "version_name": "1.4.4",
-    "version_code": 141,
+    "version_name": "1.4.5",
+    "version_code": 142,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.4.4 (build 141): 1. Повне приховування векторів траєкторій, водойм, річок та місць падіння на оглядовій карті України (відображаються виключно самі загрози). 2. Детальні шари активуються строго при наближенні від 200% (2.0x) або у режимі фокусування області."
+    "changelog": "v1.4.5 (build 142): 1. Виправлено оновлення: примусова перевірка сервера без блокування. 2. Виправлено клікабельність меню звукових сповіщень. 3. Відображення саме обраного сектора (району) у списку загроз без дублювання всієї області. 4. Поріг появи річок та траєкторій підвищено до 300% (3.0x)."
   },
   "alert_mobile": {
-    "version_name": "1.4.4",
-    "version_code": 141,
+    "version_name": "1.4.5",
+    "version_code": 142,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.4.4 (build 141): 1. Повне приховування векторів траєкторій, водойм, річок та місць падіння на оглядовій карті всієї України. 2. Відображення строго самих загроз. 3. Траєкторії та річки з'являються лише при детальному наближенні (від 200%)."
+    "changelog": "v1.4.5 (build 142): 1. Виправлено оновлення: примусова перевірка сервера при натисканні «Оновити». 2. Клікабельність картки «Звукові сповіщення». 3. Відображення конкретного обраного сектора (району) у вкладці «Тривоги» замість загальної області. 4. Детальні шари (річки, траєкторії) з'являються строго при наближенні від 300% (3.0x)."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.4.4",
-    "version_code": 141,
+    "version_name": "1.4.5",
+    "version_code": 142,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.4.4 (Преміум, build 141): 1. Повне приховування векторів траєкторій, водойм, річок та місць падіння на оглядовій карті України. 2. Відображення строго самих загроз. 3. Деталізація активується лише при наближенні від 200%."
+    "changelog": "v1.4.5 (Преміум, build 142): 1. Виправлено роботу оновлень із сервера без затримок. 2. Працездатність меню «Звукові сповіщення». 3. Відображення обраного району/сектора у списку тривог. 4. Поріг появи річок та траєкторій збільшено до 300%."
   },
   "alert_mobile_premium": {
-    "version_name": "1.4.4",
-    "version_code": 141,
+    "version_name": "1.4.5",
+    "version_code": 142,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.4.4 (Преміум, build 141): 1. Повне приховування векторів траєкторій, водойм, річок та місць падіння на оглядовій карті всієї України. 2. Відображення строго самих загроз. 3. Траєкторії та річки з'являються лише при детальному наближенні (від 200%)."
+    "changelog": "v1.4.5 (Преміум, build 142): 1. Виправлено оновлення: примусова перевірка сервера. 2. Клікабельність рядка звукових сповіщень. 3. У списку тривог відображається обраний сектор/район. 4. Річки та траєкторії з'являються тільки при наближенні від 300%."
   },
   "alert_googleplay": {
-    "version_name": "1.4.4",
-    "version_code": 141,
+    "version_name": "1.4.5",
+    "version_code": 142,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.4.4 (Google Play, build 141): 1. Completely clean full Ukraine map view: trajectories, vectors, rivers and water bodies hidden unless zoomed in (>=200%). 2. Always show air threats cleanly."
+    "changelog": "v1.4.5 (Google Play, build 142): 1. Selected district/sector displayed cleanly in Threats tab. 2. Interactive sound notification settings. 3. Detail layer zoom threshold raised to >= 3.0x (300%). 4. Optimized update flow."
   },
   "ads": {
     "enabled": false,
