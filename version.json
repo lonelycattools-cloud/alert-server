@@ -25,39 +25,39 @@
     "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
   },
   "alert_screensaver": {
-    "version_name": "1.4.7",
-    "version_code": 144,
+    "version_name": "1.4.8",
+    "version_code": 145,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.4.7 (build 144): 1. Багаторівнева відмовостійкість (Failover): автоматичне перемикання на прямі джерела при недоступності хмарного дзеркала. 2. Безперебійний показ тривог, районів та БПЛА незалежно від стану сервера. 3. Пряме завантаження оновлень через GitHub Raw."
+    "changelog": "v1.4.8 (build 145): 1. Виправлено накладання кнопок вибору області та тексту на Android TV. 2. Оптимізовано позиціонування індикатора обраного регіону та кнопок керування картою. 3. Покращено навігацію пультом ДУ."
   },
   "alert_mobile": {
-    "version_name": "1.4.7",
-    "version_code": 144,
+    "version_name": "1.4.8",
+    "version_code": 145,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.4.7 (build 144): 1. Багаторівнева відмовостійкість: прямий резервний канал отримання тривог і БПЛА/ракет при збої сервера. 2. Миттєве завантаження статусів областей та районів. 3. Автономна стабільність моніторингу."
+    "changelog": "v1.4.8 (build 145): 1. Оптимізовано відображення індикатора обраної області та кнопок керування. 2. Виправлено взаємодію елементів інтерфейсу на вузьких екранах. 3. Покращено стабільність."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.4.7",
-    "version_code": 144,
+    "version_name": "1.4.8",
+    "version_code": 145,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.4.7 (Преміум, build 144): 1. Багаторівнева система відмовостійкості: автоматичний перехід на резервні джерела тривог і радара. 2. Стабільне відображення карти та залишку часу без залежності від хмари."
+    "changelog": "v1.4.8 (Преміум, build 145): 1. Усунуто накладання кнопок та назви області у ТВ-режимі. 2. Оптимізовано розрахунок вільних зон для верхніх елементів карти. 3. Стабільна навігація пультом."
   },
   "alert_mobile_premium": {
-    "version_name": "1.4.7",
-    "version_code": 144,
+    "version_name": "1.4.8",
+    "version_code": 145,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.4.7 (Преміум, build 144): 1. Відмовостійкий автономний моніторинг: прямі канали тривог і цілей Neptun. 2. Безперебійна робота фонової служби та віджетів."
+    "changelog": "v1.4.8 (Преміум, build 145): 1. Покращено інтерфейс карти та вибір області у вертикальній орієнтації. 2. Виправлено перекриття верхніх панелей. 3. Автономна стабільність моніторингу."
   },
   "alert_googleplay": {
-    "version_name": "1.4.7",
-    "version_code": 144,
+    "version_name": "1.4.8",
+    "version_code": 145,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.4.7 (Google Play, build 144): 1. Multi-tier network failover: continuous alert tracking even during server outage. 2. Direct radar threat stream fallback. 3. Performance optimizations."
+    "changelog": "v1.4.8 (Google Play, build 145): 1. Fixed TV layout text and button overlaps on focused regions. 2. Optimized top bar controls and region pill spacing. 3. Remote control focus improvements."
   },
   "ads": {
     "enabled": false,
