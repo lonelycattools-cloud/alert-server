@@ -440,7 +440,13 @@ def _handle_source_success(source_key: str):
 </html>"""
         threading.Thread(target=_send_email_alert, args=(subject, body, plain, extra), daemon=True).start()
 
-# In-memory alert cache
+# In-memory alert cache & persistent worker pool
+_ALERTS_EXECUTOR = ThreadPoolExecutor(max_workers=3, thread_name_prefix="AlertsPool")
+_last_seen_alarm_time: Dict[str, float] = {}
+_last_seen_alarm_level: Dict[str, str] = {}
+_last_seen_district_time: Dict[str, float] = {}
+_last_seen_district_level: Dict[str, str] = {}
+
 _alerts_cache = {
     "timestamp": 0.0,
     "data": None
@@ -462,20 +468,20 @@ def _refresh_alerts_cache() -> Optional[Dict[str, Any]]:
     Fetches statuses from multiple encrypted upstream providers concurrently.
     Synchronously aggregates them: If ANY provider indicates an active alarm in a region,
     that region is IMMEDIATELY promoted to RED (Zero Latency Alert Injection).
+    Uses a 6-second hysteresis hold-down for deactivations to eliminate 1-second false all-clears.
     """
     now = time.time()
     sources = [_SRC_PRIMARY, _SRC_BACKUP1, _SRC_BACKUP2]
     results = []
 
-    with ThreadPoolExecutor(max_workers=len(sources)) as executor:
-        future_to_src = {executor.submit(_fetch_source, src): src for src in sources}
-        for future in as_completed(future_to_src):
-            try:
-                data = future.result()
-                if data:
-                    results.append(data)
-            except Exception:
-                pass
+    futures = [_ALERTS_EXECUTOR.submit(_fetch_source, src) for src in sources]
+    for f in futures:
+        try:
+            data = f.result(timeout=3.5)
+            if data:
+                results.append(data)
+        except Exception:
+            pass
 
     if not results:
         with _cache_lock:
@@ -485,7 +491,6 @@ def _refresh_alerts_cache() -> Optional[Dict[str, Any]]:
     primary_data = None
     for r in results:
         if isinstance(r, dict) and "states" in r:
-            # Check if has districts
             st = r.get("states", {})
             if any("districts" in v for v in st.values() if isinstance(v, dict)):
                 primary_data = r
@@ -517,25 +522,54 @@ def _refresh_alerts_cache() -> Optional[Dict[str, Any]]:
     for name, s_obj in states.items():
         if not isinstance(s_obj, dict):
             continue
+        name_key = name.lower().strip()
         s_enabled = bool(s_obj.get("enabled", False) or s_obj.get("alertnow", False) or s_obj.get("alert_now", False))
         
         # Zero-latency boost: if ANY source reported an alert for this region, enable immediately!
-        if name.lower().strip() in alarmed_state_names:
+        if name_key in alarmed_state_names:
             s_enabled = True
 
         s_raw_lvl = s_obj.get("alert_level")
         eff_lvl = ("yellow" if s_raw_lvl == "yellow" else "red") if s_enabled else "none"
         changed = s_obj.get("enabled_at") or s_obj.get("changed") or ""
 
-        # Aggregate district level
-        for _, d_obj in (s_obj.get("districts") or {}).items():
-            if isinstance(d_obj, dict) and d_obj.get("enabled"):
+        # Aggregate district level with hysteresis hold-down
+        districts = s_obj.get("districts") or {}
+        for d_name, d_obj in districts.items():
+            if isinstance(d_obj, dict):
+                d_key = f"{name_key}:{d_name.lower().strip()}"
+                d_enabled = bool(d_obj.get("enabled", False))
                 d_lvl = "yellow" if d_obj.get("alert_level") == "yellow" else "red"
-                if rank.get(d_lvl, 0) > rank.get(eff_lvl, 0):
-                    eff_lvl = d_lvl
-                d_ts = d_obj.get("enabled_at") or ""
-                if d_ts and (not changed or d_ts > changed):
-                    changed = d_ts
+                if d_enabled:
+                    _last_seen_district_time[d_key] = now
+                    _last_seen_district_level[d_key] = d_lvl
+                else:
+                    # 6-second hold-down to prevent 1-second all-clear flicker
+                    if (now - _last_seen_district_time.get(d_key, 0.0)) < 6.0:
+                        d_enabled = True
+                        d_lvl = _last_seen_district_level.get(d_key, "red")
+                        d_obj["enabled"] = True
+                        d_obj["alert_level"] = d_lvl
+
+                if d_enabled:
+                    if rank.get(d_lvl, 0) > rank.get(eff_lvl, 0):
+                        eff_lvl = d_lvl
+                    d_ts = d_obj.get("enabled_at") or ""
+                    if d_ts and (not changed or d_ts > changed):
+                        changed = d_ts
+
+        # Oblast-level hysteresis hold-down (6 seconds):
+        if eff_lvl in ("red", "yellow"):
+            _last_seen_alarm_time[name_key] = now
+            _last_seen_alarm_level[name_key] = eff_lvl
+            s_obj["enabled"] = True
+            s_obj["alert_level"] = eff_lvl
+        else:
+            if (now - _last_seen_alarm_time.get(name_key, 0.0)) < 6.0:
+                # Hold previous alert status for 6 seconds of quiet confirmation
+                eff_lvl = _last_seen_alarm_level.get(name_key, "red")
+                s_obj["enabled"] = True
+                s_obj["alert_level"] = eff_lvl
 
         if eff_lvl == "red":
             red_count += 1
@@ -585,8 +619,32 @@ def _start_alerts_background_poller():
     t = threading.Thread(target=_loop, name="AlertPoller", daemon=True)
     t.start()
 
-# Start background poller on launch
+def _start_keepalive_worker():
+    """Keeps the Render web container awake by sending background heartbeat requests."""
+    def _loop():
+        time.sleep(30.0)
+        port = os.environ.get("PORT", "8000")
+        local_url = f"http://127.0.0.1:{port}/health"
+        ext_url = os.environ.get("RENDER_EXTERNAL_URL", "").strip()
+        ping_urls = [local_url]
+        if ext_url:
+            ping_urls.append(f"{ext_url.rstrip('/')}/health")
+
+        while True:
+            time.sleep(480.0)
+            for u in ping_urls:
+                try:
+                    _HTTP_SESSION.get(u, timeout=10.0)
+                    logger.debug(f"Keepalive ping ok: {u}")
+                except Exception as e:
+                    logger.debug(f"Keepalive ping err for {u}: {e}")
+
+    t = threading.Thread(target=_loop, name="ServerKeepalive", daemon=True)
+    t.start()
+
+# Start background workers on launch
 _start_alerts_background_poller()
+_start_keepalive_worker()
 
 @app.get("/")
 def root():

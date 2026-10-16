@@ -25,39 +25,39 @@
     "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
   },
   "alert_screensaver": {
-    "version_name": "1.4.8",
-    "version_code": 145,
+    "version_name": "1.4.9",
+    "version_code": 146,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.4.8 (build 145): 1. Виправлено накладання кнопок вибору області та тексту на Android TV. 2. Оптимізовано позиціонування індикатора обраного регіону та кнопок керування картою. 3. Покращено навігацію пультом ДУ."
+    "changelog": "v1.4.9 (build 146): 1. Чистий насичений жовтий колір тривог без брудноти та просвічування темного фону. 2. Плавні скруглені межі областей, районів та України. 3. Аеродинамічні плавні сплайни траєкторій. 4. Тема за замовчуванням — Тактична зелена. 5. Захист від ранкових збоїв сервера та 1-секундних хибних відбоїв. 6. Відображення назви обласного центру при виборі області."
   },
   "alert_mobile": {
-    "version_name": "1.4.8",
-    "version_code": 145,
+    "version_name": "1.4.9",
+    "version_code": 146,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.4.8 (build 145): 1. Оптимізовано відображення індикатора обраної області та кнопок керування. 2. Виправлено взаємодію елементів інтерфейсу на вузьких екранах. 3. Покращено стабільність."
+    "changelog": "v1.4.9 (build 146): 1. Чистий насичений жовтий колір тривог без помутніння. 2. Плавні згладжені векторні межі карти. 3. Плавні аеродинамічні траєкторії дронів. 4. Тактична зелена тема за замовчуванням. 5. Стабільні протоколи зв'язку без 1-секундних мерехтінь тривоги. 6. Назва обласного центру при виборі регіону."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.4.8",
-    "version_code": 145,
+    "version_name": "1.4.9",
+    "version_code": 146,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.4.8 (Преміум, build 145): 1. Усунуто накладання кнопок та назви області у ТВ-режимі. 2. Оптимізовано розрахунок вільних зон для верхніх елементів карти. 3. Стабільна навігація пультом."
+    "changelog": "v1.4.9 (Преміум, build 146): 1. Насичена чиста жовта палітра тривог. 2. Скруглені плавні межі областей і районів. 3. Сплайнові траєкторії польотів. 4. Тактична зелена тема за замовчуванням. 5. Усунуто секундні стрибки статусу тривоги. 6. Підпис обласного центру при фокусі на області."
   },
   "alert_mobile_premium": {
-    "version_name": "1.4.8",
-    "version_code": 145,
+    "version_name": "1.4.9",
+    "version_code": 146,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.4.8 (Преміум, build 145): 1. Покращено інтерфейс карти та вибір області у вертикальній орієнтації. 2. Виправлено перекриття верхніх панелей. 3. Автономна стабільність моніторингу."
+    "changelog": "v1.4.9 (Преміум, build 146): 1. Чистий контрастний жовтий колір небезпеки. 2. Плавні контури кордонів та районів. 3. Плавні аеродинамічні лінії траєкторій. 4. Тактична зелена тема за замовчуванням. 5. Захист від збоїв передачі даних. 6. Відображення обласного центру при виборі регіону."
   },
   "alert_googleplay": {
-    "version_name": "1.4.8",
-    "version_code": 145,
+    "version_name": "1.4.9",
+    "version_code": 146,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.4.8 (Google Play, build 145): 1. Fixed TV layout text and button overlaps on focused regions. 2. Optimized top bar controls and region pill spacing. 3. Remote control focus improvements."
+    "changelog": "v1.4.9 (Google Play, build 146): 1. Pure vibrant alert yellow color without background muddy bleed-through. 2. Smooth rounded vector borders for oblasts and raions. 3. Aerodynamic smooth spline flight trajectories. 4. Tactical green as default theme. 5. Data protocol stability eliminating 1-second alert drops. 6. Regional capital names shown on oblast focus."
   },
   "ads": {
     "enabled": false,
