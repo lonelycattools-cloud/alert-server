@@ -25,39 +25,39 @@
     "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
   },
   "alert_screensaver": {
-    "version_name": "1.5.2",
-    "version_code": 149,
+    "version_name": "1.5.3",
+    "version_code": 150,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.5.2 (build 149): 1. Більш широка штриховка зон тривог з делікатним мінімальним контрастом. 2. Автоматичне точне вписування обраної області або району на весь екран з можливістю вільного зуму. 3. Адаптивні висококонтрастні траєкторії та збільшені значки загроз (червоні на жовтому, жовті на червоному) з контурним ореолом."
+    "changelog": "v1.5.3 (build 150): 1. Виправлено показ обраної області: при виборі області показується вся область без блокування на секторі. 2. Плавні аеродинамічні траєкторії без зламів (алгоритм Чайкіна), що динамічно звужуються та зникають. 3. Чіткі назви міст і райцентрів при перегляді області."
   },
   "alert_mobile": {
-    "version_name": "1.5.2",
-    "version_code": 149,
+    "version_name": "1.5.3",
+    "version_code": 150,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.5.2 (build 149): 1. Ширші смуги тривог з м'яким затемненням. 2. Точне центрирування та вписування обраного району/області в екран зі збереженням зуму. 3. Контрастні значки дронів та траєкторії під будь-який фон тривоги."
+    "changelog": "v1.5.3 (build 150): 1. Точне вписування обраної області без звуження до сектора. 2. Гладкі природні повороти траєкторій з поступовим розчиненням пройденого хвоста. 3. Автоматичне відображення підписів міст та райцентрів при збільшенні або виборі області."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.5.2",
-    "version_code": 149,
+    "version_name": "1.5.3",
+    "version_code": 150,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.5.2 (Преміум, build 149): 1. Тактична широка штриховка карти. 2. Ідеальне вписування вибраної локації (сектора/області) в екран. 3. Чіткі збільшені силуети цілей та адаптивні кольори траєкторій."
+    "changelog": "v1.5.3 (Преміум, build 150): 1. Бездоганне вписування обраної області на весь екран. 2. Аеродинамічно гладкі лінії польоту цілей, що звужуються та зникають за часом. 3. Автоматичний показ міст і райцентрів на карті області."
   },
   "alert_mobile_premium": {
-    "version_name": "1.5.2",
-    "version_code": 149,
+    "version_name": "1.5.3",
+    "version_code": 150,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.5.2 (Преміум, build 149): 1. Ширша та м'якша штриховка тривожних зон. 2. Фокусування на обраному районі або області без спотворення масштабу. 3. Висококонтрастні траєкторії та збільшені маркери загроз."
+    "changelog": "v1.5.3 (Преміум, build 150): 1. Відображення всієї обраної області без прив'язки до домашнього сектора. 2. Плавні траєкторії цілей з м'яким згасанням і звуженням. 3. Видимі назви міст та районних центрів при відкритті області."
   },
   "alert_googleplay": {
-    "version_name": "1.5.2",
-    "version_code": 149,
+    "version_name": "1.5.3",
+    "version_code": 150,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.5.2 (Google Play, build 149): 1. Wider and subtler alert hatching. 2. Precise viewport fitting when selecting oblast or district while preserving zoom capability. 3. Adaptive high-contrast threat icons and trajectories (red on yellow, yellow on red) with dark outlines."
+    "changelog": "v1.5.3 (Google Play, build 150): 1. Full oblast viewport framing without forcing sector crop. 2. Smooth aerodynamic flight paths with natural cornering and dynamic trail tapering/dissolving. 3. Visible city and district center labels when viewing oblast or zooming in."
   },
   "ads": {
     "enabled": false,

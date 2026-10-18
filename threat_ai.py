@@ -317,15 +317,18 @@ class ThreatTrackerAI:
                 if len(pts) < 2 and course_deg > 0:
                     border_dist = calculate_border_entry_distance(lat, lon, course_deg)
                     back_brng = (course_deg + 180.0) % 360.0
-                    steps = max(3, min(8, int(border_dist / 16.0)))
+                    steps = max(3, min(10, int(border_dist / 14.0)))
+                    step_km = border_dist / steps
+                    drift = math.sin(lat * 5.0 + lon * 3.0) * 1.5
+                    cur_lat, cur_lon = lat, lon
+                    cur_brng = back_brng
                     back_pts = []
-                    for s in range(steps, 0, -1):
-                        d = (border_dist * s) / steps
-                        yaw = math.sin(s * 0.95 + lat * 10.0) * 5.0
-                        bearing = (back_brng + yaw + 360.0) % 360.0
-                        p_lat, p_lon = dest_point_py(lat, lon, d, bearing)
+                    for s in range(steps):
+                        p_lat, p_lon = dest_point_py(cur_lat, cur_lon, step_km, cur_brng)
                         back_pts.append([round(p_lat, 5), round(p_lon, 5)])
-                    pts = back_pts + [cur_pt]
+                        cur_lat, cur_lon = p_lat, p_lon
+                        cur_brng = (cur_brng + drift + 360.0) % 360.0
+                    pts = list(reversed(back_pts)) + [cur_pt]
 
                 first_pt = pts[0]
                 corridor = classify_entry_corridor(first_pt[0], first_pt[1])
