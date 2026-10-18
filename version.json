@@ -25,39 +25,39 @@
     "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
   },
   "alert_screensaver": {
-    "version_name": "1.4.9",
-    "version_code": 146,
+    "version_name": "1.5.0",
+    "version_code": 147,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.4.9 (build 146): 1. Чистий насичений жовтий колір тривог без брудноти та просвічування темного фону. 2. Плавні скруглені межі областей, районів та України. 3. Аеродинамічні плавні сплайни траєкторій. 4. Тема за замовчуванням — Тактична зелена. 5. Захист від ранкових збоїв сервера та 1-секундних хибних відбоїв. 6. Відображення назви обласного центру при виборі області."
+    "changelog": "v1.5.0 (build 147): 1. Сповіщення поверх додатків за замовчуванням вимкнено на смартфонах та увімкнено на ТВ. 2. Окреме налаштування сповіщень у шторці про курс цілей (за замовчуванням вимкнено). 3. Діагональна штриховка зон тривог (жовта/червона) для легкого розпізнавання. 4. Нова єдина іконка та банер для ТВ (Стандарт та Преміум). 5. Відображення іконки всередині додатка."
   },
   "alert_mobile": {
-    "version_name": "1.4.9",
-    "version_code": 146,
+    "version_name": "1.5.0",
+    "version_code": 147,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.4.9 (build 146): 1. Чистий насичений жовтий колір тривог без помутніння. 2. Плавні згладжені векторні межі карти. 3. Плавні аеродинамічні траєкторії дронів. 4. Тактична зелена тема за замовчуванням. 5. Стабільні протоколи зв'язку без 1-секундних мерехтінь тривоги. 6. Назва обласного центру при виборі регіону."
+    "changelog": "v1.5.0 (build 147): 1. Сповіщення поверх додатків за замовчуванням вимкнено на смартфонах. 2. Окремий перемикач сповіщень у шторці про наближення цілей. 3. Легка діагональна штриховка тривожних областей на карті. 4. Нова тактична іконка додатку. 5. Іконка всередині головного вікна та налаштувань."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.4.9",
-    "version_code": 146,
+    "version_name": "1.5.0",
+    "version_code": 147,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.4.9 (Преміум, build 146): 1. Насичена чиста жовта палітра тривог. 2. Скруглені плавні межі областей і районів. 3. Сплайнові траєкторії польотів. 4. Тактична зелена тема за замовчуванням. 5. Усунуто секундні стрибки статусу тривоги. 6. Підпис обласного центру при фокусі на області."
+    "changelog": "v1.5.0 (Преміум, build 147): 1. Плаваючий значок поверх додатків автоматично оптимізовано під ТВ/смартфон. 2. Можливість увімкнути/вимкнути сповіщення у шторці про курс на вас. 3. Діагональні тактичні смужки на тривожних секторах. 4. Нова преміальна іконка та банер для ТВ із золотим акцентом. 5. Логотип у шапці додатку."
   },
   "alert_mobile_premium": {
-    "version_name": "1.4.9",
-    "version_code": 146,
+    "version_name": "1.5.0",
+    "version_code": 147,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.4.9 (Преміум, build 146): 1. Чистий контрастний жовтий колір небезпеки. 2. Плавні контури кордонів та районів. 3. Плавні аеродинамічні лінії траєкторій. 4. Тактична зелена тема за замовчуванням. 5. Захист від збоїв передачі даних. 6. Відображення обласного центру при виборі регіону."
+    "changelog": "v1.5.0 (Преміум, build 147): 1. Сповіщення поверх інших додатків вимкнено за замовчуванням на телефонах. 2. Перемикач сповіщень про наближення цілей. 3. Тактична діагональна штриховка небезпечних областей. 4. Нова тактична іконка з золотим баджем Преміум. 5. Іконка у заголовку програми."
   },
   "alert_googleplay": {
-    "version_name": "1.4.9",
-    "version_code": 146,
+    "version_name": "1.5.0",
+    "version_code": 147,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.4.9 (Google Play, build 146): 1. Pure vibrant alert yellow color without background muddy bleed-through. 2. Smooth rounded vector borders for oblasts and raions. 3. Aerodynamic smooth spline flight trajectories. 4. Tactical green as default theme. 5. Data protocol stability eliminating 1-second alert drops. 6. Regional capital names shown on oblast focus."
+    "changelog": "v1.5.0 (Google Play, build 147): 1. Overlay notifications defaulted to OFF on phones, ON on TVs. 2. Optional inbound proximity notification frequency switch. 3. Tactical diagonal hatching across active red/yellow alert regions. 4. Refined high-resolution app icon, adaptive launcher icons & TV banner. 5. In-app header branding."
   },
   "ads": {
     "enabled": false,
