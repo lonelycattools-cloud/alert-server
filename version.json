@@ -25,39 +25,39 @@
     "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
   },
   "alert_screensaver": {
-    "version_name": "1.5.1",
-    "version_code": 148,
+    "version_name": "1.5.2",
+    "version_code": 149,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.5.1 (build 148): 1. Оновлена тактична штриховка зон тривог: нахил зліва направо, однакова ширина темних і світлих смуг, м'яке ненав'язливе затемнення. 2. Оптимізація контрастності та плавності відображення карти."
+    "changelog": "v1.5.2 (build 149): 1. Більш широка штриховка зон тривог з делікатним мінімальним контрастом. 2. Автоматичне точне вписування обраної області або району на весь екран з можливістю вільного зуму. 3. Адаптивні висококонтрастні траєкторії та збільшені значки загроз (червоні на жовтому, жовті на червоному) з контурним ореолом."
   },
   "alert_mobile": {
-    "version_name": "1.5.1",
-    "version_code": 148,
+    "version_name": "1.5.2",
+    "version_code": 149,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.5.1 (build 148): 1. Оновлена тактична штриховка тривожних областей: нахил зліва направо, однакова ширина смуг, делікатне затемнення. 2. Покращено розпізнавання активних зон."
+    "changelog": "v1.5.2 (build 149): 1. Ширші смуги тривог з м'яким затемненням. 2. Точне центрирування та вписування обраного району/області в екран зі збереженням зуму. 3. Контрастні значки дронів та траєкторії під будь-який фон тривоги."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.5.1",
-    "version_code": 148,
+    "version_name": "1.5.2",
+    "version_code": 149,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.5.1 (Преміум, build 148): 1. Оновлена штриховка карти: нахил зліва направо, рівні смуги, м'який тактичний відтінок. 2. Оптимізація рендерингу для ТВ."
+    "changelog": "v1.5.2 (Преміум, build 149): 1. Тактична широка штриховка карти. 2. Ідеальне вписування вибраної локації (сектора/області) в екран. 3. Чіткі збільшені силуети цілей та адаптивні кольори траєкторій."
   },
   "alert_mobile_premium": {
-    "version_name": "1.5.1",
-    "version_code": 148,
+    "version_name": "1.5.2",
+    "version_code": 149,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.5.1 (Преміум, build 148): 1. Оновлені тактичні смуги тривог зліва направо, рівна ширина темних і світлих ліній, м'який контраст. 2. Покращення стабільності."
+    "changelog": "v1.5.2 (Преміум, build 149): 1. Ширша та м'якша штриховка тривожних зон. 2. Фокусування на обраному районі або області без спотворення масштабу. 3. Висококонтрастні траєкторії та збільшені маркери загроз."
   },
   "alert_googleplay": {
-    "version_name": "1.5.1",
-    "version_code": 148,
+    "version_name": "1.5.2",
+    "version_code": 149,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.5.1 (Google Play, build 148): 1. Refined alert map hatching: left-to-right slant, equal dark/light stripe width, subtle tactical darkening. 2. Performance and rendering optimizations."
+    "changelog": "v1.5.2 (Google Play, build 149): 1. Wider and subtler alert hatching. 2. Precise viewport fitting when selecting oblast or district while preserving zoom capability. 3. Adaptive high-contrast threat icons and trajectories (red on yellow, yellow on red) with dark outlines."
   },
   "ads": {
     "enabled": false,
