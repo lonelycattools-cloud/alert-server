@@ -26,38 +26,38 @@
   },
   "alert_screensaver": {
     "version_name": "1.5.8",
-    "version_code": 155,
+    "version_code": 156,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.5.8 (build 155): 1. Повністю безшовна ультратонка траєкторія (єдиний гладкий контур 0.6dp) з лінійним градієнтом прозорості — жодних сходинок чи товстих частин біля дрона. 2. Тонка пунктирна лінія майбутнього курсу з компактною стрілкою."
+    "changelog": "v1.5.8 (build 156): 1. Повністю безшовна ультратонка траєкторія (єдиний гладкий контур 0.6dp) з лінійним градієнтом прозорості — жодних сходинок чи товстих частин біля дрона. 2. Тонка пунктирна лінія майбутнього курсу з компактною стрілкою."
   },
   "alert_mobile": {
     "version_name": "1.5.8",
-    "version_code": 155,
+    "version_code": 156,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.5.8 (build 155): 1. Єдиний суцільний ультратонкий контур минулої траєкторії без перепадів товщини. 2. Делікатне розчинення хвоста в повітрі через градієнт. 3. Тонкий пунктирний вектор майбутнього польоту."
+    "changelog": "v1.5.8 (build 156): 1. Єдиний суцільний ультратонкий контур минулої траєкторії без перепадів товщини. 2. Делікатне розчинення хвоста в повітрі через градієнт. 3. Тонкий пунктирний вектор майбутнього польоту."
   },
   "alert_screensaver_premium": {
     "version_name": "1.5.8",
-    "version_code": 155,
+    "version_code": 156,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.5.8 (Преміум, build 155): 1. Бездоганний аеродинамічний хвіст: єдиний нерозривний контур 0.6dp з апаратним градієнтом згасання до 15% у хвості. 2. Жодних масивних брусків чи стиків. 3. Тонка пунктирна проекція курсу."
+    "changelog": "v1.5.8 (Преміум, build 156): 1. Бездоганний аеродинамічний хвіст: єдиний нерозривний контур 0.6dp з апаратним градієнтом згасання до 15% у хвості. 2. Жодних масивних брусків чи стиків. 3. Тонка пунктирна проекція курсу."
   },
   "alert_mobile_premium": {
     "version_name": "1.5.8",
-    "version_code": 155,
+    "version_code": 156,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.5.8 (Преміум, build 155): 1. Абсолютно рівномірний витончений хвіст БПЛА без будь-яких потовщень. 2. Плавне лінійне згасання хвоста. 3. Тонкий пунктирний вектор польоту."
+    "changelog": "v1.5.8 (Преміум, build 156): 1. Абсолютно рівномірний витончений хвіст БПЛА без будь-яких потовщень. 2. Плавне лінійне згасання хвоста. 3. Тонкий пунктирний вектор польоту."
   },
   "alert_googleplay": {
     "version_name": "1.5.8",
-    "version_code": 155,
+    "version_code": 156,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.5.8 (Google Play, build 155): 1. Single unbroken ultra-thin 0.6dp flight trail with continuous hardware alpha gradient (no thickness steps or heavy bars). 2. Ultra-thin dashed future trajectory."
+    "changelog": "v1.5.8 (Google Play, build 156): 1. Single unbroken ultra-thin 0.6dp flight trail with continuous hardware alpha gradient (no thickness steps or heavy bars). 2. Ultra-thin dashed future trajectory."
   },
   "ads": {
     "enabled": false,
