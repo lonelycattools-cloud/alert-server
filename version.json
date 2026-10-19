@@ -25,39 +25,39 @@
     "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
   },
   "alert_screensaver": {
-    "version_name": "1.5.5",
-    "version_code": 152,
+    "version_name": "1.5.6",
+    "version_code": 153,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.5.5 (build 152): 1. Оновлено іконку: чіткий контрастний тактичний силует БПЛА Шахед, що виразно відображається на будь-яких екранах і в мініатюрному масштабі. 2. Оптимізовано розміщення підписів міст та райцентрів. 3. Оновлено ресурси та банери."
+    "changelog": "v1.5.6 (build 153): 1. Аеродинамічні шовковисті траєкторії польоту БПЛА без дисків і злаків із плавним звуженням. 2. Майбутня траєкторія стала тоншою та пунктирною. 3. Прибрано знаки оклику з міст, кількість загроз показується поруч із містом. 4. На огляді всієї карти відображається лише Київ, при огляді області — обласний та районні центри. 5. Можливість віддалення масштабу для огляду прилеглих областей навколо Києва."
   },
   "alert_mobile": {
-    "version_name": "1.5.5",
-    "version_code": 152,
+    "version_name": "1.5.6",
+    "version_code": 153,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.5.5 (build 152): 1. Контрастна іконка додатку з тактичним силуетом Шахеда — чітко розпізнається на панелях та у малому розширенні. 2. Усунуто колізії назв міст із бейджами загроз. 3. Режим відображення всіх міст активний за замовчуванням."
+    "changelog": "v1.5.6 (build 153): 1. Аеродинамічні шовковисті траєкторії БПЛА без дисків і стиків. 2. Тонша пунктирна майбутня траєкторія. 3. Чисті точки міст без знаків оклику, кількість загроз поруч з назвою. 4. На всій карті тільки Київ, в області — всі райцентри. 5. Вільне віддалення та панорамування навколо Києва."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.5.5",
-    "version_code": 152,
+    "version_name": "1.5.6",
+    "version_code": 153,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.5.5 (Преміум, build 152): 1. Преміальна іконка з контрастним тактичним силуетом цілі, золотим обідком та зірками. 2. Чітке розпізнавання у малому масштабі на будь-яких панелях. 3. Бездоганне відображення всіх міст та райцентрів."
+    "changelog": "v1.5.6 (Преміум, build 153): 1. Шовковисті безшовні траєкторії БПЛА. 2. Тонка пунктирна майбутня траєкторія. 3. Прибрано знаки оклику з міст, кількість загроз поруч з містом. 4. Лаконічні масштабозалежні назви міст. 5. Можливість віддалення та огляду сусідніх областей навколо Києва."
   },
   "alert_mobile_premium": {
-    "version_name": "1.5.5",
-    "version_code": 152,
+    "version_name": "1.5.6",
+    "version_code": 153,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.5.5 (Преміум, build 152): 1. Нова висококонтрастна тактична іконка з золотим бейджем та помітним силуетом Шахеда. 2. Гарантоване відображення всіх райцентрів та обласних центрів. 3. Розумний обхід бейджів у 4 напрямках."
+    "changelog": "v1.5.6 (Преміум, build 153): 1. Високоточні згладжені траєкторії БПЛА. 2. Пунктирна майбутня траєкторія. 3. Чисті маркери населених пунктів, кількість загроз біля назви. 4. Ієрархія підписів міст за масштабом. 5. Зручне зменшення масштабу для огляду загроз навколо Києва."
   },
   "alert_googleplay": {
-    "version_name": "1.5.5",
-    "version_code": 152,
+    "version_name": "1.5.6",
+    "version_code": 153,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.5.5 (Google Play, build 152): 1. High-visibility tactical Shahed silhouette icon, sharp and instantly recognizable at small resolutions (taskbars, headers). 2. Intelligent 4-directional city label placement. 3. Updated unified store assets and banners."
+    "changelog": "v1.5.6 (Google Play, build 153): 1. Silky-smooth aerodynamic drone flight paths without disc joints. 2. Thin dashed future trajectory. 3. Clean settlement markers without exclamation circles; threat count displayed next to city name. 4. Scale-dependent city labels (only Kyiv on full map overview). 5. Zoom out and pan around Kyiv and selected regions to inspect approaching threats."
   },
   "ads": {
     "enabled": false,
