@@ -25,39 +25,39 @@
     "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
   },
   "alert_screensaver": {
-    "version_name": "1.5.7",
-    "version_code": 154,
+    "version_name": "1.5.8",
+    "version_code": 155,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.5.7 (build 154): 1. Повністю усунено потовщену ділянку минулої траєкторії БПЛА — тепер увесь хвіст тонкий, витончений та плавно звужується до нуля. 2. Майбутня траєкторія стала ще тоншою з делікатним пунктиром та компактною стрілкою. 3. Покращено візуальну контрастність без важких темних контурів."
+    "changelog": "v1.5.8 (build 155): 1. Повністю безшовна ультратонка траєкторія (єдиний гладкий контур 0.6dp) з лінійним градієнтом прозорості — жодних сходинок чи товстих частин біля дрона. 2. Тонка пунктирна лінія майбутнього курсу з компактною стрілкою."
   },
   "alert_mobile": {
-    "version_name": "1.5.7",
-    "version_code": 154,
+    "version_name": "1.5.8",
+    "version_code": 155,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.5.7 (build 154): 1. Повністю тонкий та витончений хвіст минулої траєкторії без важких стрибків товщини. 2. Ультратонка пунктирна майбутня траєкторія з компактною стрілкою. 3. Делікатна тіньова підкладка для ідеальної читаності."
+    "changelog": "v1.5.8 (build 155): 1. Єдиний суцільний ультратонкий контур минулої траєкторії без перепадів товщини. 2. Делікатне розчинення хвоста в повітрі через градієнт. 3. Тонкий пунктирний вектор майбутнього польоту."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.5.7",
-    "version_code": 154,
+    "version_name": "1.5.8",
+    "version_code": 155,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.5.7 (Преміум, build 154): 1. Бездоганний аеродинамічний хвіст БПЛА: прибрано грубу секцію, траєкторія тонка і плавно сходить нанівець. 2. Тонка пунктирна лінія майбутнього курсу з мініатюрним наконечником. 3. Преміальна чіткість графіки."
+    "changelog": "v1.5.8 (Преміум, build 155): 1. Бездоганний аеродинамічний хвіст: єдиний нерозривний контур 0.6dp з апаратним градієнтом згасання до 15% у хвості. 2. Жодних масивних брусків чи стиків. 3. Тонка пунктирна проекція курсу."
   },
   "alert_mobile_premium": {
-    "version_name": "1.5.7",
-    "version_code": 154,
+    "version_name": "1.5.8",
+    "version_code": 155,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.5.7 (Преміум, build 154): 1. Витончений звужений хвіст траєкторії БПЛА без масивних сегментів. 2. Тонка пунктирна лінія проекції курсу. 3. Оптимізована контрастність векторів."
+    "changelog": "v1.5.8 (Преміум, build 155): 1. Абсолютно рівномірний витончений хвіст БПЛА без будь-яких потовщень. 2. Плавне лінійне згасання хвоста. 3. Тонкий пунктирний вектор польоту."
   },
   "alert_googleplay": {
-    "version_name": "1.5.7",
-    "version_code": 154,
+    "version_name": "1.5.8",
+    "version_code": 155,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.5.7 (Google Play, build 154): 1. Eliminated heavy bar segment in past drone trajectories; entire trail now tapers smoothly and elegantly. 2. Ultra-thin dashed future projected flight vector with compact arrow tip. 3. Refined contrast shadow for crystal-clear readability."
+    "changelog": "v1.5.8 (Google Play, build 155): 1. Single unbroken ultra-thin 0.6dp flight trail with continuous hardware alpha gradient (no thickness steps or heavy bars). 2. Ultra-thin dashed future trajectory."
   },
   "ads": {
     "enabled": false,
