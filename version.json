@@ -25,39 +25,39 @@
     "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
   },
   "alert_screensaver": {
-    "version_name": "1.5.9",
-    "version_code": 157,
+    "version_name": "1.6.0",
+    "version_code": 158,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.5.9 (build 157): 1. Оновлено дизайн розділу локацій під лаконічний та строгий стиль (графітовий сірий фон #18181A, елегантні заокруглення карток 12dp, чисті статусні бейджі з рупором та галочкою). 2. Прибрано перемикач «Сигнал про підвищену небезпеку». 3. Додано плавне оновлення свайпом вниз (Pull-to-Refresh) та кнопку оновлення в шапці. 4. Очищено кнопки від піктограм/емодзі по всьому інтерфейсу."
+    "changelog": "v1.6.0 (build 158): 1. Бездоганно плавна апаратна біжуча стрічка (Ticker 60 FPS) без дрижання та ривків на базі GPU Subpixel Canvas. Реалізовано безперервну чергу повідомлень: стрічка більше не стрибає і не скидається на початок при надходженні новин із каналів, а плавно додає їх у чергу (що новіше, то раніше). 2. Навігація пультом ТВ: прибрано постійну жовту рамку фокусу з вкладки «Мапа», налагоджено чітке та природне переміщення D-pad (Шапка <-> Вкладки <-> Області/Карта). 3. Мапа: усунуто виступання гострих кутів мапи за заокруглені межі рамки."
   },
   "alert_mobile": {
-    "version_name": "1.5.9",
-    "version_code": 157,
+    "version_name": "1.6.0",
+    "version_code": 158,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.5.9 (build 157): 1. Оновлено дизайн розділу локацій під лаконічний та строгий стиль (графітовий сірий фон #18181A, елегантні заокруглення карток 12dp, чисті статусні бейджі з рупором та галочкою). 2. Прибрано перемикач «Сигнал про підвищену небезпеку». 3. Додано плавне оновлення свайпом вниз (Pull-to-Refresh) та кнопку оновлення в шапці. 4. Очищено кнопки від піктограм/емодзі по всьому інтерфейсу."
+    "changelog": "v1.6.0 (build 158): 1. Бездоганно плавна апаратна біжуча стрічка (Ticker 60 FPS) без дрижання та ривків на базі GPU Subpixel Canvas. Реалізовано безперервну чергу повідомлень: стрічка більше не стрибає і не скидається на початок при надходженні новин із каналів, а плавно додає їх у чергу (що новіше, то раніше). 2. Навігація пультом ТВ: прибрано постійну жовту рамку фокусу з вкладки «Мапа», налагоджено чітке та природне переміщення D-pad (Шапка <-> Вкладки <-> Області/Карта). 3. Мапа: усунуто виступання гострих кутів мапи за заокруглені межі рамки."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.5.9",
-    "version_code": 157,
+    "version_name": "1.6.0",
+    "version_code": 158,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.5.9 (Преміум, build 157): 1. Оновлено дизайн розділу локацій під лаконічний та строгий стиль (графітовий сірий фон #18181A, елегантні заокруглення карток 12dp, чисті статусні бейджі з рупором та галочкою). 2. Прибрано перемикач «Сигнал про підвищену небезпеку». 3. Додано плавне оновлення свайпом вниз (Pull-to-Refresh) та кнопку оновлення в шапці. 4. Очищено кнопки від піктограм/емодзі по всьому інтерфейсу."
+    "changelog": "v1.6.0 (Преміум, build 158): 1. Бездоганно плавна апаратна біжуча стрічка (Ticker 60 FPS) без дрижання та ривків на базі GPU Subpixel Canvas. Реалізовано безперервну чергу повідомлень: стрічка більше не стрибає і не скидається на початок при надходженні новин із каналів, а плавно додає їх у чергу (що новіше, то раніше). 2. Навігація пультом ТВ: прибрано постійну жовту рамку фокусу з вкладки «Мапа», налагоджено чітке та природне переміщення D-pad (Шапка <-> Вкладки <-> Області/Карта). 3. Мапа: усунуто виступання гострих кутів мапи за заокруглені межі рамки."
   },
   "alert_mobile_premium": {
-    "version_name": "1.5.9",
-    "version_code": 157,
+    "version_name": "1.6.0",
+    "version_code": 158,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.5.9 (Преміум, build 157): 1. Оновлено дизайн розділу локацій під лаконічний та строгий стиль (графітовий сірий фон #18181A, елегантні заокруглення карток 12dp, чисті статусні бейджі з рупором та галочкою). 2. Прибрано перемикач «Сигнал про підвищену небезпеку». 3. Додано плавне оновлення свайпом вниз (Pull-to-Refresh) та кнопку оновлення в шапці. 4. Очищено кнопки від піктограм/емодзі по всьому інтерфейсу."
+    "changelog": "v1.6.0 (Преміум, build 158): 1. Бездоганно плавна апаратна біжуча стрічка (Ticker 60 FPS) без дрижання та ривків на базі GPU Subpixel Canvas. Реалізовано безперервну чергу повідомлень: стрічка більше не стрибає і не скидається на початок при надходженні новин із каналів, а плавно додає їх у чергу (що новіше, то раніше). 2. Навігація пультом ТВ: прибрано постійну жовту рамку фокусу з вкладки «Мапа», налагоджено чітке та природне переміщення D-pad (Шапка <-> Вкладки <-> Області/Карта). 3. Мапа: усунуто виступання гострих кутів мапи за заокруглені межі рамки."
   },
   "alert_googleplay": {
-    "version_name": "1.5.9",
-    "version_code": 157,
+    "version_name": "1.6.0",
+    "version_code": 158,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.5.9 (Google Play, build 157): 1. Redesigned regions section to a clean, strict graphite/dark grey aesthetic (12dp corners, megaphone & checkmark status badges). 2. Removed redundant danger signal switch. 3. Added Pull-to-Refresh gesture and top header refresh button. 4. Removed emoji/pictograms from buttons throughout the interface."
+    "changelog": "v1.6.0 (Google Play, build 158): 1. Ultra-smooth GPU subpixel running ticker line with continuous queue: incoming channel news smoothly queue up without resetting or jumping back to the beginning. 2. Fixed TV remote navigation and persistent tab highlight. 3. Fixed sharp map corners poking past rounded card borders."
   },
   "ads": {
     "enabled": false,
