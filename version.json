@@ -25,39 +25,39 @@
     "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
   },
   "alert_screensaver": {
-    "version_name": "1.6.0",
-    "version_code": 158,
+    "version_name": "1.6.1",
+    "version_code": 159,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.6.0 (build 158): 1. Бездоганно плавна апаратна біжуча стрічка (Ticker 60 FPS) без дрижання та ривків на базі GPU Subpixel Canvas. Реалізовано безперервну чергу повідомлень: стрічка більше не стрибає і не скидається на початок при надходженні новин із каналів, а плавно додає їх у чергу (що новіше, то раніше). 2. Навігація пультом ТВ: прибрано постійну жовту рамку фокусу з вкладки «Мапа», налагоджено чітке та природне переміщення D-pad (Шапка <-> Вкладки <-> Області/Карта). 3. Мапа: усунуто виступання гострих кутів мапи за заокруглені межі рамки."
+    "changelog": "v1.6.1 (build 159): 1. Елегантне скруглення кутів плашки біжучої стрічки (8dp) та тонка графітова рамка в єдиному стилі інтерфейсу. 2. Апаратне згладжування та обрізка країв біжучої стрічки (clipToOutline). 3. Плавний рух (60 FPS) та безперервна черга новин із каналів без скидання в початок."
   },
   "alert_mobile": {
-    "version_name": "1.6.0",
-    "version_code": 158,
+    "version_name": "1.6.1",
+    "version_code": 159,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.6.0 (build 158): 1. Бездоганно плавна апаратна біжуча стрічка (Ticker 60 FPS) без дрижання та ривків на базі GPU Subpixel Canvas. Реалізовано безперервну чергу повідомлень: стрічка більше не стрибає і не скидається на початок при надходженні новин із каналів, а плавно додає їх у чергу (що новіше, то раніше). 2. Навігація пультом ТВ: прибрано постійну жовту рамку фокусу з вкладки «Мапа», налагоджено чітке та природне переміщення D-pad (Шапка <-> Вкладки <-> Області/Карта). 3. Мапа: усунуто виступання гострих кутів мапи за заокруглені межі рамки."
+    "changelog": "v1.6.1 (build 159): 1. Елегантне скруглення кутів плашки біжучої стрічки (8dp) та тонка графітова рамка в єдиному стилі інтерфейсу. 2. Апаратне згладжування та обрізка країв біжучої стрічки (clipToOutline). 3. Плавний рух (60 FPS) та безперервна черга новин із каналів без скидання в початок."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.6.0",
-    "version_code": 158,
+    "version_name": "1.6.1",
+    "version_code": 159,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.6.0 (Преміум, build 158): 1. Бездоганно плавна апаратна біжуча стрічка (Ticker 60 FPS) без дрижання та ривків на базі GPU Subpixel Canvas. Реалізовано безперервну чергу повідомлень: стрічка більше не стрибає і не скидається на початок при надходженні новин із каналів, а плавно додає їх у чергу (що новіше, то раніше). 2. Навігація пультом ТВ: прибрано постійну жовту рамку фокусу з вкладки «Мапа», налагоджено чітке та природне переміщення D-pad (Шапка <-> Вкладки <-> Області/Карта). 3. Мапа: усунуто виступання гострих кутів мапи за заокруглені межі рамки."
+    "changelog": "v1.6.1 (Преміум, build 159): 1. Елегантне скруглення кутів плашки біжучої стрічки (8dp) та тонка графітова рамка в єдиному стилі інтерфейсу. 2. Апаратне згладжування та обрізка країв біжучої стрічки (clipToOutline). 3. Плавний рух (60 FPS) та безперервна черга новин із каналів без скидання в початок."
   },
   "alert_mobile_premium": {
-    "version_name": "1.6.0",
-    "version_code": 158,
+    "version_name": "1.6.1",
+    "version_code": 159,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.6.0 (Преміум, build 158): 1. Бездоганно плавна апаратна біжуча стрічка (Ticker 60 FPS) без дрижання та ривків на базі GPU Subpixel Canvas. Реалізовано безперервну чергу повідомлень: стрічка більше не стрибає і не скидається на початок при надходженні новин із каналів, а плавно додає їх у чергу (що новіше, то раніше). 2. Навігація пультом ТВ: прибрано постійну жовту рамку фокусу з вкладки «Мапа», налагоджено чітке та природне переміщення D-pad (Шапка <-> Вкладки <-> Області/Карта). 3. Мапа: усунуто виступання гострих кутів мапи за заокруглені межі рамки."
+    "changelog": "v1.6.1 (Преміум, build 159): 1. Елегантне скруглення кутів плашки біжучої стрічки (8dp) та тонка графітова рамка в єдиному стилі інтерфейсу. 2. Апаратне згладжування та обрізка країв біжучої стрічки (clipToOutline). 3. Плавний рух (60 FPS) та безперервна черга новин із каналів без скидання в початок."
   },
   "alert_googleplay": {
-    "version_name": "1.6.0",
-    "version_code": 158,
+    "version_name": "1.6.1",
+    "version_code": 159,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.6.0 (Google Play, build 158): 1. Ultra-smooth GPU subpixel running ticker line with continuous queue: incoming channel news smoothly queue up without resetting or jumping back to the beginning. 2. Fixed TV remote navigation and persistent tab highlight. 3. Fixed sharp map corners poking past rounded card borders."
+    "changelog": "v1.6.1 (Google Play, build 159): 1. Rounded corners (8dp) for the running ticker bar with strict graphite styling and outline clipping. 2. Ultra-smooth 60 FPS subpixel GPU rendering with continuous channel queue without resets."
   },
   "ads": {
     "enabled": false,
