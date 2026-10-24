@@ -544,8 +544,8 @@ def _refresh_alerts_cache() -> Optional[Dict[str, Any]]:
                     _last_seen_district_time[d_key] = now
                     _last_seen_district_level[d_key] = d_lvl
                 else:
-                    # 6-second hold-down to prevent 1-second all-clear flicker
-                    if (now - _last_seen_district_time.get(d_key, 0.0)) < 6.0:
+                    # 15-second hold-down to prevent false all-clear flicker
+                    if (now - _last_seen_district_time.get(d_key, 0.0)) < 15.0:
                         d_enabled = True
                         d_lvl = _last_seen_district_level.get(d_key, "red")
                         d_obj["enabled"] = True
@@ -558,15 +558,15 @@ def _refresh_alerts_cache() -> Optional[Dict[str, Any]]:
                     if d_ts and (not changed or d_ts > changed):
                         changed = d_ts
 
-        # Oblast-level hysteresis hold-down (6 seconds):
+        # Oblast-level hysteresis hold-down (15 seconds):
         if eff_lvl in ("red", "yellow"):
             _last_seen_alarm_time[name_key] = now
             _last_seen_alarm_level[name_key] = eff_lvl
             s_obj["enabled"] = True
             s_obj["alert_level"] = eff_lvl
         else:
-            if (now - _last_seen_alarm_time.get(name_key, 0.0)) < 6.0:
-                # Hold previous alert status for 6 seconds of quiet confirmation
+            if (now - _last_seen_alarm_time.get(name_key, 0.0)) < 15.0:
+                # Hold previous alert status for 15 seconds of quiet confirmation
                 eff_lvl = _last_seen_alarm_level.get(name_key, "red")
                 s_obj["enabled"] = True
                 s_obj["alert_level"] = eff_lvl
