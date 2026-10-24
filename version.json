@@ -25,39 +25,39 @@
     "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
   },
   "alert_screensaver": {
-    "version_name": "1.6.2",
-    "version_code": 160,
+    "version_name": "1.6.3",
+    "version_code": 161,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.6.2 (build 160): 1. Апаратне скруглення кутів карти (10dp) активовано для всіх режимів, включаючи режим заставки (Daydream) та повноекранний ТВ-інтерфейс. 2. Елегантне скруглення кутів плашки біжучої стрічки (8dp) в єдиному графітовому стилі. 3. Плавний рух (60 FPS) та безперервна черга новин із каналів без скидання в початок."
+    "changelog": "v1.6.3 (build 161): 1. Виправлено збій при натисканні кнопки повноекранного перегляду карти на смартфонах. 2. Забезпечено безпечну обробку параметрів відступів (MarginLayoutParams) для всіх орієнтацій екрана. 3. Додано глобальний захисний обробник винятків UI для 100% стабільності в Google Play."
   },
   "alert_mobile": {
-    "version_name": "1.6.2",
-    "version_code": 160,
+    "version_name": "1.6.3",
+    "version_code": 161,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.6.2 (build 160): 1. Апаратне скруглення кутів карти (10dp) активовано для всіх режимів, включаючи режим заставки (Daydream) та повноекранний ТВ-інтерфейс. 2. Елегантне скруглення кутів плашки біжучої стрічки (8dp) в єдиному графітовому стилі. 3. Плавний рух (60 FPS) та безперервна черга новин із каналів без скидання в початок."
+    "changelog": "v1.6.3 (build 161): 1. Виправлено збій при натисканні кнопки повноекранного перегляду карти на смартфонах. 2. Забезпечено безпечну обробку параметрів відступів (MarginLayoutParams) для всіх орієнтацій екрана. 3. Додано глобальний захисний обробник винятків UI для 100% стабільності в Google Play."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.6.2",
-    "version_code": 160,
+    "version_name": "1.6.3",
+    "version_code": 161,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.6.2 (Преміум, build 160): 1. Апаратне скруглення кутів карти (10dp) активовано для всіх режимів, включаючи режим заставки (Daydream) та повноекранний ТВ-інтерфейс. 2. Елегантне скруглення кутів плашки біжучої стрічки (8dp) в єдиному графітовому стилі. 3. Плавний рух (60 FPS) та безперервна черга новин із каналів без скидання в початок."
+    "changelog": "v1.6.3 (build 161): 1. Виправлено збій при натисканні кнопки повноекранного перегляду карти на смартфонах. 2. Забезпечено безпечну обробку параметрів відступів (MarginLayoutParams) для всіх орієнтацій екрана. 3. Додано глобальний захисний обробник винятків UI для 100% стабільності в Google Play."
   },
   "alert_mobile_premium": {
-    "version_name": "1.6.2",
-    "version_code": 160,
+    "version_name": "1.6.3",
+    "version_code": 161,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.6.2 (Преміум, build 160): 1. Апаратне скруглення кутів карти (10dp) активовано для всіх режимів, включаючи режим заставки (Daydream) та повноекранний ТВ-інтерфейс. 2. Елегантне скруглення кутів плашки біжучої стрічки (8dp) в єдиному графітовому стилі. 3. Плавний рух (60 FPS) та безперервна черга новин із каналів без скидання в початок."
+    "changelog": "v1.6.3 (build 161): 1. Виправлено збій при натисканні кнопки повноекранного перегляду карти на смартфонах. 2. Забезпечено безпечну обробку параметрів відступів (MarginLayoutParams) для всіх орієнтацій екрана. 3. Додано глобальний захисний обробник винятків UI для 100% стабільності в Google Play."
   },
   "alert_googleplay": {
-    "version_name": "1.6.2",
-    "version_code": 160,
+    "version_name": "1.6.3",
+    "version_code": 161,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.6.2 (Google Play, build 160): 1. Hardware rounded corners (10dp) for the map active in both screensaver and main views. 2. Rounded ticker bar corners (8dp). 3. Continuous queue for running ticker line."
+    "changelog": "v1.6.3 (build 161): Fixed UI crash when tapping fullscreen map button on mobile devices; safe layout params handling across orientations; enhanced UI stability."
   },
   "ads": {
     "enabled": false,
