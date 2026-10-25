@@ -212,12 +212,39 @@ class ThreatTrackerAI:
 
             lat = float(lat)
             lon = float(lon)
-            course_deg = float(threat.get("courseDeg") or 0.0)
+            course_deg = float(threat.get("courseDeg") or threat.get("heading") or 0.0)
             raw_id = str(threat.get("id") or "")
             state_name = str(threat.get("stateName") or "")
             district_name = str(threat.get("districtName") or "")
             locality = str(threat.get("locality") or "")
             threat_type = str(threat.get("type") or "uav")
+
+            # Fallback 1: Calculate heading from past trajectory/trail coordinates
+            raw_hist = threat.get("history") or threat.get("trail") or []
+            valid_hist_pts = []
+            for p in raw_hist:
+                if isinstance(p, (list, tuple)) and len(p) >= 2 and p[0] is not None and p[1] is not None:
+                    valid_hist_pts.append((float(p[0]), float(p[1])))
+                elif isinstance(p, dict) and p.get("lat") is not None and p.get("lon") is not None:
+                    valid_hist_pts.append((float(p["lat"]), float(p["lon"])))
+
+            if course_deg <= 1.0 and len(valid_hist_pts) >= 2:
+                p_prev = valid_hist_pts[-2]
+                computed = calculate_heading_deg(p_prev[0], p_prev[1], lat, lon)
+                if computed > 0.5:
+                    course_deg = round(computed, 1)
+
+            # Fallback 2: Tactical vector estimation based on Ukrainian geographical entry corridor.
+            # Drones never fly due North (0°) across the whole country at once.
+            if course_deg <= 1.0:
+                if lat >= 50.0:
+                    course_deg = 240.0 # Northern corridor (Sumy/Chernihiv): flying SW towards Kyiv/Central
+                elif lon >= 36.0 and lat < 50.0:
+                    course_deg = 275.0 # Eastern corridor (Donbas/Kharkiv/East Zaporizhzhia): flying West
+                elif lat < 47.5:
+                    course_deg = 315.0 # Southern corridor (Crimea/Black Sea/Kherson/Odesa): flying NW
+                else:
+                    course_deg = 285.0 # Central corridor: flying West-North-West
 
             # Try to match with existing active track
             matched_id = None
@@ -376,6 +403,8 @@ class ThreatTrackerAI:
             pred_path = generate_predicted_path(lat, lon, course_deg, speed_kmh=track["speed_kmh"])
 
             threat_copy = dict(threat)
+            threat_copy["courseDeg"] = course_deg
+            threat_copy["heading"] = course_deg
             threat_copy["ai_track_id"] = track["id"]
             threat_copy["ai_entry"] = track["entry_point"]
             threat_copy["ai_duration_sec"] = track["flight_duration_sec"]

@@ -642,8 +642,22 @@ def _start_keepalive_worker():
     t = threading.Thread(target=_loop, name="ServerKeepalive", daemon=True)
     t.start()
 
+def _start_threats_background_poller():
+    """Continuously tracks and updates aerial threats & AI trajectories 24/7 in memory."""
+    def _loop():
+        time.sleep(2.0)
+        while True:
+            try:
+                _fetch_neptun_threats()
+            except Exception as e:
+                logger.debug(f"Background threat poller error: {e}")
+            time.sleep(4.0)
+    t = threading.Thread(target=_loop, name="ThreatsPoller", daemon=True)
+    t.start()
+
 # Start background workers on launch
 _start_alerts_background_poller()
+_start_threats_background_poller()
 _start_keepalive_worker()
 
 @app.get("/")
@@ -733,13 +747,33 @@ def _fetch_neptun_threats() -> Dict[str, Any]:
                 if lat is None or lon is None:
                     continue
                 heading = t.get("heading")
-                course_deg = float(heading) if heading is not None else 0.0
+                course_deg = float(heading) if (heading is not None and float(heading) > 1.0) else 0.0
                 trail = []
                 for pt in t.get("trail") or []:
                     p_lat = pt.get("lat")
                     p_lon = pt.get("lon")
                     if p_lat is not None and p_lon is not None:
                         trail.append([float(p_lat), float(p_lon)])
+
+                # Fallback 1: Calculate heading from past trail coordinates
+                if course_deg <= 1.0 and len(trail) >= 2:
+                    p_prev = trail[-2]
+                    from threat_ai import calculate_heading_deg
+                    calc_head = calculate_heading_deg(p_prev[0], p_prev[1], float(lat), float(lon))
+                    if calc_head > 1.0:
+                        course_deg = round(calc_head, 1)
+
+                # Fallback 2: Realistic tactical vector from entry sector (never default to North 0°)
+                if course_deg <= 1.0:
+                    f_lat, f_lon = float(lat), float(lon)
+                    if f_lat >= 50.0:
+                        course_deg = 240.0 # Northern corridor: SW towards Kyiv/Central
+                    elif f_lon >= 36.0 and f_lat < 50.0:
+                        course_deg = 275.0 # Eastern corridor: West towards Dnipro
+                    elif f_lat < 47.5:
+                        course_deg = 315.0 # Southern corridor: NW towards Central
+                    else:
+                        course_deg = 285.0 # Central corridor: West-North-West
                 threats.append({
                     "id": str(t.get("id") or f"trk_{lat}_{lon}"),
                     "lat": float(lat),

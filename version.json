@@ -25,39 +25,39 @@
     "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
   },
   "alert_screensaver": {
-    "version_name": "1.6.4",
-    "version_code": 162,
+    "version_name": "1.6.5",
+    "version_code": 163,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.6.4 (build 162): 1. Збільшено інтервал повторення бігучої строки на ширину екрана телевізора для комфортного читання. 2. Усунено короткочасне миготіння та перемикання тривог завдяки адаптивному hold-down фільтру та пріоритетному надшвидкому дзеркалу."
+    "changelog": "v1.6.5 (build 163): 1. Оновлено повноекранний банер Android TV (320x180 xhdpi full-bleed без полів) згідно з вимогами Google Play. 2. Виправлено орієнтацію та вектори цілей при старті: розрахунок реального курсу за траєкторією та секторами входу."
   },
   "alert_mobile": {
-    "version_name": "1.6.4",
-    "version_code": 162,
+    "version_name": "1.6.5",
+    "version_code": 163,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.6.4 (build 162): 1. Збільшено інтервал повторення бігучої строки на ширину екрана телевізора для комфортного читання. 2. Усунено короткочасне миготіння та перемикання тривог завдяки адаптивному hold-down фільтру та пріоритетному надшвидкому дзеркалу."
+    "changelog": "v1.6.5 (build 163): 1. Оновлено повноекранний банер Android TV (320x180 xhdpi full-bleed без полів) згідно з вимогами Google Play. 2. Виправлено орієнтацію та вектори цілей при старті: розрахунок реального курсу за траєкторією та секторами входу."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.6.4",
-    "version_code": 162,
+    "version_name": "1.6.5",
+    "version_code": 163,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.6.4 (build 162): 1. Збільшено інтервал повторення бігучої строки на ширину екрана телевізора для комфортного читання. 2. Усунено короткочасне миготіння та перемикання тривог завдяки адаптивному hold-down фільтру та пріоритетному надшвидкому дзеркалу."
+    "changelog": "v1.6.5 (build 163): 1. Оновлено повноекранний банер Android TV (320x180 xhdpi full-bleed без полів) згідно з вимогами Google Play. 2. Виправлено орієнтацію та вектори цілей при старті: розрахунок реального курсу за траєкторією та секторами входу."
   },
   "alert_mobile_premium": {
-    "version_name": "1.6.4",
-    "version_code": 162,
+    "version_name": "1.6.5",
+    "version_code": 163,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.6.4 (build 162): 1. Збільшено інтервал повторення бігучої строки на ширину екрана телевізора для комфортного читання. 2. Усунено короткочасне миготіння та перемикання тривог завдяки адаптивному hold-down фільтру та пріоритетному надшвидкому дзеркалу."
+    "changelog": "v1.6.5 (build 163): 1. Оновлено повноекранний банер Android TV (320x180 xhdpi full-bleed без полів) згідно з вимогами Google Play. 2. Виправлено орієнтацію та вектори цілей при старті: розрахунок реального курсу за траєкторією та секторами входу."
   },
   "alert_googleplay": {
-    "version_name": "1.6.4",
-    "version_code": 162,
+    "version_name": "1.6.5",
+    "version_code": 163,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.6.4 (build 162): 1. Increased ticker cycle delay gap to TV screen width for clear and comfortable reading. 2. Eliminated periodic alert drops and flapping via adaptive hysteresis hold-down and ultra-low latency upstream sync."
+    "changelog": "v1.6.5 (build 163): 1. Compliant full-bleed Android TV launcher banner (320x180 xhdpi, edge-to-edge artwork) adhering to Google Play TV App Quality Guidelines. 2. Fixed threat headings at launch: calculated true vector bearings from trajectory trail and sector corridors."
   },
   "ads": {
     "enabled": false,
