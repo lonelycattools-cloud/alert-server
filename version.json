@@ -25,39 +25,39 @@
     "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
   },
   "alert_screensaver": {
-    "version_name": "1.6.6",
-    "version_code": 164,
+    "version_name": "1.6.7",
+    "version_code": 165,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.6.6 (build 164): 1. Професійні голосові сповіщення українською мовою: чоловічий приємний баритон (за замовчуванням) та жіночий голос із тактичним сигналом на початку та в кінці для кожної області України (червона тривога, жовта загроза, відбій). 2. Повнокольорові плашки сповіщень у шторці (Colorized notifications): червоний при тривозі, бурштиновий при загрозі, смарагдовий при відбої. 3. Вимкнено дублююче сповіщення «Запуск моніторингу» на смартфонах."
+    "changelog": "v1.6.7 (build 165): 1. Виправлено збої запуску фонового сервісу (ForegroundServiceStartNotAllowedException) на Android 12, 13 та 14. 2. Оптимізовано життєвий цикл сервісу та миттєву реєстрацію сповіщень. 3. Переведено роздачу оновлень на безлімітний CDN-трафік."
   },
   "alert_mobile": {
-    "version_name": "1.6.6",
-    "version_code": 164,
+    "version_name": "1.6.7",
+    "version_code": 165,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.6.6 (build 164): 1. Професійні голосові сповіщення українською мовою: чоловічий приємний баритон (за замовчуванням) та жіночий голос із тактичним сигналом на початку та в кінці для кожної області України (червона тривога, жовта загроза, відбій). 2. Повнокольорові плашки сповіщень у шторці (Colorized notifications): червоний при тривозі, бурштиновий при загрозі, смарагдовий при відбої. 3. Вимкнено дублююче сповіщення «Запуск моніторингу» на смартфонах."
+    "changelog": "v1.6.7 (build 165): 1. Виправлено збої запуску фонового сервісу (ForegroundServiceStartNotAllowedException) на Android 12, 13 та 14. 2. Оптимізовано життєвий цикл сервісу та миттєву реєстрацію сповіщень. 3. Переведено роздачу оновлень на безлімітний CDN-трафік."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.6.6",
-    "version_code": 164,
+    "version_name": "1.6.7",
+    "version_code": 165,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.6.6 (build 164): 1. Професійні голосові сповіщення українською мовою: чоловічий приємний баритон (за замовчуванням) та жіночий голос із тактичним сигналом на початку та в кінці для кожної області України (червона тривога, жовта загроза, відбій). 2. Повнокольорові плашки сповіщень у шторці (Colorized notifications): червоний при тривозі, бурштиновий при загрозі, смарагдовий при відбої. 3. Вимкнено дублююче сповіщення «Запуск моніторингу» на смартфонах."
+    "changelog": "v1.6.7 (build 165): 1. Виправлено збої запуску фонового сервісу (ForegroundServiceStartNotAllowedException) на Android 12, 13 та 14. 2. Оптимізовано життєвий цикл сервісу та миттєву реєстрацію сповіщень. 3. Переведено роздачу оновлень на безлімітний CDN-трафік."
   },
   "alert_mobile_premium": {
-    "version_name": "1.6.6",
-    "version_code": 164,
+    "version_name": "1.6.7",
+    "version_code": 165,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.6.6 (build 164): 1. Професійні голосові сповіщення українською мовою: чоловічий приємний баритон (за замовчуванням) та жіночий голос із тактичним сигналом на початку та в кінці для кожної області України (червона тривога, жовта загроза, відбій). 2. Повнокольорові плашки сповіщень у шторці (Colorized notifications): червоний при тривозі, бурштиновий при загрозі, смарагдовий при відбої. 3. Вимкнено дублююче сповіщення «Запуск моніторингу» на смартфонах."
+    "changelog": "v1.6.7 (build 165): 1. Виправлено збої запуску фонового сервісу (ForegroundServiceStartNotAllowedException) на Android 12, 13 та 14. 2. Оптимізовано життєвий цикл сервісу та миттєву реєстрацію сповіщень. 3. Переведено роздачу оновлень на безлімітний CDN-трафік."
   },
   "alert_googleplay": {
-    "version_name": "1.6.6",
-    "version_code": 164,
+    "version_name": "1.6.7",
+    "version_code": 165,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.6.6 (build 164): 1. Професійні голосові сповіщення українською мовою: чоловічий приємний баритон (за замовчуванням) та жіночий голос із тактичним сигналом на початку та в кінці для кожної області України (червона тривога, жовта загроза, відбій). 2. Повнокольорові плашки сповіщень у шторці (Colorized notifications): червоний при тривозі, бурштиновий при загрозі, смарагдовий при відбої. 3. Вимкнено дублююче сповіщення «Запуск моніторингу» на смартфонах."
+    "changelog": "v1.6.7 (build 165): 1. Виправлено збої запуску фонового сервісу (ForegroundServiceStartNotAllowedException) на Android 12, 13 та 14. 2. Оптимізовано життєвий цикл сервісу та миттєву реєстрацію сповіщень. 3. Переведено роздачу оновлень на безлімітний CDN-трафік."
   },
   "ads": {
     "enabled": false,
