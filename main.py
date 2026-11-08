@@ -24,7 +24,7 @@ import email.utils
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from fastapi import FastAPI, Request, Response, HTTPException
-from fastapi.responses import JSONResponse, FileResponse
+from fastapi.responses import JSONResponse, FileResponse, RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 from threat_ai import get_threat_ai_engine
 
@@ -1088,18 +1088,8 @@ def get_version_json():
     raise HTTPException(status_code=404, detail="version.json not found")
 
 def _serve_apk(filename: str):
-    apk_path = os.path.join(BASE_DIR, filename)
-    if os.path.isfile(apk_path):
-        return FileResponse(
-            apk_path,
-            media_type="application/vnd.android.package-archive",
-            filename=filename,
-            headers={
-                "Cache-Control": "public, max-age=60",
-                "Content-Disposition": f'attachment; filename="{filename}"'
-            }
-        )
-    raise HTTPException(status_code=404, detail=f"{filename} not found on server")
+    redirect_url = f"https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/{filename}"
+    return RedirectResponse(url=redirect_url, status_code=302)
 
 @app.api_route("/AlertScreensaver.apk", methods=["GET", "HEAD"])
 def download_tv_apk():
