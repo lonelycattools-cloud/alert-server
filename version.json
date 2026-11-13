@@ -25,39 +25,39 @@
     "download_url": "https://cdn.jsdelivr.net/gh/danilpromsiz-byte/showhub-server@main/mediacenter/static/ShowHub-PC.zip"
   },
   "alert_screensaver": {
-    "version_name": "1.6.8",
-    "version_code": 166,
+    "version_name": "1.6.7",
+    "version_code": 165,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver.apk",
     "apk_url": "/AlertScreensaver.apk",
-    "changelog": "v1.6.8 (build 166): 1. Оптимізовано періодичність опитування джерел тривог (економія до 80% трафіку). 2. Впроваджено групове кэшування запитів у Cloudflare Edge CDN. 3. Посилено маскування резервних шлюзів даних."
+    "changelog": "v1.6.7 (build 165): 1. Виправлено збої запуску фонового сервісу (ForegroundServiceStartNotAllowedException) на Android 12, 13 та 14. 2. Оптимізовано життєвий цикл сервісу та миттєву реєстрацію сповіщень. 3. Переведено роздачу оновлень на безлімітний CDN-трафік."
   },
   "alert_mobile": {
-    "version_name": "1.6.8",
-    "version_code": 166,
+    "version_name": "1.6.7",
+    "version_code": 165,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile.apk",
     "apk_url": "/Alert-Mobile.apk",
-    "changelog": "v1.6.8 (build 166): 1. Оптимізовано періодичність опитування джерел тривог (економія до 80% трафіку). 2. Впроваджено групове кэшування запитів у Cloudflare Edge CDN. 3. Посилено маскування резервних шлюзів даних."
+    "changelog": "v1.6.7 (build 165): 1. Виправлено збої запуску фонового сервісу (ForegroundServiceStartNotAllowedException) на Android 12, 13 та 14. 2. Оптимізовано життєвий цикл сервісу та миттєву реєстрацію сповіщень. 3. Переведено роздачу оновлень на безлімітний CDN-трафік."
   },
   "alert_screensaver_premium": {
-    "version_name": "1.6.8",
-    "version_code": 166,
+    "version_name": "1.6.7",
+    "version_code": 165,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/AlertScreensaver-Premium.apk",
     "apk_url": "/AlertScreensaver-Premium.apk",
-    "changelog": "v1.6.8 (build 166): 1. Оптимізовано періодичність опитування джерел тривог (економія до 80% трафіку). 2. Впроваджено групове кэшування запитів у Cloudflare Edge CDN. 3. Посилено маскування резервних шлюзів даних."
+    "changelog": "v1.6.7 (build 165): 1. Виправлено збої запуску фонового сервісу (ForegroundServiceStartNotAllowedException) на Android 12, 13 та 14. 2. Оптимізовано життєвий цикл сервісу та миттєву реєстрацію сповіщень. 3. Переведено роздачу оновлень на безлімітний CDN-трафік."
   },
   "alert_mobile_premium": {
-    "version_name": "1.6.8",
-    "version_code": 166,
+    "version_name": "1.6.7",
+    "version_code": 165,
     "download_url": "https://raw.githubusercontent.com/lonelycattools-cloud/alert-server/main/Alert-Mobile-Premium.apk",
     "apk_url": "/Alert-Mobile-Premium.apk",
-    "changelog": "v1.6.8 (build 166): 1. Оптимізовано періодичність опитування джерел тривог (економія до 80% трафіку). 2. Впроваджено групове кэшування запитів у Cloudflare Edge CDN. 3. Посилено маскування резервних шлюзів даних."
+    "changelog": "v1.6.7 (build 165): 1. Виправлено збої запуску фонового сервісу (ForegroundServiceStartNotAllowedException) на Android 12, 13 та 14. 2. Оптимізовано життєвий цикл сервісу та миттєву реєстрацію сповіщень. 3. Переведено роздачу оновлень на безлімітний CDN-трафік."
   },
   "alert_googleplay": {
-    "version_name": "1.6.8",
-    "version_code": 166,
+    "version_name": "1.6.7",
+    "version_code": 165,
     "download_url": "market://details?id=com.alertscreensaver.tv",
     "apk_url": "market://details?id=com.alertscreensaver.tv",
-    "changelog": "v1.6.8 (build 166): 1. Оптимізовано періодичність опитування джерел тривог (економія до 80% трафіку). 2. Впроваджено групове кэшування запитів у Cloudflare Edge CDN. 3. Посилено маскування резервних шлюзів даних."
+    "changelog": "v1.6.7 (build 165): 1. Виправлено збої запуску фонового сервісу (ForegroundServiceStartNotAllowedException) на Android 12, 13 та 14. 2. Оптимізовано життєвий цикл сервісу та миттєву реєстрацію сповіщень. 3. Переведено роздачу оновлень на безлімітний CDN-трафік."
   },
   "ads": {
     "enabled": false,
